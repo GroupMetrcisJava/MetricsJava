@@ -1,0 +1,17 @@
+import java.util.*;
+
+public class input{
+    
+    void funcion(){
+        char t = 't';
+    }
+
+    void funcion2(){
+        int a = 4;
+        float v = 0.2;
+    }
+    public static void main(String[] args) {
+    }
+     
+       
+}
