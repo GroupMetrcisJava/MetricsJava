@@ -1,0 +1,10 @@
+chain of responsability
+facade para los singletons
+decorador
+factory method
+armar todo dentro de un paquete
+
+implementar un proyecto que implemente 5 patrones de diseño
+
+exposiciones
+ejercicios en clase??
