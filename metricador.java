@@ -27,131 +27,19 @@ public class metricador extends Java8BaseListener{
     
      /* Operacionaes de tipo A -> a = b */
      @Override public void enterVariableDeclarator(Java8Parser.VariableDeclaratorContext ctx) {
-         String[] aux = ctx.getText().split("");         
-         if (aux.length > 1 && aux[1].equals("=")) {            
-            if (!table.containsKey(aux[1])) {                
-                table.put(aux[1], 1);
+        System.out.println("contexto declarator: " + ctx.getText());      
+        
+         if (ctx.getText().indexOf('=') != -1) {            
+            if (!table.containsKey("=")) {                
+                table.put("=", 1);
                 n1++;
                 N1++;                
             } else {                
-                int num_ocurrences = table.get(aux[1]);
-                table.put(aux[1],++num_ocurrences);
+                int num_ocurrences = table.get("=");
+                table.put("=",++num_ocurrences);
                 N1++;                
             }
          }
       }
-      /* Operacionaes de tipo A -> a + b, A -> a - b*/
-      @Override public void enterAdditiveExpression(Java8Parser.AdditiveExpressionContext ctx) {
-          System.out.println(ctx.getText());
-          String[] aux = ctx.getText().split("");
-          if (aux.length > 1 ) {
-              if (!table.containsKey(aux[1])) {
-                table.put(aux[1], 1);
-                N1++;
-                n1++;
-              } else {
-                int num_ocurrences = table.get(aux[1]);
-                table.put(aux[1], ++num_ocurrences);
-                N1++;
-            }
-          }
-       }
-       /*Expresiones A -> a * b, A -> a / b, A-> a % b  */
-       @Override public void enterMultiplicativeExpression(Java8Parser.MultiplicativeExpressionContext ctx) {
-            System.out.println(ctx.getText());
-            String[] aux = ctx.getText().split("");
-            if (aux.length > 1) {
-                if (!table.containsKey(aux[1])) {
-                    table.put(aux[1], 1);
-                    N1++;
-                    n1++;
-                  } else {
-                    int num_ocurrences = table.get(aux[1]);
-                    table.put(aux[1], ++num_ocurrences);
-                    N1++;
-                }
-            }
-        }
-
-        /*Expresiones de tipo A -> + a, A -> - b */
-        @Override public void enterUnaryExpression(Java8Parser.UnaryExpressionContext ctx) {
-            System.out.println(ctx.getText());
-            String[] aux = ctx.getText().split("");
-            if (aux.length > 1) {
-                if (!table.containsKey(aux[0])) {
-                    table.put(aux[0], 1);
-                    N1++;
-                    n1++;
-                  } else {
-                    int num_ocurrences = table.get(aux[0]);
-                    table.put(aux[0], ++num_ocurrences);
-                    N1++;
-                }
-            }
-        }
-        /*Expresiones de tipo A -> ++ a */
-        @Override public void enterPreIncrementExpression(Java8Parser.PreIncrementExpressionContext ctx) {
-            System.out.println(ctx.getText());
-            String[] aux = ctx.getText().split("");
-            if (aux.length > 1) {
-                if (!table.containsKey(aux[0])) {
-                    table.put(aux[0], 1);
-                    N1++;
-                    n1++;
-                  } else {
-                    int num_ocurrences = table.get(aux[0]);
-                    table.put(aux[0], ++num_ocurrences);
-                    N1++;
-                }
-            }
-        }
-        /*Expresiones de tipo A -> -- a */
-        @Override public void enterPreDecrementExpression(Java8Parser.PreDecrementExpressionContext ctx) {
-            System.out.println(ctx.getText());
-            String[] aux = ctx.getText().split("");
-            if (aux.length > 1) {
-                if (!table.containsKey(aux[0])) {
-                    table.put(aux[0], 1);
-                    N1++;
-                    n1++;
-                  } else {
-                    int num_ocurrences = table.get(aux[0]);
-                    table.put(aux[0], ++num_ocurrences);
-                    N1++;
-                }
-            }
-        }
-        /*Expresiones de tipo A -> !a, A -> ~a */
-        @Override public void enterUnaryExpressionNotPlusMinus(Java8Parser.UnaryExpressionNotPlusMinusContext ctx) {
-            System.out.println(ctx.getText());
-            String[] aux = ctx.getText().split("");
-            if (aux.length > 1) {
-                if (!table.containsKey(aux[0])) {
-                    table.put(aux[0], 1);
-                    N1++;
-                    n1++;
-                  } else {
-                    int num_ocurrences = table.get(aux[0]);
-                    table.put(aux[0], ++num_ocurrences);
-                    N1++;
-                }
-            }
-        }
-
-        @Override public void enterPostIncrementExpression(Java8Parser.PostIncrementExpressionContext ctx) {
-            System.out.println(ctx.getText());
-            String[] aux = ctx.getText().split("");
-            if (aux.length > 1) {
-                if (!table.containsKey(aux[1])) {
-                    table.put(aux[1], 1);
-                    N1++;
-                    n1++;
-                  } else {
-                    int num_ocurrences = table.get(aux[1]);
-                    table.put(aux[0], ++num_ocurrences);
-                    N1++;
-                }
-            }
-         }
-
+      
 }

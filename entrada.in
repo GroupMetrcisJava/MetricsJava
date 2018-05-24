@@ -12,8 +12,7 @@ public class input{
     }*/
     public static void main(String[] args) {
         int a = 3;
-        float v = 2.0;
-        int b = 2 + 3;
+        float v = 2.0;    
 
     }
      
