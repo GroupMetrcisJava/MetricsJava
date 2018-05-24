@@ -71,4 +71,21 @@ public class metricador extends Java8BaseListener{
             }
         }
 
+        /*Expresiones de tipo A -> + a, A -> b */
+        @Override public void enterUnaryExpression(Java8Parser.UnaryExpressionContext ctx) {
+            String[] aux = ctx.getText().split("");
+            if (aux.length > 1) {
+                if (!table.containsKey(aux[0])) {
+                    table.put(aux[0], 1);
+                    N1++;
+                    n1++;
+                  } else {
+                    int num_ocurrences = table.get(aux[1]);
+                    table.put(aux[0], ++num_ocurrences);
+                    N1++;
+                }
+            }
+        }
+        
+
 }
