@@ -24,8 +24,89 @@ public class metricador extends Java8BaseListener{
      @Override public void exitCompilationUnit(Java8Parser.CompilationUnitContext ctx) { 
          System.out.println("# Funciones: " + contadorFunciones);
      }
-     @Override public void enterVariableDeclarator(Java8Parser.VariableDeclaratorContext ctx) { 
-         
+    
+     /* Operacionaes de tipo A -> a = b */
+     @Override public void enterVariableDeclarator(Java8Parser.VariableDeclaratorContext ctx) {
+        System.out.println("contexto declarator: " + ctx.getText());      
+        
+         if (ctx.getText().indexOf('=') != -1) {            
+            if (!table.containsKey("=")) {                
+                table.put("=", 1);
+                n1++;
+                N1++;                
+            } else {                
+                int num_ocurrences = table.get("=");
+                table.put("=",++num_ocurrences);
+                N1++;                
+            }
+         }
+      }
+      /*operaciones de adicion a + b y a - b*/
+      @Override public void enterAdditiveExpression(Java8Parser.AdditiveExpressionContext ctx) { 
+        if((ctx.getText().indexOf('+') != -1)){
+            if (!table.containsKey("+")){
+                table.put("+", 1);
+                n1++;
+                N1++;
+            }else{
+                int num_ocurrences = table.get("+");
+                table.put("+",++num_ocurrences);
+                N1++;
+            }
+        }
+            /*para el menos -*/
+        if(ctx.getText().indexOf('-') != -1 ){
+            if(!table.containsKey("-")){
+                table.put("-", 1);
+                n1++;
+                N1++;
+            }else{
+                int num_ocurrences = table.get("-");
+                table.put("-", ++num_ocurrences);
+                N1++;
+            }
+        }
+      }
+
+    /* operaciones * / % */
+    @Override public void enterMultiplicativeExpression(Java8Parser.MultiplicativeExpressionContext ctx) {
+        if((ctx.getText().indexOf('*') != -1)){
+            if (!table.containsKey("*")){
+                table.put("*", 1);
+                n1++;
+                N1++;
+            }else{
+                int num_ocurrences = table.get("*");
+                table.put("*",++num_ocurrences);
+                N1++;
+            }
+        }
+        if(ctx.getText().indexOf('/') != -1 ){
+            if(!table.containsKey("/")){
+                table.put("/", 1);
+                n1++;
+                N1++;
+            }else{
+                int num_ocurrences = table.get("/");
+                table.put("/", ++num_ocurrences);
+                N1++;
+            }
+        }
+        if(ctx.getText().indexOf('%') != -1 ){
+            if(!table.containsKey("%")){
+                table.put("%", 1);
+                n1++;
+                N1++;
+            }else{
+                int num_ocurrences = table.get("%");
+                table.put("%", ++num_ocurrences);
+                N1++;
+            }
+        }
      }
 
+     
+    
+    
+      
 }
