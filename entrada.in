@@ -11,14 +11,9 @@ public class input{
         float v = 0.2;
     }*/
     public static void main(String[] args) {
-        int a;
-        switch(a){
-            case 1:
-                break;
-            case 2:
-                break;
-            default:
-                break;
+        int a[] = {2, 3, 4};
+        while (true) {
+            boolean a = true;
         }
 
     }
