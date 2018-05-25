@@ -15,9 +15,6 @@ public class input{
     float division(int a, int b){return a/b;}
     void imprimir(String cadena){System.out.println("hola");}
     public static void main(String[] args) {
-        int a = 9;
-        int b = 3;
-        b%=a;
         /*boolean a = true;
         boolean b = true;
         if(a && b){
