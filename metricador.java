@@ -41,9 +41,12 @@ public class metricador extends Java8BaseListener{
             }
          }
       }
-      /*operaciones de adicion a + b y a - b*/
+      /*operaciones de adicion a + b y a - b
+        Last index of, comparar cual de los dos encuentra primero e irse por ese camino
+      */
       @Override public void enterAdditiveExpression(Java8Parser.AdditiveExpressionContext ctx) { 
-        if((ctx.getText().indexOf('+') != -1)){
+        System.out.println("additive: " + ctx.getText());
+        if((ctx.getText().lastIndexOf('+') != -1)){
             if (!table.containsKey("+")){
                 table.put("+", 1);
                 n1++;
@@ -53,9 +56,10 @@ public class metricador extends Java8BaseListener{
                 table.put("+",++num_ocurrences);
                 N1++;
             }
+            return;
         }
             /*para el menos -*/
-        if(ctx.getText().indexOf('-') != -1 ){
+        if(ctx.getText().lastIndexOf('-') != -1 ){
             if(!table.containsKey("-")){
                 table.put("-", 1);
                 n1++;
@@ -65,12 +69,13 @@ public class metricador extends Java8BaseListener{
                 table.put("-", ++num_ocurrences);
                 N1++;
             }
+            return;
         }
       }
 
     /* operaciones * / % */
     @Override public void enterMultiplicativeExpression(Java8Parser.MultiplicativeExpressionContext ctx) {
-        if((ctx.getText().indexOf('*') != -1)){
+        if((ctx.getText().lastIndexOf('*') != -1)){
             if (!table.containsKey("*")){
                 table.put("*", 1);
                 n1++;
@@ -80,8 +85,9 @@ public class metricador extends Java8BaseListener{
                 table.put("*",++num_ocurrences);
                 N1++;
             }
+            return;
         }
-        if(ctx.getText().indexOf('/') != -1 ){
+        if(ctx.getText().lastIndexOf('/') != -1 ){
             if(!table.containsKey("/")){
                 table.put("/", 1);
                 n1++;
@@ -91,8 +97,9 @@ public class metricador extends Java8BaseListener{
                 table.put("/", ++num_ocurrences);
                 N1++;
             }
+            return;
         }
-        if(ctx.getText().indexOf('%') != -1 ){
+        if(ctx.getText().lastIndexOf('%') != -1 ){
             if(!table.containsKey("%")){
                 table.put("%", 1);
                 n1++;
@@ -102,9 +109,26 @@ public class metricador extends Java8BaseListener{
                 table.put("%", ++num_ocurrences);
                 N1++;
             }
+            return;
         }
      }
-     /*Is statement */
+     /**If statement */
+     @Override public void enterIfThenStatement(Java8Parser.IfThenStatementContext ctx) {
+        System.out.println(ctx.getText());
+        if (ctx.getText().indexOf("if") != -1) {
+            if (!table.containsKey("if")) {
+                table.put("if", 1);
+                n1++;
+                N1++;
+            } else {
+               int num_ocurrences = table.get("if");
+               table.put("if", ++num_ocurrences);
+               N1++;
+            }
+        }
+      }
+
+     /*If-else statement */
      @Override public void enterIfThenElseStatement(Java8Parser.IfThenElseStatementContext ctx) {
          System.out.println(ctx.getText());
          if (ctx.getText().indexOf("if") != -1) {
@@ -342,30 +366,38 @@ public class metricador extends Java8BaseListener{
      }
 
      /* operador %=  &= */
-     @Override public void enterAssignmentOperator(Java8Parser.AssignmentOperatorContext ctx) { 
-        if((ctx.getText().indexOf("%=") != -1)){
-            if (!table.containsKey("%=")){
-                table.put("%=", 1);
-                n1++;
-                N1++;
-            }else{
-                int num_ocurrences = table.get("%=");
-                table.put("%=",++num_ocurrences);
-                N1++;
-            }
-        }
+     @Override public void enterAssignmentOperator(Java8Parser.AssignmentOperatorContext ctx) {
+         
+        Map<String, String> operatorMap = new HashMap<String, String>();
+        {{
+            operatorMap.put("=", null);
+            operatorMap.put("*=", null);
+            operatorMap.put("/=", null);
+            operatorMap.put("%=", null);
+            operatorMap.put("+=", null);
+            operatorMap.put("-=", null);
+            operatorMap.put("<<=", null);
+            operatorMap.put(">>=", null);
+            operatorMap.put(">>>=", null);
+            operatorMap.put("&=", null);
+            operatorMap.put("^=", null);
+            operatorMap.put("|=", null);
 
-        if((ctx.getText().indexOf("&=") != -1)){
-            if (!table.containsKey("&=")){
-                table.put("&=", 1);
-                n1++;
-                N1++;
-            }else{
-                int num_ocurrences = table.get("&=");
-                table.put("&=",++num_ocurrences);
-                N1++;
+        }};
+
+        for (String x : operatorMap.keySet()) {
+            if((ctx.getText().indexOf(x) != -1)){
+                if (!table.containsKey(x)){
+                    table.put(x, 1);
+                    n1++;
+                    N1++;
+                }else{
+                    int num_ocurrences = table.get(x);
+                    table.put(x, ++num_ocurrences);
+                    N1++;
+                }
             }
-        }
+        }       
      }
 
      /* operador bitwise & */
@@ -381,5 +413,20 @@ public class metricador extends Java8BaseListener{
                 N1++;
             }
         }
+    }
+    /**Post increment a++ */
+    @Override public void enterPostIncrementExpression(Java8Parser.PostIncrementExpressionContext ctx) {
+        if((ctx.getText().indexOf("++") != -1)){
+            if (!table.containsKey("++")){
+                table.put("++", 1);
+                n1++;
+                N1++;
+            }else{
+                int num_ocurrences = table.get("++");
+                table.put("++",++num_ocurrences);
+                N1++;
+            }
+        }
      }
+
 }
