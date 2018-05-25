@@ -328,21 +328,7 @@ public class metricador extends Java8BaseListener{
                 N1++;
             }
         }
-     }
-     /* operacion diferente != */
-     @Override public void enterEqualityExpression(Java8Parser.EqualityExpressionContext ctx) { 
-        if((ctx.getText().indexOf("!=") != -1)){
-            if (!table.containsKey("!=")){
-                table.put("!=", 1);
-                n1++;
-                N1++;
-            }else{
-                int num_ocurrences = table.get("!=");
-                table.put("!=",++num_ocurrences);
-                N1++;
-            }
-        }
-     }
+     }    
 
      /* operador %=  &= */
      @Override public void enterAssignmentOperator(Java8Parser.AssignmentOperatorContext ctx) {
@@ -407,5 +393,95 @@ public class metricador extends Java8BaseListener{
             }
         }
      }
+     /**Preincremeto ++a */
+    @Override public void enterPreIncrementExpression(Java8Parser.PreIncrementExpressionContext ctx) {
+        if((ctx.getText().indexOf("++") != -1)){
+            if (!table.containsKey("++")){
+                table.put("++", 1);
+                n1++;
+                N1++;
+            }else{
+                int num_ocurrences = table.get("++");
+                table.put("++",++num_ocurrences);
+                N1++;
+            }
+        }
+    }
+    /**Predecrement -- */
+    @Override public void enterPreDecrementExpression(Java8Parser.PreDecrementExpressionContext ctx) {
+        if((ctx.getText().indexOf("--") != -1)){
+            if (!table.containsKey("--")){
+                table.put("--", 1);
+                n1++;
+                N1++;
+            }else{
+                int num_ocurrences = table.get("--");
+                table.put("--",++num_ocurrences);
+                N1++;
+            }
+        }
+    }
+    /**Relational expression <, >, >=, <= */
+    @Override public void enterRelationalExpression(Java8Parser.RelationalExpressionContext ctx) {
+        String first, context = ctx. getText();
+        Integer[] possible = {context.lastIndexOf(">"), context.lastIndexOf("<"), context.lastIndexOf("<="), context.lastIndexOf(">=")};
+        if (context.lastIndexOf("<=") == Collections.max(Arrays.asList(possible))) {
+            first = "<=";            
+        } else if (context.lastIndexOf(">=") == Collections.max(Arrays.asList(possible))) {
+            first = ">=";
+        } else if (context.lastIndexOf("<") == Collections.max(Arrays.asList(possible))) {
+            first = "<";
+        } else {
+            first = ">";
+        }
+        if((ctx.getText().indexOf(first) != -1)){
+            if (!table.containsKey(first)){
+                table.put(first, 1);
+                n1++;
+                N1++;
+            }else{
+                int num_ocurrences = table.get(first);
+                table.put(first,++num_ocurrences);
+                N1++;
+            }
+        }
+    }
+    /**EqualityExpression a==b, a!=b */
+    @Override public void enterEqualityExpression(Java8Parser.EqualityExpressionContext ctx) {
+        String first, context = ctx. getText();
+        Integer[] possible = {context.lastIndexOf("=="), context.lastIndexOf("!=")};
+        if (context.lastIndexOf("==") == Collections.max(Arrays.asList(possible))) {
+            first = "==";            
+        } else {
+            first = "!=";
+        }
+        if((ctx.getText().indexOf(first) != -1)){
+            if (!table.containsKey(first)){
+                table.put(first, 1);
+                n1++;
+                N1++;
+            }else{
+                int num_ocurrences = table.get(first);
+                table.put(first,++num_ocurrences);
+                N1++;
+            }
+        }
+     }
+
+     @Override public void enterReturnStatement(Java8Parser.ReturnStatementContext ctx) {
+        if((ctx.getText().indexOf("return") != -1)){
+            if (!table.containsKey("return")){
+                table.put("return", 1);
+                n1++;
+                N1++;
+            }else{
+                int num_ocurrences = table.get("return");
+                table.put("return",++num_ocurrences);
+                N1++;
+            }
+        }
+    }
+
+      
 
 }
