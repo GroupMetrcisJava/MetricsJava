@@ -164,7 +164,7 @@ public class metricador extends Java8BaseListener{
         }
      }
 
-     /* operador %= */
+     /* operador %=  &= */
      @Override public void enterAssignmentOperator(Java8Parser.AssignmentOperatorContext ctx) { 
         if((ctx.getText().indexOf("%=") != -1)){
             if (!table.containsKey("%=")){
@@ -174,6 +174,18 @@ public class metricador extends Java8BaseListener{
             }else{
                 int num_ocurrences = table.get("%=");
                 table.put("%=",++num_ocurrences);
+                N1++;
+            }
+        }
+
+        if((ctx.getText().indexOf("&=") != -1)){
+            if (!table.containsKey("&=")){
+                table.put("&=", 1);
+                n1++;
+                N1++;
+            }else{
+                int num_ocurrences = table.get("&=");
+                table.put("&=",++num_ocurrences);
                 N1++;
             }
         }
@@ -193,6 +205,9 @@ public class metricador extends Java8BaseListener{
             }
         }
      }
+
+     /* operador &= */
+     
     
     
       

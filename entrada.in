@@ -25,10 +25,10 @@ public class input{
         int a = 9;
         int b = 3;
         b%=a;
-        b = b % a;
+        b = b % a;*/
         boolean a,b;
         b = b&a;
-        b = a && b;*/
+        b = a &= b;
 
     }
      
