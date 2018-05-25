@@ -119,6 +119,112 @@ public class metricador extends Java8BaseListener{
              }
          }
 
+     /* operacion and */
+     @Override public void enterConditionalAndExpression(Java8Parser.ConditionalAndExpressionContext ctx) { 
+        if((ctx.getText().indexOf("&&") != -1)){
+            if (!table.containsKey("&&")){
+                table.put("&&", 1);
+                n1++;
+                N1++;
+            }else{
+                int num_ocurrences = table.get("&&");
+                table.put("&&",++num_ocurrences);
+                N1++;
+            }
+        }
+     }
+
+     /*operacion or*/
+     @Override public void enterConditionalOrExpression(Java8Parser.ConditionalOrExpressionContext ctx) { 
+        if((ctx.getText().indexOf("||") != -1)){
+            if (!table.containsKey("||")){
+                table.put("||", 1);
+                n1++;
+                N1++;
+            }else{
+                int num_ocurrences = table.get("||");
+                table.put("||",++num_ocurrences);
+                N1++;
+            }
+        }
+     }
+
+    /* operacion not ! */
+     @Override public void enterUnaryExpressionNotPlusMinus(Java8Parser.UnaryExpressionNotPlusMinusContext ctx) { 
+        if((ctx.getText().indexOf('!') != -1)){
+            if (!table.containsKey("!")){
+                table.put("!", 1);
+                n1++;
+                N1++;
+            }else{
+                int num_ocurrences = table.get("!");
+                table.put("!",++num_ocurrences);
+                N1++;
+            }
+        }
+     }
+     /* operacion diferente != */
+     @Override public void enterEqualityExpression(Java8Parser.EqualityExpressionContext ctx) { 
+        if((ctx.getText().indexOf("!=") != -1)){
+            if (!table.containsKey("!=")){
+                table.put("!=", 1);
+                n1++;
+                N1++;
+            }else{
+                int num_ocurrences = table.get("!=");
+                table.put("!=",++num_ocurrences);
+                N1++;
+            }
+        }
+     }
+
+     /* operador %=  &= */
+     @Override public void enterAssignmentOperator(Java8Parser.AssignmentOperatorContext ctx) { 
+        if((ctx.getText().indexOf("%=") != -1)){
+            if (!table.containsKey("%=")){
+                table.put("%=", 1);
+                n1++;
+                N1++;
+            }else{
+                int num_ocurrences = table.get("%=");
+                table.put("%=",++num_ocurrences);
+                N1++;
+            }
+        }
+
+        if((ctx.getText().indexOf("&=") != -1)){
+            if (!table.containsKey("&=")){
+                table.put("&=", 1);
+                n1++;
+                N1++;
+            }else{
+                int num_ocurrences = table.get("&=");
+                table.put("&=",++num_ocurrences);
+                N1++;
+            }
+        }
+     }
+
+     /* operador bitwise & */
+     @Override public void enterAndExpression(Java8Parser.AndExpressionContext ctx) { 
+        if((ctx.getText().indexOf('&') != -1)){
+            if (!table.containsKey("&")){
+                table.put("&", 1);
+                n1++;
+                N1++;
+            }else{
+                int num_ocurrences = table.get("&");
+                table.put("&",++num_ocurrences);
+                N1++;
+            }
+        }
+     }
+
+     /* operador &= */
+     
+    
+    
+      
          if (ctx.getText().indexOf("else") != -1) {
             if (!table.containsKey("else")) {
                 table.put("else", 1);
