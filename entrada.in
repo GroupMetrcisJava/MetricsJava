@@ -11,13 +11,15 @@ public class input{
         float v = 0.2;
     }*/
     public static void main(String[] args) {
-        int a = 3;
-        float v = 2.0;    
-        int b = a + v;
-        int c = a - v;
-        int c = a%v;
-        int c = a*v;
-        int c = a/v;
+        int a;
+        switch(a){
+            case 1:
+                break;
+            case 2:
+                break;
+            default:
+                break;
+        }
 
     }
      

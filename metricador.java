@@ -105,7 +105,47 @@ public class metricador extends Java8BaseListener{
         }
      }
 
-     
+     @Override public void enterIfThenElseStatement(Java8Parser.IfThenElseStatementContext ctx) {
+         System.out.println(ctx.getText());
+         if (ctx.getText().indexOf("if") != -1) {
+             if (!table.containsKey("if")) {
+                 table.put("if", 1);
+                 n1++;
+                 N1++;
+             } else {
+                int num_ocurrences = table.get("if");
+                table.put("if", ++num_ocurrences);
+                N1++;
+             }
+         }
+
+         if (ctx.getText().indexOf("else") != -1) {
+            if (!table.containsKey("else")) {
+                table.put("else", 1);
+                n1++;
+                N1++;
+            } else {
+               int num_ocurrences = table.get("else");
+               table.put("else", ++num_ocurrences);
+               N1++;
+            }
+        }
+      }
+
+      @Override public void enterSwitchStatement(Java8Parser.SwitchStatementContext ctx) {
+        System.out.println(ctx.getText());
+        if (ctx.getText().indexOf("switch") != -1) {
+            if (!table.containsKey("switch")) {
+                table.put("switch", 1);
+                n1++;
+                N1++;
+            } else {
+               int num_ocurrences = table.get("switch");
+               table.put("switch", ++num_ocurrences);
+               N1++;
+            }
+        }
+       } 
     
     
       
