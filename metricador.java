@@ -1,5 +1,7 @@
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Collections;
+import java.util.Arrays;
 
 public class metricador extends Java8BaseListener{
     static int contadorFunciones = 0;
@@ -46,70 +48,47 @@ public class metricador extends Java8BaseListener{
       */
       @Override public void enterAdditiveExpression(Java8Parser.AdditiveExpressionContext ctx) { 
         System.out.println("additive: " + ctx.getText());
-        if((ctx.getText().lastIndexOf('+') != -1)){
-            if (!table.containsKey("+")){
-                table.put("+", 1);
+        String first, context = ctx.getText();
+        Integer[] possibles = {context.lastIndexOf("+"), context.lastIndexOf("-")};
+        if (ctx.getText().lastIndexOf("+") == Collections.max(Arrays.asList(possibles))) {
+            first = "+";
+        } else {
+            first = "-";
+        }
+        if((ctx.getText().lastIndexOf(first) != -1)){
+            if (!table.containsKey(first)){
+                table.put(first, 1);
                 n1++;
                 N1++;
             }else{
-                int num_ocurrences = table.get("+");
-                table.put("+",++num_ocurrences);
+                int num_ocurrences = table.get(first);
+                table.put(first, ++num_ocurrences);
                 N1++;
-            }
-            return;
-        }
-            /*para el menos -*/
-        if(ctx.getText().lastIndexOf('-') != -1 ){
-            if(!table.containsKey("-")){
-                table.put("-", 1);
-                n1++;
-                N1++;
-            }else{
-                int num_ocurrences = table.get("-");
-                table.put("-", ++num_ocurrences);
-                N1++;
-            }
-            return;
-        }
-      }
+            }            
+        }        
+    }
 
     /* operaciones * / % */
     @Override public void enterMultiplicativeExpression(Java8Parser.MultiplicativeExpressionContext ctx) {
-        if((ctx.getText().lastIndexOf('*') != -1)){
-            if (!table.containsKey("*")){
-                table.put("*", 1);
-                n1++;
-                N1++;
-            }else{
-                int num_ocurrences = table.get("*");
-                table.put("*",++num_ocurrences);
-                N1++;
-            }
-            return;
+        String first, context = ctx.getText();
+        Integer[] possibles = {context.lastIndexOf("*"), context.lastIndexOf("/"), context.lastIndexOf("%")};
+        if (ctx.getText().lastIndexOf("*") == Collections.max(Arrays.asList(possibles))) {
+            first = "*";
+        } else if (ctx.getText().lastIndexOf("/") == Collections.max(Arrays.asList(possibles))) {
+            first = "/";
+        } else {
+            first = "%";
         }
-        if(ctx.getText().lastIndexOf('/') != -1 ){
-            if(!table.containsKey("/")){
-                table.put("/", 1);
+        if((ctx.getText().lastIndexOf(first) != -1)){
+            if (!table.containsKey(first)){
+                table.put(first, 1);
                 n1++;
                 N1++;
             }else{
-                int num_ocurrences = table.get("/");
-                table.put("/", ++num_ocurrences);
+                int num_ocurrences = table.get(first);
+                table.put(first, ++num_ocurrences);
                 N1++;
-            }
-            return;
-        }
-        if(ctx.getText().lastIndexOf('%') != -1 ){
-            if(!table.containsKey("%")){
-                table.put("%", 1);
-                n1++;
-                N1++;
-            }else{
-                int num_ocurrences = table.get("%");
-                table.put("%", ++num_ocurrences);
-                N1++;
-            }
-            return;
+            }            
         }
      }
      /**If statement */
