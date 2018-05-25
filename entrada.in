@@ -11,13 +11,24 @@ public class input{
         float v = 0.2;
     }*/
     public static void main(String[] args) {
-        int a = 3;
+        /*int a = 3;
         float v = 2.0;    
         int b = a + v;
         int c = a - v;
         int c = a%v;
         int c = a*v;
         int c = a/v;
+        boolean a,b;
+        boolean c = a && b;
+        boolean c = b != a;
+        boolean c = !a;
+        int a = 9;
+        int b = 3;
+        b%=a;
+        b = b % a;
+        boolean a,b;
+        b = b&a;
+        b = a && b;*/
 
     }
      
