@@ -482,6 +482,9 @@ public class metricador extends Java8BaseListener{
         }
     }
 
-      
+    /* Para encontrar los identificadores  */  
+    @Override public void enterLiteral(Java8Parser.LiteralContext ctx) {
+        
+     }
 
 }
