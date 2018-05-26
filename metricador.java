@@ -6,6 +6,10 @@ import java.util.Arrays;
 public class metricador extends Java8BaseListener{
     static int contadorFunciones = 0;
     static int contadorLocales = 0;
+    static int contadorImports = 0;
+    static int contadorClases = 0;
+    static int contadorArrays = 0;
+    
     int N1, N2, n1, n2 = 0;
     Map <String, Integer> table = new HashMap<String, Integer>();
 
@@ -25,11 +29,15 @@ public class metricador extends Java8BaseListener{
      }
      @Override public void exitCompilationUnit(Java8Parser.CompilationUnitContext ctx) { 
          System.out.println("# Funciones: " + contadorFunciones);
+         System.out.println("# Imports:  "+ contadorImports);
+         System.out.println("# Clases: "+ contadorClases);
+         System.out.println("# Arreglos: "+ contadorArrays);
+         
      }
     
      /* Operacionaes de tipo A -> a = b */
      @Override public void enterVariableDeclarator(Java8Parser.VariableDeclaratorContext ctx) {
-        System.out.println("contexto declarator: " + ctx.getText());      
+        //System.out.println("contexto declarator: " + ctx.getText());      
         
          if (ctx.getText().indexOf('=') != -1) {            
             if (!table.containsKey("=")) {                
@@ -47,7 +55,7 @@ public class metricador extends Java8BaseListener{
         Last index of, comparar cual de los dos encuentra primero e irse por ese camino
       */
       @Override public void enterAdditiveExpression(Java8Parser.AdditiveExpressionContext ctx) { 
-        System.out.println("additive: " + ctx.getText());
+        //System.out.println("additive: " + ctx.getText());
         String first, context = ctx.getText();
         Integer[] possibles = {context.lastIndexOf("+"), context.lastIndexOf("-")};
         if (ctx.getText().lastIndexOf("+") == Collections.max(Arrays.asList(possibles))) {
@@ -189,7 +197,7 @@ public class metricador extends Java8BaseListener{
             }
         }
     }
-
+    /* ciclo for */
     @Override public void enterForStatement(Java8Parser.ForStatementContext ctx) {
         System.out.println("for: " + ctx.getText());
         System.out.println(ctx.getText());
@@ -261,6 +269,7 @@ public class metricador extends Java8BaseListener{
         }
     }
     /**TRue and False values in boolean type variables */
+     /* Para encontrar los identificadores  */
     @Override public void enterLiteral(Java8Parser.LiteralContext ctx) {
         if (ctx.getText().indexOf("true") != -1) {
             if (!table.containsKey("true")) {
@@ -287,6 +296,7 @@ public class metricador extends Java8BaseListener{
     }
     /**Operacion and */
     @Override public void enterConditionalAndExpression(Java8Parser.ConditionalAndExpressionContext ctx) { 
+        
         if((ctx.getText().indexOf("&&") != -1)){
             if (!table.containsKey("&&")){
                 table.put("&&", 1);
@@ -467,7 +477,7 @@ public class metricador extends Java8BaseListener{
             }
         }
      }
-
+     /* return statement*/
      @Override public void enterReturnStatement(Java8Parser.ReturnStatementContext ctx) {
         if((ctx.getText().indexOf("return") != -1)){
             if (!table.containsKey("return")){
@@ -481,10 +491,18 @@ public class metricador extends Java8BaseListener{
             }
         }
     }
+    /* contador de declaraciones de [] arrays*/
+    @Override public void enterDims(Java8Parser.DimsContext ctx) { 
+        contadorArrays++;
+    }
 
-    /* Para encontrar los identificadores  */  
-    @Override public void enterLiteral(Java8Parser.LiteralContext ctx) {
-        
-     }
+    /* contador de imports*/
+    @Override public void enterImportDeclaration(Java8Parser.ImportDeclarationContext ctx) { 
+        contadorImports++;
+    }
+    /* contador de clases*/
+    @Override public void enterNormalClassDeclaration(Java8Parser.NormalClassDeclarationContext ctx) { 
+        contadorClases++;
+    }
 
 }
