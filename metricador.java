@@ -41,6 +41,7 @@ public class metricador extends Java8BaseListener{
         System.out.println("Volumen del programa: "+V);
         System.out.println("Nivel de especificacion de abtraccion: "+L);
         System.out.println("Esfuerzo del programa: "+E);
+        System.out.println();
 
      }
      @Override public void exitCompilationUnit(Java8Parser.CompilationUnitContext ctx) { 
@@ -649,9 +650,20 @@ public class metricador extends Java8BaseListener{
     }
     /* contador de veces que se llama un id como operando*/
     @Override public void enterVariableDeclaratorId(Java8Parser.VariableDeclaratorIdContext ctx) {
+        String first = ctx.getText();        
         contadorIds++;
-        N2++;
-     }
+        if((ctx.getText().indexOf(first) != -1)){
+            if (!datatypes.containsKey(first)){
+                datatypes.put(first, 1);
+                n2++;
+                N2++;
+            }else{
+                int num_ocurrences = datatypes.get(first);
+                datatypes.put(first,++num_ocurrences);
+                N2++;
+            }
+        }
+    }
      /* contador de tipos de dato para funciones */
      @Override public void enterResult(Java8Parser.ResultContext ctx) {
          
