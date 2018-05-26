@@ -10,10 +10,12 @@ public class metricador extends Java8BaseListener{
     static int contadorClases = 0;
     static int contadorArrays = 0;
     static int contadorTiposDato = 0;
+    static int contadorIds = 0;
     
     int N1, N2, n1, n2 = 0;
     Map <String, Integer> table = new HashMap<String, Integer>();
     Map <String, Integer> datatypes = new HashMap<String, Integer>();
+    Map <String, Integer> methodtypes = new HashMap<String, Integer>();
 
 
     @Override public void enterLocalVariableDeclarationStatement(Java8Parser.LocalVariableDeclarationStatementContext ctx) { 
@@ -22,13 +24,16 @@ public class metricador extends Java8BaseListener{
     @Override public void exitMethodDeclaration(Java8Parser.MethodDeclarationContext ctx) {
         contadorFunciones++;
         System.out.println("# Variables locales: " + contadorLocales);
-        contadorLocales = 0;
+        contadorLocales = 0;   
+        System.out.println("tabla: "+ table);
+        System.out.println("tipos dato: "+datatypes);
+        System.out.println("HALSTEAD MEDIDAS: ------");
         System.out.println("N1: " + N1);
         System.out.println("N2: " + N2);
         System.out.println("n1: " + n1);
-        System.out.println("n2: " + n2);        
-        System.out.println(table);
-        System.out.println("tipos dato: "+datatypes);
+        System.out.println("n2: " + n2);     
+        System.out.println("Longitud del programa: "+(N1+N2));
+        
      }
      @Override public void exitCompilationUnit(Java8Parser.CompilationUnitContext ctx) { 
          System.out.println("# Funciones: " + contadorFunciones);
@@ -705,6 +710,146 @@ public class metricador extends Java8BaseListener{
             }
         }
     }
+    /* contador de veces que se llama un id como operando*/
+    @Override public void enterVariableDeclaratorId(Java8Parser.VariableDeclaratorIdContext ctx) {
+        contadorIds++;
+        N2++;
+     }
+     /* contador de tipos de dato para funciones */
+     @Override public void enterResult(Java8Parser.ResultContext ctx) { 
+        if((ctx.getText().indexOf("int") != -1)){
+            if (!methodtypes.containsKey("int")){
+                methodtypes.put("int", 1);
+                n2++;
+                N2++;
+            }else{
+                int num_ocurrences = methodtypes.get("int");
+                methodtypes.put("int",++num_ocurrences);
+                N2++;
+            }
+        }
+        if((ctx.getText().indexOf("float") != -1)){
+            if (!methodtypes.containsKey("float")){
+                methodtypes.put("float", 1);
+                n2++;
+                N2++;
+            }else{
+                int num_ocurrences = methodtypes.get("float");
+                methodtypes.put("float",++num_ocurrences);
+                N2++;
+            }
+        }
+        if((ctx.getText().indexOf("short") != -1)){
+            if (!methodtypes.containsKey("short")){
+                methodtypes.put("short", 1);
+                n2++;
+                N2++;
+            }else{
+                int num_ocurrences = methodtypes.get("short");
+                methodtypes.put("short",++num_ocurrences);
+                N2++;
+            }
+        }
+        if((ctx.getText().indexOf("byte") != -1)){
+            if (!methodtypes.containsKey("byte")){
+                methodtypes.put("byte", 1);
+                n2++;
+                N2++;
+            }else{
+                int num_ocurrences = methodtypes.get("byte");
+                methodtypes.put("byte",++num_ocurrences);
+                N2++;
+            }
+        }
+        if((ctx.getText().indexOf("long") != -1)){
+            if (!methodtypes.containsKey("long")){
+                methodtypes.put("long", 1);
+                n2++;
+                N2++;
+            }else{
+                int num_ocurrences = methodtypes.get("long");
+                methodtypes.put("long",++num_ocurrences);
+                N2++;
+            }
+        }
+        if((ctx.getText().indexOf("double") != -1)){
+            if (!methodtypes.containsKey("double")){
+                methodtypes.put("double", 1);
+                n2++;
+                N2++;
+            }else{
+                int num_ocurrences = methodtypes.get("double");
+                methodtypes.put("double",++num_ocurrences);
+                N2++;
+            }
+        }
+        if((ctx.getText().indexOf("char") != -1)){
+            if (!methodtypes.containsKey("char")){
+                methodtypes.put("char", 1);
+                n2++;
+                N2++;
+            }else{
+                int num_ocurrences = methodtypes.get("char");
+                methodtypes.put("char",++num_ocurrences);
+                N2++;
+            }
+        }
+        if((ctx.getText().indexOf("boolean") != -1)){
+            if (!methodtypes.containsKey("boolean")){
+                methodtypes.put("boolean", 1);
+                n2++;
+                N2++;
+            }else{
+                int num_ocurrences = methodtypes.get("boolean");
+                methodtypes.put("boolean",++num_ocurrences);
+                N2++;
+            }
+        }
+        if((ctx.getText().indexOf("String") != -1)){
+            if (!methodtypes.containsKey("String")){
+                methodtypes.put("String", 1);
+                n2++;
+                N2++;
+            }else{
+                int num_ocurrences = methodtypes.get("String");
+                methodtypes.put("String",++num_ocurrences);
+                N2++;
+            }
+        }
+        if((ctx.getText().indexOf("void") != -1)){
+            if (!methodtypes.containsKey("void")){
+                methodtypes.put("void", 1);
+                n2++;
+                N2++;
+            }else{
+                int num_ocurrences = methodtypes.get("void");
+                methodtypes.put("void",++num_ocurrences);
+                N2++;
+            }
+        }
+        if((ctx.getText().indexOf("signed") != -1)){
+            if (!methodtypes.containsKey("signed")){
+                methodtypes.put("signed", 1);
+                n2++;
+                N2++;
+            }else{
+                int num_ocurrences = methodtypes.get("signed");
+                methodtypes.put("signed",++num_ocurrences);
+                N2++;
+            }
+        }
+        if((ctx.getText().indexOf("unsigned") != -1)){
+            if (!methodtypes.containsKey("unsigned")){
+                methodtypes.put("unsigned", 1);
+                n2++;
+                N2++;
+            }else{
+                int num_ocurrences = methodtypes.get("unsigned");
+                methodtypes.put("unsigned",++num_ocurrences);
+                N2++;
+            }
+        }
+     }
 
 
 }
