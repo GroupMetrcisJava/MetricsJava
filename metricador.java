@@ -35,7 +35,7 @@ public class metricador extends Java8BaseListener{
         System.out.println("n2: " + n2);
         int N = N1 + N2;
         double V = N * (Math.log(n1+n2) / (Math.log(2)));  
-        double L = (2*n2) / (n1*N2);
+        double L = (2.0*n2) / (n1*N2);
         double E = (n1+N2 * (N1+N2)* (Math.log(n1+n2) / (Math.log(2))) ) / (2*n2);    
         System.out.println("Longitud del programa: "+N);
         System.out.println("Volumen del programa: "+V);
@@ -618,105 +618,34 @@ public class metricador extends Java8BaseListener{
     /* contador de todos los tipos de dato (int float boolean ...) */
     @Override public void enterUnannType(Java8Parser.UnannTypeContext ctx) { 
         contadorTiposDato++;
-        if((ctx.getText().indexOf("int") != -1)){
-            if (!datatypes.containsKey("int")){
-                datatypes.put("int", 1);
+        String first, context = ctx.getText();
+        String[] names = { "int", "float", "short", "byte", "long", "double", "char", "boolean", "String"};
+        Integer[] possibles = {
+            context.indexOf("int"),
+            context.indexOf("float"),
+            context.indexOf("short"),
+            context.indexOf("byte"),
+            context.indexOf("long"),
+            context.indexOf("double"),
+            context.indexOf("char"),
+            context.indexOf("boolean"),
+            context.indexOf("String"),
+        };
+        int max = Collections.max(Arrays.asList(possibles));
+        int index = Arrays.asList(possibles).indexOf(max);
+        first = names[index];
+
+        if((ctx.getText().indexOf(first) != -1)){
+            if (!datatypes.containsKey(first)){
+                datatypes.put(first, 1);
                 n2++;
                 N2++;
             }else{
-                int num_ocurrences = datatypes.get("int");
-                datatypes.put("int",++num_ocurrences);
+                int num_ocurrences = datatypes.get(first);
+                datatypes.put(first,++num_ocurrences);
                 N2++;
             }
-        }
-        if((ctx.getText().indexOf("float") != -1)){
-            if (!datatypes.containsKey("float")){
-                datatypes.put("float", 1);
-                n2++;
-                N2++;
-            }else{
-                int num_ocurrences = datatypes.get("float");
-                datatypes.put("float",++num_ocurrences);
-                N2++;
-            }
-        }
-        if((ctx.getText().indexOf("short") != -1)){
-            if (!datatypes.containsKey("short")){
-                datatypes.put("short", 1);
-                n2++;
-                N2++;
-            }else{
-                int num_ocurrences = datatypes.get("short");
-                datatypes.put("short",++num_ocurrences);
-                N2++;
-            }
-        }
-        if((ctx.getText().indexOf("byte") != -1)){
-            if (!datatypes.containsKey("byte")){
-                datatypes.put("byte", 1);
-                n2++;
-                N2++;
-            }else{
-                int num_ocurrences = datatypes.get("byte");
-                datatypes.put("byte",++num_ocurrences);
-                N2++;
-            }
-        }
-        if((ctx.getText().indexOf("long") != -1)){
-            if (!datatypes.containsKey("long")){
-                datatypes.put("long", 1);
-                n2++;
-                N2++;
-            }else{
-                int num_ocurrences = datatypes.get("long");
-                datatypes.put("long",++num_ocurrences);
-                N2++;
-            }
-        }
-        if((ctx.getText().indexOf("double") != -1)){
-            if (!datatypes.containsKey("double")){
-                datatypes.put("double", 1);
-                n2++;
-                N2++;
-            }else{
-                int num_ocurrences = datatypes.get("double");
-                datatypes.put("double",++num_ocurrences);
-                N2++;
-            }
-        }
-        if((ctx.getText().indexOf("char") != -1)){
-            if (!datatypes.containsKey("char")){
-                datatypes.put("char", 1);
-                n2++;
-                N2++;
-            }else{
-                int num_ocurrences = datatypes.get("char");
-                datatypes.put("char",++num_ocurrences);
-                N2++;
-            }
-        }
-        if((ctx.getText().indexOf("boolean") != -1)){
-            if (!datatypes.containsKey("boolean")){
-                datatypes.put("boolean", 1);
-                n2++;
-                N2++;
-            }else{
-                int num_ocurrences = datatypes.get("boolean");
-                datatypes.put("boolean",++num_ocurrences);
-                N2++;
-            }
-        }
-        if((ctx.getText().indexOf("String") != -1)){
-            if (!datatypes.containsKey("String")){
-                datatypes.put("String", 1);
-                n2++;
-                N2++;
-            }else{
-                int num_ocurrences = datatypes.get("String");
-                datatypes.put("String",++num_ocurrences);
-                N2++;
-            }
-        }
+        }        
     }
     /* contador de veces que se llama un id como operando*/
     @Override public void enterVariableDeclaratorId(Java8Parser.VariableDeclaratorIdContext ctx) {
@@ -724,139 +653,39 @@ public class metricador extends Java8BaseListener{
         N2++;
      }
      /* contador de tipos de dato para funciones */
-     @Override public void enterResult(Java8Parser.ResultContext ctx) { 
-        if((ctx.getText().indexOf("int") != -1)){
-            if (!methodtypes.containsKey("int")){
-                methodtypes.put("int", 1);
+     @Override public void enterResult(Java8Parser.ResultContext ctx) {
+         
+        String first, context = ctx.getText();
+        String[] names = { "int", "float", "short", "byte", "long", "double", "char", "boolean", "String", "void", "signed", "unsigned"};
+        Integer[] possibles = {
+            context.indexOf("int"),
+            context.indexOf("float"),
+            context.indexOf("short"),
+            context.indexOf("byte"),
+            context.indexOf("long"),
+            context.indexOf("double"),
+            context.indexOf("char"),
+            context.indexOf("boolean"),
+            context.indexOf("String"),
+            context.indexOf("void"),
+            context.indexOf("signed"),
+            context.indexOf("unsigned"),
+        };
+        int max = Collections.max(Arrays.asList(possibles));
+        int index = Arrays.asList(possibles).indexOf(max);
+        first = names[index];
+
+        if((ctx.getText().indexOf(first) != -1)){
+            if (!methodtypes.containsKey(first)){
+                methodtypes.put(first, 1);
                 n2++;
                 N2++;
             }else{
-                int num_ocurrences = methodtypes.get("int");
-                methodtypes.put("int",++num_ocurrences);
+                int num_ocurrences = methodtypes.get(first);
+                methodtypes.put(first,++num_ocurrences);
                 N2++;
             }
-        }
-        if((ctx.getText().indexOf("float") != -1)){
-            if (!methodtypes.containsKey("float")){
-                methodtypes.put("float", 1);
-                n2++;
-                N2++;
-            }else{
-                int num_ocurrences = methodtypes.get("float");
-                methodtypes.put("float",++num_ocurrences);
-                N2++;
-            }
-        }
-        if((ctx.getText().indexOf("short") != -1)){
-            if (!methodtypes.containsKey("short")){
-                methodtypes.put("short", 1);
-                n2++;
-                N2++;
-            }else{
-                int num_ocurrences = methodtypes.get("short");
-                methodtypes.put("short",++num_ocurrences);
-                N2++;
-            }
-        }
-        if((ctx.getText().indexOf("byte") != -1)){
-            if (!methodtypes.containsKey("byte")){
-                methodtypes.put("byte", 1);
-                n2++;
-                N2++;
-            }else{
-                int num_ocurrences = methodtypes.get("byte");
-                methodtypes.put("byte",++num_ocurrences);
-                N2++;
-            }
-        }
-        if((ctx.getText().indexOf("long") != -1)){
-            if (!methodtypes.containsKey("long")){
-                methodtypes.put("long", 1);
-                n2++;
-                N2++;
-            }else{
-                int num_ocurrences = methodtypes.get("long");
-                methodtypes.put("long",++num_ocurrences);
-                N2++;
-            }
-        }
-        if((ctx.getText().indexOf("double") != -1)){
-            if (!methodtypes.containsKey("double")){
-                methodtypes.put("double", 1);
-                n2++;
-                N2++;
-            }else{
-                int num_ocurrences = methodtypes.get("double");
-                methodtypes.put("double",++num_ocurrences);
-                N2++;
-            }
-        }
-        if((ctx.getText().indexOf("char") != -1)){
-            if (!methodtypes.containsKey("char")){
-                methodtypes.put("char", 1);
-                n2++;
-                N2++;
-            }else{
-                int num_ocurrences = methodtypes.get("char");
-                methodtypes.put("char",++num_ocurrences);
-                N2++;
-            }
-        }
-        if((ctx.getText().indexOf("boolean") != -1)){
-            if (!methodtypes.containsKey("boolean")){
-                methodtypes.put("boolean", 1);
-                n2++;
-                N2++;
-            }else{
-                int num_ocurrences = methodtypes.get("boolean");
-                methodtypes.put("boolean",++num_ocurrences);
-                N2++;
-            }
-        }
-        if((ctx.getText().indexOf("String") != -1)){
-            if (!methodtypes.containsKey("String")){
-                methodtypes.put("String", 1);
-                n2++;
-                N2++;
-            }else{
-                int num_ocurrences = methodtypes.get("String");
-                methodtypes.put("String",++num_ocurrences);
-                N2++;
-            }
-        }
-        if((ctx.getText().indexOf("void") != -1)){
-            if (!methodtypes.containsKey("void")){
-                methodtypes.put("void", 1);
-                n2++;
-                N2++;
-            }else{
-                int num_ocurrences = methodtypes.get("void");
-                methodtypes.put("void",++num_ocurrences);
-                N2++;
-            }
-        }
-        if((ctx.getText().indexOf("signed") != -1)){
-            if (!methodtypes.containsKey("signed")){
-                methodtypes.put("signed", 1);
-                n2++;
-                N2++;
-            }else{
-                int num_ocurrences = methodtypes.get("signed");
-                methodtypes.put("signed",++num_ocurrences);
-                N2++;
-            }
-        }
-        if((ctx.getText().indexOf("unsigned") != -1)){
-            if (!methodtypes.containsKey("unsigned")){
-                methodtypes.put("unsigned", 1);
-                n2++;
-                N2++;
-            }else{
-                int num_ocurrences = methodtypes.get("unsigned");
-                methodtypes.put("unsigned",++num_ocurrences);
-                N2++;
-            }
-        }
+        }        
      }
 
 
