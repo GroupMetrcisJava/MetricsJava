@@ -1,20 +1,33 @@
 import java.util.*;
+import java.util.Scanner;
 
 public class input{
     
-    /*void funcion(){
+    void funcion(){
         char t = 't';
     }
 
     void funcion2(){
         int a = 4;
         float v = 0.2;
-    }*/
+    }
     public static void main(String[] args) {
         int a = 0, b = 1, x= 0;
-        float y = 2.3 + 1 + 4.3; 
+        float y = 2.3 - 1 + 4.3 + a + b - x;
+        boolean a,b,c;
+        c = b && a && b && a & !b || a;
+        int matriz[][] = new int[3][5];
+        int a[] = new int [4];
+        int b[];
+        int g = a.length; 
+        int b = this.a;
+        int a;
+        boolean b;
+        float c;
+        String d;
+        short e;
+        char f;
 
     }
      
-       
 }

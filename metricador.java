@@ -2,12 +2,21 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Collections;
 import java.util.Arrays;
+import java.math.*;
 
 public class metricador extends Java8BaseListener{
     static int contadorFunciones = 0;
     static int contadorLocales = 0;
+    static int contadorImports = 0;
+    static int contadorClases = 0;
+    static int contadorArrays = 0;
+    static int contadorTiposDato = 0;
+    static int contadorIds = 0;
+    
     int N1, N2, n1, n2 = 0;
     Map <String, Integer> table = new HashMap<String, Integer>();
+    Map <String, Integer> datatypes = new HashMap<String, Integer>();
+    Map <String, Integer> methodtypes = new HashMap<String, Integer>();
 
 
     @Override public void enterLocalVariableDeclarationStatement(Java8Parser.LocalVariableDeclarationStatementContext ctx) { 
@@ -16,20 +25,35 @@ public class metricador extends Java8BaseListener{
     @Override public void exitMethodDeclaration(Java8Parser.MethodDeclarationContext ctx) {
         contadorFunciones++;
         System.out.println("# Variables locales: " + contadorLocales);
-        contadorLocales = 0;
+        contadorLocales = 0;   
+        System.out.println("tabla: "+ table);
+        System.out.println("tipos dato: "+datatypes);
+        System.out.println("HALSTEAD MEDIDAS: ------");
         System.out.println("N1: " + N1);
         System.out.println("N2: " + N2);
         System.out.println("n1: " + n1);
-        System.out.println("n2: " + n2);        
-        System.out.println(table);
+        System.out.println("n2: " + n2);
+        int N = N1 + N2;
+        double V = N * (Math.log(n1+n2) / (Math.log(2)));  
+        double L = (2*n2) / (n1*N2);
+        double E = (n1+N2 * (N1+N2)* (Math.log(n1+n2) / (Math.log(2))) ) / (2*n2);    
+        System.out.println("Longitud del programa: "+N);
+        System.out.println("Volumen del programa: "+V);
+        System.out.println("Nivel de especificacion de abtraccion: "+L);
+        System.out.println("Esfuerzo del programa: "+E);
+
      }
      @Override public void exitCompilationUnit(Java8Parser.CompilationUnitContext ctx) { 
          System.out.println("# Funciones: " + contadorFunciones);
+         System.out.println("# Imports:  "+ contadorImports);
+         System.out.println("# Clases: "+ contadorClases);
+         System.out.println("# Arreglos: "+ contadorArrays);
+         
      }
     
      /* Operacionaes de tipo A -> a = b */
      @Override public void enterVariableDeclarator(Java8Parser.VariableDeclaratorContext ctx) {
-        System.out.println("contexto declarator: " + ctx.getText());      
+        //System.out.println("contexto declarator: " + ctx.getText());      
         
          if (ctx.getText().indexOf('=') != -1) {            
             if (!table.containsKey("=")) {                
@@ -47,7 +71,7 @@ public class metricador extends Java8BaseListener{
         Last index of, comparar cual de los dos encuentra primero e irse por ese camino
       */
       @Override public void enterAdditiveExpression(Java8Parser.AdditiveExpressionContext ctx) { 
-        System.out.println("additive: " + ctx.getText());
+        //System.out.println("additive: " + ctx.getText());
         String first, context = ctx.getText();
         Integer[] possibles = {context.lastIndexOf("+"), context.lastIndexOf("-")};
         if (ctx.getText().lastIndexOf("+") == Collections.max(Arrays.asList(possibles))) {
@@ -189,7 +213,7 @@ public class metricador extends Java8BaseListener{
             }
         }
     }
-
+    /* ciclo for */
     @Override public void enterForStatement(Java8Parser.ForStatementContext ctx) {
         System.out.println("for: " + ctx.getText());
         System.out.println(ctx.getText());
@@ -261,6 +285,7 @@ public class metricador extends Java8BaseListener{
         }
     }
     /**TRue and False values in boolean type variables */
+     /* Para encontrar los identificadores  */
     @Override public void enterLiteral(Java8Parser.LiteralContext ctx) {
         if (ctx.getText().indexOf("true") != -1) {
             if (!table.containsKey("true")) {
@@ -287,6 +312,7 @@ public class metricador extends Java8BaseListener{
     }
     /**Operacion and */
     @Override public void enterConditionalAndExpression(Java8Parser.ConditionalAndExpressionContext ctx) { 
+        
         if((ctx.getText().indexOf("&&") != -1)){
             if (!table.containsKey("&&")){
                 table.put("&&", 1);
@@ -467,7 +493,7 @@ public class metricador extends Java8BaseListener{
             }
         }
      }
-
+     /* return statement*/
      @Override public void enterReturnStatement(Java8Parser.ReturnStatementContext ctx) {
         if((ctx.getText().indexOf("return") != -1)){
             if (!table.containsKey("return")){
@@ -481,10 +507,357 @@ public class metricador extends Java8BaseListener{
             }
         }
     }
+    /* contador de declaraciones de [] arrays incluyendo matrices*/
+    @Override public void enterDims(Java8Parser.DimsContext ctx) { 
+        contadorArrays++;
+        if(!table.containsKey("[]")){
+            table.put("[]", 1);
+            n1++;
+            N1++;
+        }else{
+            int num_ocurrences = table.get("[]");
+            table.put("[]", ++num_ocurrences);
+            N1++;
+        }
+    }
 
-    /* Para encontrar los identificadores  */  
-    @Override public void enterLiteral(Java8Parser.LiteralContext ctx) {
-        
+    /* contador de imports*/
+    @Override public void enterImportDeclaration(Java8Parser.ImportDeclarationContext ctx) { 
+        contadorImports++;
+        if(!table.containsKey("import")){
+            table.put("import", 1);
+            n1++;
+            N1++;
+        }else{
+            int num_ocurrences = table.get("import");
+            table.put("import", ++num_ocurrences);
+            N1++;
+        }
+    }
+    /* contador de clases*/
+    @Override public void enterNormalClassDeclaration(Java8Parser.NormalClassDeclarationContext ctx) { 
+        contadorClases++;
+        if(!table.containsKey("class")){
+            table.put("class", 1);
+            n1++;
+            N1++;
+        }else{
+            int num_ocurrences = table.get("class");
+            table.put("class", ++num_ocurrences);
+            N1++;
+        }
+    }
+    /* contador de los new */
+    @Override public void enterArrayCreationExpression(Java8Parser.ArrayCreationExpressionContext ctx) { 
+        if(!table.containsKey("new")){
+            table.put("new", 1);
+            n1++;
+            N1++;
+        }else{
+            int num_ocurrences = table.get("new");
+            table.put("new", ++num_ocurrences);
+            N1++;
+        }
+    }
+
+    /*contador para los modificadores de acceso de las clases (private protected public) */
+    @Override public void enterClassModifier(Java8Parser.ClassModifierContext ctx) { 
+        if(!table.containsKey("classMod")){
+            table.put("classMod", 1);
+            n1++;
+            N1++;
+        }else{
+            int num_ocurrences = table.get("classMod");
+            table.put("classMod", ++num_ocurrences);
+            N1++;
+        }
+    }
+
+    /* contador modificadores para funciones (private public static ...) */
+    @Override public void enterMethodModifier(Java8Parser.MethodModifierContext ctx) { 
+        if(!table.containsKey("methodMod")){
+            table.put("methodMod", 1);
+            n1++;
+            N1++;
+        }else{
+            int num_ocurrences = table.get("methodMod");
+            table.put("methodMod", ++num_ocurrences);
+            N1++;
+        }
+    }
+
+    /* contador para cuando se usa lenght */
+    @Override public void enterExpressionName(Java8Parser.ExpressionNameContext ctx) { 
+        if((ctx.getText().indexOf("length") != -1)){
+            if (!table.containsKey("length")){
+                table.put("length", 1);
+                n1++;
+                N1++;
+            }else{
+                int num_ocurrences = table.get("length");
+                table.put("length",++num_ocurrences);
+                N1++;
+            }
+        }
+    }
+
+    /* contador para la expresion this */
+    @Override public void enterPrimary(Java8Parser.PrimaryContext ctx) { 
+        if((ctx.getText().indexOf("this") != -1)){
+            if (!table.containsKey("this")){
+                table.put("this", 1);
+                n1++;
+                N1++;
+            }else{
+                int num_ocurrences = table.get("this");
+                table.put("this",++num_ocurrences);
+                N1++;
+            }
+        }
+    }
+    /* contador de todos los tipos de dato (int float boolean ...) */
+    @Override public void enterUnannType(Java8Parser.UnannTypeContext ctx) { 
+        contadorTiposDato++;
+        if((ctx.getText().indexOf("int") != -1)){
+            if (!datatypes.containsKey("int")){
+                datatypes.put("int", 1);
+                n2++;
+                N2++;
+            }else{
+                int num_ocurrences = datatypes.get("int");
+                datatypes.put("int",++num_ocurrences);
+                N2++;
+            }
+        }
+        if((ctx.getText().indexOf("float") != -1)){
+            if (!datatypes.containsKey("float")){
+                datatypes.put("float", 1);
+                n2++;
+                N2++;
+            }else{
+                int num_ocurrences = datatypes.get("float");
+                datatypes.put("float",++num_ocurrences);
+                N2++;
+            }
+        }
+        if((ctx.getText().indexOf("short") != -1)){
+            if (!datatypes.containsKey("short")){
+                datatypes.put("short", 1);
+                n2++;
+                N2++;
+            }else{
+                int num_ocurrences = datatypes.get("short");
+                datatypes.put("short",++num_ocurrences);
+                N2++;
+            }
+        }
+        if((ctx.getText().indexOf("byte") != -1)){
+            if (!datatypes.containsKey("byte")){
+                datatypes.put("byte", 1);
+                n2++;
+                N2++;
+            }else{
+                int num_ocurrences = datatypes.get("byte");
+                datatypes.put("byte",++num_ocurrences);
+                N2++;
+            }
+        }
+        if((ctx.getText().indexOf("long") != -1)){
+            if (!datatypes.containsKey("long")){
+                datatypes.put("long", 1);
+                n2++;
+                N2++;
+            }else{
+                int num_ocurrences = datatypes.get("long");
+                datatypes.put("long",++num_ocurrences);
+                N2++;
+            }
+        }
+        if((ctx.getText().indexOf("double") != -1)){
+            if (!datatypes.containsKey("double")){
+                datatypes.put("double", 1);
+                n2++;
+                N2++;
+            }else{
+                int num_ocurrences = datatypes.get("double");
+                datatypes.put("double",++num_ocurrences);
+                N2++;
+            }
+        }
+        if((ctx.getText().indexOf("char") != -1)){
+            if (!datatypes.containsKey("char")){
+                datatypes.put("char", 1);
+                n2++;
+                N2++;
+            }else{
+                int num_ocurrences = datatypes.get("char");
+                datatypes.put("char",++num_ocurrences);
+                N2++;
+            }
+        }
+        if((ctx.getText().indexOf("boolean") != -1)){
+            if (!datatypes.containsKey("boolean")){
+                datatypes.put("boolean", 1);
+                n2++;
+                N2++;
+            }else{
+                int num_ocurrences = datatypes.get("boolean");
+                datatypes.put("boolean",++num_ocurrences);
+                N2++;
+            }
+        }
+        if((ctx.getText().indexOf("String") != -1)){
+            if (!datatypes.containsKey("String")){
+                datatypes.put("String", 1);
+                n2++;
+                N2++;
+            }else{
+                int num_ocurrences = datatypes.get("String");
+                datatypes.put("String",++num_ocurrences);
+                N2++;
+            }
+        }
+    }
+    /* contador de veces que se llama un id como operando*/
+    @Override public void enterVariableDeclaratorId(Java8Parser.VariableDeclaratorIdContext ctx) {
+        contadorIds++;
+        N2++;
      }
+     /* contador de tipos de dato para funciones */
+     @Override public void enterResult(Java8Parser.ResultContext ctx) { 
+        if((ctx.getText().indexOf("int") != -1)){
+            if (!methodtypes.containsKey("int")){
+                methodtypes.put("int", 1);
+                n2++;
+                N2++;
+            }else{
+                int num_ocurrences = methodtypes.get("int");
+                methodtypes.put("int",++num_ocurrences);
+                N2++;
+            }
+        }
+        if((ctx.getText().indexOf("float") != -1)){
+            if (!methodtypes.containsKey("float")){
+                methodtypes.put("float", 1);
+                n2++;
+                N2++;
+            }else{
+                int num_ocurrences = methodtypes.get("float");
+                methodtypes.put("float",++num_ocurrences);
+                N2++;
+            }
+        }
+        if((ctx.getText().indexOf("short") != -1)){
+            if (!methodtypes.containsKey("short")){
+                methodtypes.put("short", 1);
+                n2++;
+                N2++;
+            }else{
+                int num_ocurrences = methodtypes.get("short");
+                methodtypes.put("short",++num_ocurrences);
+                N2++;
+            }
+        }
+        if((ctx.getText().indexOf("byte") != -1)){
+            if (!methodtypes.containsKey("byte")){
+                methodtypes.put("byte", 1);
+                n2++;
+                N2++;
+            }else{
+                int num_ocurrences = methodtypes.get("byte");
+                methodtypes.put("byte",++num_ocurrences);
+                N2++;
+            }
+        }
+        if((ctx.getText().indexOf("long") != -1)){
+            if (!methodtypes.containsKey("long")){
+                methodtypes.put("long", 1);
+                n2++;
+                N2++;
+            }else{
+                int num_ocurrences = methodtypes.get("long");
+                methodtypes.put("long",++num_ocurrences);
+                N2++;
+            }
+        }
+        if((ctx.getText().indexOf("double") != -1)){
+            if (!methodtypes.containsKey("double")){
+                methodtypes.put("double", 1);
+                n2++;
+                N2++;
+            }else{
+                int num_ocurrences = methodtypes.get("double");
+                methodtypes.put("double",++num_ocurrences);
+                N2++;
+            }
+        }
+        if((ctx.getText().indexOf("char") != -1)){
+            if (!methodtypes.containsKey("char")){
+                methodtypes.put("char", 1);
+                n2++;
+                N2++;
+            }else{
+                int num_ocurrences = methodtypes.get("char");
+                methodtypes.put("char",++num_ocurrences);
+                N2++;
+            }
+        }
+        if((ctx.getText().indexOf("boolean") != -1)){
+            if (!methodtypes.containsKey("boolean")){
+                methodtypes.put("boolean", 1);
+                n2++;
+                N2++;
+            }else{
+                int num_ocurrences = methodtypes.get("boolean");
+                methodtypes.put("boolean",++num_ocurrences);
+                N2++;
+            }
+        }
+        if((ctx.getText().indexOf("String") != -1)){
+            if (!methodtypes.containsKey("String")){
+                methodtypes.put("String", 1);
+                n2++;
+                N2++;
+            }else{
+                int num_ocurrences = methodtypes.get("String");
+                methodtypes.put("String",++num_ocurrences);
+                N2++;
+            }
+        }
+        if((ctx.getText().indexOf("void") != -1)){
+            if (!methodtypes.containsKey("void")){
+                methodtypes.put("void", 1);
+                n2++;
+                N2++;
+            }else{
+                int num_ocurrences = methodtypes.get("void");
+                methodtypes.put("void",++num_ocurrences);
+                N2++;
+            }
+        }
+        if((ctx.getText().indexOf("signed") != -1)){
+            if (!methodtypes.containsKey("signed")){
+                methodtypes.put("signed", 1);
+                n2++;
+                N2++;
+            }else{
+                int num_ocurrences = methodtypes.get("signed");
+                methodtypes.put("signed",++num_ocurrences);
+                N2++;
+            }
+        }
+        if((ctx.getText().indexOf("unsigned") != -1)){
+            if (!methodtypes.containsKey("unsigned")){
+                methodtypes.put("unsigned", 1);
+                n2++;
+                N2++;
+            }else{
+                int num_ocurrences = methodtypes.get("unsigned");
+                methodtypes.put("unsigned",++num_ocurrences);
+                N2++;
+            }
+        }
+     }
+
 
 }
