@@ -19,8 +19,14 @@ public class input{
         /*int matriz[][] = new int[3][5];
         int a[] = new int [4];
         int b[];*/
-        int g = a.length; 
-        int b = this.a;
+        /*int g = a.length; 
+        int b = this.a;*/
+        int a;
+        boolean b;
+        float c;
+        String d;
+        short e;
+        char f;
 
     }
      

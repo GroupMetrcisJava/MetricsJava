@@ -9,9 +9,11 @@ public class metricador extends Java8BaseListener{
     static int contadorImports = 0;
     static int contadorClases = 0;
     static int contadorArrays = 0;
+    static int contadorTiposDato = 0;
     
     int N1, N2, n1, n2 = 0;
     Map <String, Integer> table = new HashMap<String, Integer>();
+    Map <String, Integer> datatypes = new HashMap<String, Integer>();
 
 
     @Override public void enterLocalVariableDeclarationStatement(Java8Parser.LocalVariableDeclarationStatementContext ctx) { 
@@ -26,6 +28,7 @@ public class metricador extends Java8BaseListener{
         System.out.println("n1: " + n1);
         System.out.println("n2: " + n2);        
         System.out.println(table);
+        System.out.println("tipos dato: "+datatypes);
      }
      @Override public void exitCompilationUnit(Java8Parser.CompilationUnitContext ctx) { 
          System.out.println("# Funciones: " + contadorFunciones);
@@ -599,5 +602,109 @@ public class metricador extends Java8BaseListener{
             }
         }
     }
+    /* contador de todos los tipos de dato (int float boolean ...) */
+    @Override public void enterUnannType(Java8Parser.UnannTypeContext ctx) { 
+        contadorTiposDato++;
+        if((ctx.getText().indexOf("int") != -1)){
+            if (!datatypes.containsKey("int")){
+                datatypes.put("int", 1);
+                n2++;
+                N2++;
+            }else{
+                int num_ocurrences = datatypes.get("int");
+                datatypes.put("int",++num_ocurrences);
+                N2++;
+            }
+        }
+        if((ctx.getText().indexOf("float") != -1)){
+            if (!datatypes.containsKey("float")){
+                datatypes.put("float", 1);
+                n2++;
+                N2++;
+            }else{
+                int num_ocurrences = datatypes.get("float");
+                datatypes.put("float",++num_ocurrences);
+                N2++;
+            }
+        }
+        if((ctx.getText().indexOf("short") != -1)){
+            if (!datatypes.containsKey("short")){
+                datatypes.put("short", 1);
+                n2++;
+                N2++;
+            }else{
+                int num_ocurrences = datatypes.get("short");
+                datatypes.put("short",++num_ocurrences);
+                N2++;
+            }
+        }
+        if((ctx.getText().indexOf("byte") != -1)){
+            if (!datatypes.containsKey("byte")){
+                datatypes.put("byte", 1);
+                n2++;
+                N2++;
+            }else{
+                int num_ocurrences = datatypes.get("byte");
+                datatypes.put("byte",++num_ocurrences);
+                N2++;
+            }
+        }
+        if((ctx.getText().indexOf("long") != -1)){
+            if (!datatypes.containsKey("long")){
+                datatypes.put("long", 1);
+                n2++;
+                N2++;
+            }else{
+                int num_ocurrences = datatypes.get("long");
+                datatypes.put("long",++num_ocurrences);
+                N2++;
+            }
+        }
+        if((ctx.getText().indexOf("double") != -1)){
+            if (!datatypes.containsKey("double")){
+                datatypes.put("double", 1);
+                n2++;
+                N2++;
+            }else{
+                int num_ocurrences = datatypes.get("double");
+                datatypes.put("double",++num_ocurrences);
+                N2++;
+            }
+        }
+        if((ctx.getText().indexOf("char") != -1)){
+            if (!datatypes.containsKey("char")){
+                datatypes.put("char", 1);
+                n2++;
+                N2++;
+            }else{
+                int num_ocurrences = datatypes.get("char");
+                datatypes.put("char",++num_ocurrences);
+                N2++;
+            }
+        }
+        if((ctx.getText().indexOf("boolean") != -1)){
+            if (!datatypes.containsKey("boolean")){
+                datatypes.put("boolean", 1);
+                n2++;
+                N2++;
+            }else{
+                int num_ocurrences = datatypes.get("boolean");
+                datatypes.put("boolean",++num_ocurrences);
+                N2++;
+            }
+        }
+        if((ctx.getText().indexOf("String") != -1)){
+            if (!datatypes.containsKey("String")){
+                datatypes.put("String", 1);
+                n2++;
+                N2++;
+            }else{
+                int num_ocurrences = datatypes.get("String");
+                datatypes.put("String",++num_ocurrences);
+                N2++;
+            }
+        }
+    }
+
 
 }
