@@ -1,7 +1,9 @@
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Collections;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.math.*;
 
 public class metricador extends Java8BaseListener{
@@ -18,17 +20,48 @@ public class metricador extends Java8BaseListener{
     Map <String, Integer> datatypes = new HashMap<String, Integer>();
     Map <String, Integer> methodtypes = new HashMap<String, Integer>();
 
+    Map <String, Integer> tableIndex = new HashMap<String, Integer>();
+    Map <Integer, String> tableName = new HashMap<Integer, String>();
+    List< Map <String, Float> > tables = new ArrayList<Map<String, Float>>();
+    String currentTable;
+
 
     @Override public void enterLocalVariableDeclarationStatement(Java8Parser.LocalVariableDeclarationStatementContext ctx) { 
         contadorLocales++;
     }
+
+    @Override public void enterMethodDeclarator(Java8Parser.MethodDeclaratorContext ctx) {
+        String context = ctx.getText();
+        System.out.println("Method Context: " + context);
+        String name = context.substring(0, context.indexOf('('));
+        Map<String, Float> newTable = new HashMap<String, Float>();
+        {{
+            newTable.put("n1", (float)0);
+            newTable.put("n2", (float)0);
+            newTable.put("N1", (float)0);
+            newTable.put("N2", (float)0);
+        }}        
+        tableIndex.put(name, tables.size());
+        tableName.put(tables.size(), name);
+        tables.add(newTable);
+        currentTable = name;
+     }
+
     @Override public void exitMethodDeclaration(Java8Parser.MethodDeclarationContext ctx) {
         contadorFunciones++;
+        Map<String,Float> auxTable = tables.get(tableIndex.get(currentTable));
         System.out.println("# Variables locales: " + contadorLocales);
-        contadorLocales = 0;   
-        System.out.println("tabla: "+ table);
+        contadorLocales = 0;
+        //System.out.println("\nNombre tabla: " + currentTable);   
+        System.out.println("tabla: "+ auxTable);
         System.out.println("tipos dato: "+datatypes);
         System.out.println("HALSTEAD MEDIDAS: ------");
+        /*
+        System.out.println("N1: " + auxTable.get("N1"));
+        System.out.println("N2: " + auxTable.get("N2"));
+        System.out.println("n1: " + auxTable.get("n1"));
+        System.out.println("n2: " + auxTable.get("n2"));
+        */
         System.out.println("N1: " + N1);
         System.out.println("N2: " + N2);
         System.out.println("n1: " + n1);
@@ -43,12 +76,22 @@ public class metricador extends Java8BaseListener{
         System.out.println("Esfuerzo del programa: "+E);
         System.out.println();
 
+        /*tables.remove(size() - 1);
+        if (tables.size() > 0) {
+            currentTable = tableName.get(tables.size());
+        } else {
+            currentTable = "";
+        }
+        */
      }
      @Override public void exitCompilationUnit(Java8Parser.CompilationUnitContext ctx) { 
          System.out.println("# Funciones: " + contadorFunciones);
          System.out.println("# Imports:  "+ contadorImports);
          System.out.println("# Clases: "+ contadorClases);
          System.out.println("# Arreglos: "+ contadorArrays);
+
+         System.out.println(tables);
+         System.out.println(tableIndex);
          
      }
     
