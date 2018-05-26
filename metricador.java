@@ -491,7 +491,7 @@ public class metricador extends Java8BaseListener{
             }
         }
     }
-    /* contador de declaraciones de [] arrays*/
+    /* contador de declaraciones de [] arrays incluyendo matrices*/
     @Override public void enterDims(Java8Parser.DimsContext ctx) { 
         contadorArrays++;
         if(!table.containsKey("[]")){
@@ -541,6 +541,62 @@ public class metricador extends Java8BaseListener{
             int num_ocurrences = table.get("new");
             table.put("new", ++num_ocurrences);
             N1++;
+        }
+    }
+
+    /*contador para los modificadores de acceso de las clases (private protected public) */
+    @Override public void enterClassModifier(Java8Parser.ClassModifierContext ctx) { 
+        if(!table.containsKey("classMod")){
+            table.put("classMod", 1);
+            n1++;
+            N1++;
+        }else{
+            int num_ocurrences = table.get("classMod");
+            table.put("classMod", ++num_ocurrences);
+            N1++;
+        }
+    }
+
+    /* contador modificadores para funciones (private public static ...) */
+    @Override public void enterMethodModifier(Java8Parser.MethodModifierContext ctx) { 
+        if(!table.containsKey("methodMod")){
+            table.put("methodMod", 1);
+            n1++;
+            N1++;
+        }else{
+            int num_ocurrences = table.get("methodMod");
+            table.put("methodMod", ++num_ocurrences);
+            N1++;
+        }
+    }
+
+    /* contador para cuando se usa lenght */
+    @Override public void enterExpressionName(Java8Parser.ExpressionNameContext ctx) { 
+        if((ctx.getText().indexOf("length") != -1)){
+            if (!table.containsKey("length")){
+                table.put("length", 1);
+                n1++;
+                N1++;
+            }else{
+                int num_ocurrences = table.get("length");
+                table.put("length",++num_ocurrences);
+                N1++;
+            }
+        }
+    }
+
+    /* contador para la expresion this */
+    @Override public void enterPrimary(Java8Parser.PrimaryContext ctx) { 
+        if((ctx.getText().indexOf("this") != -1)){
+            if (!table.containsKey("this")){
+                table.put("this", 1);
+                n1++;
+                N1++;
+            }else{
+                int num_ocurrences = table.get("this");
+                table.put("this",++num_ocurrences);
+                N1++;
+            }
         }
     }
 
