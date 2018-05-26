@@ -494,11 +494,29 @@ public class metricador extends Java8BaseListener{
     /* contador de declaraciones de [] arrays*/
     @Override public void enterDims(Java8Parser.DimsContext ctx) { 
         contadorArrays++;
+        if(!table.containsKey("[]")){
+            table.put("[]", 1);
+            n1++;
+            N1++;
+        }else{
+            int num_ocurrences = table.get("[]");
+            table.put("[]", ++num_ocurrences);
+            N1++;
+        }
     }
 
     /* contador de imports*/
     @Override public void enterImportDeclaration(Java8Parser.ImportDeclarationContext ctx) { 
         contadorImports++;
+        if(!table.containsKey("import")){
+            table.put("import", 1);
+            n1++;
+            N1++;
+        }else{
+            int num_ocurrences = table.get("import");
+            table.put("import", ++num_ocurrences);
+            N1++;
+        }
     }
     /* contador de clases*/
     @Override public void enterNormalClassDeclaration(Java8Parser.NormalClassDeclarationContext ctx) { 
