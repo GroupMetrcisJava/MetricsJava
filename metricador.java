@@ -2,6 +2,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Collections;
 import java.util.Arrays;
+import java.math.*;
 
 public class metricador extends Java8BaseListener{
     static int contadorFunciones = 0;
@@ -31,9 +32,16 @@ public class metricador extends Java8BaseListener{
         System.out.println("N1: " + N1);
         System.out.println("N2: " + N2);
         System.out.println("n1: " + n1);
-        System.out.println("n2: " + n2);     
-        System.out.println("Longitud del programa: "+(N1+N2));
-        
+        System.out.println("n2: " + n2);
+        int N = N1 + N2;
+        double V = N * (Math.log(n1+n2) / (Math.log(2)));  
+        double L = (2*n2) / (n1*N2);
+        double E = (n1+N2 * (N1+N2)* (Math.log(n1+n2) / (Math.log(2))) ) / (2*n2);    
+        System.out.println("Longitud del programa: "+N);
+        System.out.println("Volumen del programa: "+V);
+        System.out.println("Nivel de especificacion de abtraccion: "+L);
+        System.out.println("Esfuerzo del programa: "+E);
+
      }
      @Override public void exitCompilationUnit(Java8Parser.CompilationUnitContext ctx) { 
          System.out.println("# Funciones: " + contadorFunciones);
