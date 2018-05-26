@@ -521,6 +521,27 @@ public class metricador extends Java8BaseListener{
     /* contador de clases*/
     @Override public void enterNormalClassDeclaration(Java8Parser.NormalClassDeclarationContext ctx) { 
         contadorClases++;
+        if(!table.containsKey("class")){
+            table.put("class", 1);
+            n1++;
+            N1++;
+        }else{
+            int num_ocurrences = table.get("class");
+            table.put("class", ++num_ocurrences);
+            N1++;
+        }
+    }
+    /* contador de los new */
+    @Override public void enterArrayCreationExpression(Java8Parser.ArrayCreationExpressionContext ctx) { 
+        if(!table.containsKey("new")){
+            table.put("new", 1);
+            n1++;
+            N1++;
+        }else{
+            int num_ocurrences = table.get("new");
+            table.put("new", ++num_ocurrences);
+            N1++;
+        }
     }
 
 }

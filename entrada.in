@@ -18,6 +18,7 @@ public class input{
         c = b && a && b && a & !b || a;*/
         int matriz[][] = new int[3][5];
         int a[] = new int [4];
+        int b[];
 
     }
      
