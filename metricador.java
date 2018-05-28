@@ -26,6 +26,32 @@ public class metricador extends Java8BaseListener{
     List< Map <String, Float> > tables = new ArrayList<Map<String, Float>>();
     String currentTable;
 
+    public void countOperators(String ctx, String first) {
+        if (ctx.indexOf(first) != -1) {            
+            if (!table.containsKey(first)) {                
+                table.put(first, 1);
+                n1++;
+                N1++;                
+            } else {                
+                int num_ocurrences = table.get(first);
+                table.put(first,++num_ocurrences);
+                N1++;                
+            }
+        }
+    }
+    public void countOperands(String ctx, String first) {
+        if (ctx.indexOf(first) != -1) {            
+            if (!table.containsKey(first)) {                
+                table.put(first, 1);
+                n2++;
+                N2++;                
+            } else {                
+                int num_ocurrences = table.get(first);
+                table.put(first,++num_ocurrences);
+                N2++;                
+            }
+        }
+    }
 
     @Override public void enterLocalVariableDeclarationStatement(Java8Parser.LocalVariableDeclarationStatementContext ctx) { 
         contadorLocales++;
@@ -67,7 +93,7 @@ public class metricador extends Java8BaseListener{
         System.out.println("N2: " + N2);
         System.out.println("n1: " + n1);
         System.out.println("n2: " + n2);
-        int N = N1 + N2;
+        double N = N1 + N2;
         double V = N * (Math.log(n1+n2) / (Math.log(2)));  
         double L = (2.0*n2) / (n1*N2);
         double E = (n1+N2 * (N1+N2)* (Math.log(n1+n2) / (Math.log(2))) ) / (2*n2);    
@@ -98,19 +124,8 @@ public class metricador extends Java8BaseListener{
     
      /* Operacionaes de tipo A -> a = b */
      @Override public void enterVariableDeclarator(Java8Parser.VariableDeclaratorContext ctx) {
-        //System.out.println("contexto declarator: " + ctx.getText());      
-        
-         if (ctx.getText().indexOf('=') != -1) {            
-            if (!table.containsKey("=")) {                
-                table.put("=", 1);
-                n1++;
-                N1++;                
-            } else {                
-                int num_ocurrences = table.get("=");
-                table.put("=",++num_ocurrences);
-                N1++;                
-            }
-         }
+        //System.out.println("contexto declarator: " + ctx.getText());             
+         countOperators(ctx.getText(), "=");
       }
       /*operaciones de adicion a + b y a - b
         Last index of, comparar cual de los dos encuentra primero e irse por ese camino
@@ -124,17 +139,7 @@ public class metricador extends Java8BaseListener{
         } else {
             first = "-";
         }
-        if((ctx.getText().lastIndexOf(first) != -1)){
-            if (!table.containsKey(first)){
-                table.put(first, 1);
-                n1++;
-                N1++;
-            }else{
-                int num_ocurrences = table.get(first);
-                table.put(first, ++num_ocurrences);
-                N1++;
-            }            
-        }        
+        countOperators(context, first); 
     }
 
     /* operaciones * / % */
@@ -148,257 +153,67 @@ public class metricador extends Java8BaseListener{
         } else {
             first = "%";
         }
-        if((ctx.getText().lastIndexOf(first) != -1)){
-            if (!table.containsKey(first)){
-                table.put(first, 1);
-                n1++;
-                N1++;
-            }else{
-                int num_ocurrences = table.get(first);
-                table.put(first, ++num_ocurrences);
-                N1++;
-            }            
-        }
+        countOperators(context, first);
      }
      /**If statement */
-     @Override public void enterIfThenStatement(Java8Parser.IfThenStatementContext ctx) {
-        System.out.println(ctx.getText());
-        if (ctx.getText().indexOf("if") != -1) {
-            if (!table.containsKey("if")) {
-                table.put("if", 1);
-                n1++;
-                N1++;
-            } else {
-               int num_ocurrences = table.get("if");
-               table.put("if", ++num_ocurrences);
-               N1++;
-            }
-        }
+     @Override public void enterIfThenStatement(Java8Parser.IfThenStatementContext ctx) {        
+        countOperators(ctx.getText(), "if");
       }
 
      /*If-else statement */
      @Override public void enterIfThenElseStatement(Java8Parser.IfThenElseStatementContext ctx) {
-         System.out.println(ctx.getText());
-         if (ctx.getText().indexOf("if") != -1) {
-             if (!table.containsKey("if")) {
-                 table.put("if", 1);
-                 n1++;
-                 N1++;
-             } else {
-                int num_ocurrences = table.get("if");
-                table.put("if", ++num_ocurrences);
-                N1++;
-             }
-         }
-
-         if (ctx.getText().indexOf("else") != -1) {
-            if (!table.containsKey("else")) {
-                table.put("else", 1);
-                n1++;
-                N1++;
-            } else {
-               int num_ocurrences = table.get("else");
-               table.put("else", ++num_ocurrences);
-               N1++;
-            }
-        }
+        countOperators(ctx.getText(), "if");
+        countOperators(ctx.getText(), "else");
       }
       /**Switch (solo switch, sin instrucciones) */
       @Override public void enterSwitchStatement(Java8Parser.SwitchStatementContext ctx) {
-        if (ctx.getText().indexOf("switch") != -1) {
-            if (!table.containsKey("switch")) {
-                table.put("switch", 1);
-                n1++;
-                N1++;
-            } else {
-               int num_ocurrences = table.get("switch");
-               table.put("switch", ++num_ocurrences);
-               N1++;
-            }
-        }
+        countOperators(ctx.getText(), "switch");
     } 
     /**Encuentra case y default*/
     @Override public void enterSwitchLabel(Java8Parser.SwitchLabelContext ctx) {
-        System.out.println(ctx.getText());
-        if (ctx.getText().indexOf("switch") != -1) {
-            if (!table.containsKey("case")) {
-                table.put("case", 1);
-                n1++;
-                N1++;
-            } else {
-               int num_ocurrences = table.get("case");
-               table.put("case", ++num_ocurrences);
-               N1++;
-            }
-        }
-        if (ctx.getText().indexOf("default") != -1) {
-            if (!table.containsKey("default")) {
-                table.put("default", 1);
-                n1++;
-                N1++;
-            } else {
-               int num_ocurrences = table.get("default");
-               table.put("default", ++num_ocurrences);
-               N1++;
-            }
-        }
+        countOperators(ctx.getText(), "case");
+        countOperators(ctx.getText(), "default");
     }
     /**Encuentra break */
     @Override public void enterBreakStatement(Java8Parser.BreakStatementContext ctx) {
-        System.out.println(ctx.getText());
-        if (ctx.getText().indexOf("break") != -1) {
-            if (!table.containsKey("break")) {
-                table.put("break", 1);
-                n1++;
-                N1++;
-            } else {
-               int num_ocurrences = table.get("break");
-               table.put("break", ++num_ocurrences);
-               N1++;
-            }
-        }
+        countOperators(ctx.getText(), "break");
     }
     /* ciclo for */
     @Override public void enterForStatement(Java8Parser.ForStatementContext ctx) {
-        System.out.println("for: " + ctx.getText());
-        System.out.println(ctx.getText());
-        if (ctx.getText().indexOf("for") != -1) {
-            if (!table.containsKey("for")) {
-                table.put("for", 1);
-                n1++;
-                N1++;
-            } else {
-               int num_ocurrences = table.get("for");
-               table.put("for", ++num_ocurrences);
-               N1++;
-            }
-        }
+        countOperators(ctx.getText(), "for");
     }
     /**Continue statement */
     @Override public void enterContinueStatement(Java8Parser.ContinueStatementContext ctx) {
-        System.out.println(ctx.getText());
-        if (ctx.getText().indexOf("continue") != -1) {
-            if (!table.containsKey("continue")) {
-                table.put("continue", 1);
-                n1++;
-                N1++;
-            } else {
-               int num_ocurrences = table.get("continue");
-               table.put("continue", ++num_ocurrences);
-               N1++;
-            }
-        }
+        countOperators(ctx.getText(), "continue");
     }
     /**Statement do-while */
     @Override public void enterDoStatement(Java8Parser.DoStatementContext ctx) {
-        if (ctx.getText().indexOf("do") != -1) {
-            if (!table.containsKey("do")) {
-                table.put("do", 1);
-                n1++;
-                N1++;
-            } else {
-               int num_ocurrences = table.get("do");
-               table.put("do", ++num_ocurrences);
-               N1++;
-            }
-        }
-        if (ctx.getText().indexOf("while") != -1) {
-            if (!table.containsKey("while")) {
-                table.put("while", 1);
-                n1++;
-                N1++;
-            } else {
-               int num_ocurrences = table.get("while");
-               table.put("while", ++num_ocurrences);
-               N1++;
-            }
-        }
+        countOperators(ctx.getText(), "do");
+        countOperators(ctx.getText(), "while");
     }
     /**While statement */
     @Override public void enterWhileStatement(Java8Parser.WhileStatementContext ctx) {
-        if (ctx.getText().indexOf("while") != -1) {
-            if (!table.containsKey("while")) {
-                table.put("while", 1);
-                n1++;
-                N1++;
-            } else {
-               int num_ocurrences = table.get("while");
-               table.put("while", ++num_ocurrences);
-               N1++;
-            }
-            
-        }
+        countOperators(ctx.getText(), "while");
     }
     /**TRue and False values in boolean type variables */
      /* Para encontrar los identificadores  */
     @Override public void enterLiteral(Java8Parser.LiteralContext ctx) {
-        if (ctx.getText().indexOf("true") != -1) {
-            if (!table.containsKey("true")) {
-                table.put("true", 1);
-                n1++;
-                N1++;
-            } else {
-               int num_ocurrences = table.get("true");
-               table.put("true", ++num_ocurrences);
-               N1++;
-            }            
-        }
-        if (ctx.getText().indexOf("false") != -1) {
-            if (!table.containsKey("false")) {
-                table.put("false", 1);
-                n1++;
-                N1++;
-            } else {
-               int num_ocurrences = table.get("false");
-               table.put("false", ++num_ocurrences);
-               N1++;
-            }            
-        }
+        countOperators(ctx.getText(), "true");
+        countOperators(ctx.getText(), "false");
     }
     /**Operacion and */
     @Override public void enterConditionalAndExpression(Java8Parser.ConditionalAndExpressionContext ctx) { 
-        
-        if((ctx.getText().indexOf("&&") != -1)){
-            if (!table.containsKey("&&")){
-                table.put("&&", 1);
-                n1++;
-                N1++;
-            }else{
-                int num_ocurrences = table.get("&&");
-                table.put("&&",++num_ocurrences);
-                N1++;
-            }
-        }
+        countOperators(ctx.getText(), "&&");
      }
 
      /*operacion or*/
      @Override public void enterConditionalOrExpression(Java8Parser.ConditionalOrExpressionContext ctx) { 
-        if((ctx.getText().indexOf("||") != -1)){
-            if (!table.containsKey("||")){
-                table.put("||", 1);
-                n1++;
-                N1++;
-            }else{
-                int num_ocurrences = table.get("||");
-                table.put("||",++num_ocurrences);
-                N1++;
-            }
-        }
+        countOperators(ctx.getText(), "||");
      }
 
     /* operacion not ! */
      @Override public void enterUnaryExpressionNotPlusMinus(Java8Parser.UnaryExpressionNotPlusMinusContext ctx) { 
-        if((ctx.getText().indexOf('!') != -1)){
-            if (!table.containsKey("!")){
-                table.put("!", 1);
-                n1++;
-                N1++;
-            }else{
-                int num_ocurrences = table.get("!");
-                table.put("!",++num_ocurrences);
-                N1++;
-            }
-        }
+        countOperators(ctx.getText(), "!");
      }    
 
      /* operador %=  &= */
@@ -422,75 +237,25 @@ public class metricador extends Java8BaseListener{
         }};
 
         for (String x : operatorMap.keySet()) {
-            if((ctx.getText().indexOf(x) != -1)){
-                if (!table.containsKey(x)){
-                    table.put(x, 1);
-                    n1++;
-                    N1++;
-                }else{
-                    int num_ocurrences = table.get(x);
-                    table.put(x, ++num_ocurrences);
-                    N1++;
-                }
-            }
+            countOperators(ctx.getText(), x);
         }       
      }
 
      /* operador bitwise & */
      @Override public void enterAndExpression(Java8Parser.AndExpressionContext ctx) { 
-        if((ctx.getText().indexOf('&') != -1)){
-            if (!table.containsKey("&")){
-                table.put("&", 1);
-                n1++;
-                N1++;
-            }else{
-                int num_ocurrences = table.get("&");
-                table.put("&",++num_ocurrences);
-                N1++;
-            }
-        }
+        countOperators(ctx.getText(), "&");
     }
     /**Post increment a++ */
     @Override public void enterPostIncrementExpression(Java8Parser.PostIncrementExpressionContext ctx) {
-        if((ctx.getText().indexOf("++") != -1)){
-            if (!table.containsKey("++")){
-                table.put("++", 1);
-                n1++;
-                N1++;
-            }else{
-                int num_ocurrences = table.get("++");
-                table.put("++",++num_ocurrences);
-                N1++;
-            }
-        }
+        countOperators(ctx.getText(), "++");
      }
      /**Preincremeto ++a */
     @Override public void enterPreIncrementExpression(Java8Parser.PreIncrementExpressionContext ctx) {
-        if((ctx.getText().indexOf("++") != -1)){
-            if (!table.containsKey("++")){
-                table.put("++", 1);
-                n1++;
-                N1++;
-            }else{
-                int num_ocurrences = table.get("++");
-                table.put("++",++num_ocurrences);
-                N1++;
-            }
-        }
+        countOperators(ctx.getText(), "++");
     }
     /**Predecrement -- */
     @Override public void enterPreDecrementExpression(Java8Parser.PreDecrementExpressionContext ctx) {
-        if((ctx.getText().indexOf("--") != -1)){
-            if (!table.containsKey("--")){
-                table.put("--", 1);
-                n1++;
-                N1++;
-            }else{
-                int num_ocurrences = table.get("--");
-                table.put("--",++num_ocurrences);
-                N1++;
-            }
-        }
+        countOperators(ctx.getText(), "--");
     }
     /**Relational expression <, >, >=, <= */
     @Override public void enterRelationalExpression(Java8Parser.RelationalExpressionContext ctx) {
@@ -505,17 +270,7 @@ public class metricador extends Java8BaseListener{
         } else {
             first = ">";
         }
-        if((ctx.getText().indexOf(first) != -1)){
-            if (!table.containsKey(first)){
-                table.put(first, 1);
-                n1++;
-                N1++;
-            }else{
-                int num_ocurrences = table.get(first);
-                table.put(first,++num_ocurrences);
-                N1++;
-            }
-        }
+        countOperators(ctx.getText(), first);
     }
     /**EqualityExpression a==b, a!=b */
     @Override public void enterEqualityExpression(Java8Parser.EqualityExpressionContext ctx) {
@@ -526,139 +281,51 @@ public class metricador extends Java8BaseListener{
         } else {
             first = "!=";
         }
-        if((ctx.getText().indexOf(first) != -1)){
-            if (!table.containsKey(first)){
-                table.put(first, 1);
-                n1++;
-                N1++;
-            }else{
-                int num_ocurrences = table.get(first);
-                table.put(first,++num_ocurrences);
-                N1++;
-            }
-        }
+        countOperators(ctx.getText(), first);
      }
      /* return statement*/
      @Override public void enterReturnStatement(Java8Parser.ReturnStatementContext ctx) {
-        if((ctx.getText().indexOf("return") != -1)){
-            if (!table.containsKey("return")){
-                table.put("return", 1);
-                n1++;
-                N1++;
-            }else{
-                int num_ocurrences = table.get("return");
-                table.put("return",++num_ocurrences);
-                N1++;
-            }
-        }
+        countOperators(ctx.getText(), "return");
     }
     /* contador de declaraciones de [] arrays incluyendo matrices*/
     @Override public void enterDims(Java8Parser.DimsContext ctx) { 
         contadorArrays++;
-        if(!table.containsKey("[]")){
-            table.put("[]", 1);
-            n1++;
-            N1++;
-        }else{
-            int num_ocurrences = table.get("[]");
-            table.put("[]", ++num_ocurrences);
-            N1++;
-        }
+        countOperators(ctx.getText(), "[]");
     }
 
     /* contador de imports*/
     @Override public void enterImportDeclaration(Java8Parser.ImportDeclarationContext ctx) { 
         contadorImports++;
-        if(!table.containsKey("import")){
-            table.put("import", 1);
-            n1++;
-            N1++;
-        }else{
-            int num_ocurrences = table.get("import");
-            table.put("import", ++num_ocurrences);
-            N1++;
-        }
+        countOperators(ctx.getText(), "import");
     }
     /* contador de clases*/
     @Override public void enterNormalClassDeclaration(Java8Parser.NormalClassDeclarationContext ctx) { 
         contadorClases++;
-        if(!table.containsKey("class")){
-            table.put("class", 1);
-            n1++;
-            N1++;
-        }else{
-            int num_ocurrences = table.get("class");
-            table.put("class", ++num_ocurrences);
-            N1++;
-        }
+        countOperators(ctx.getText(), "class");
     }
     /* contador de los new */
     @Override public void enterArrayCreationExpression(Java8Parser.ArrayCreationExpressionContext ctx) { 
-        if(!table.containsKey("new")){
-            table.put("new", 1);
-            n1++;
-            N1++;
-        }else{
-            int num_ocurrences = table.get("new");
-            table.put("new", ++num_ocurrences);
-            N1++;
-        }
+        countOperators(ctx.getText(), "new");
     }
 
     /*contador para los modificadores de acceso de las clases (private protected public) */
     @Override public void enterClassModifier(Java8Parser.ClassModifierContext ctx) { 
-        if(!table.containsKey("classMod")){
-            table.put("classMod", 1);
-            n1++;
-            N1++;
-        }else{
-            int num_ocurrences = table.get("classMod");
-            table.put("classMod", ++num_ocurrences);
-            N1++;
-        }
+        countOperators(ctx.getText(), "classMod");
     }
 
     /* contador modificadores para funciones (private public static ...) */
     @Override public void enterMethodModifier(Java8Parser.MethodModifierContext ctx) { 
-        if(!table.containsKey("methodMod")){
-            table.put("methodMod", 1);
-            n1++;
-            N1++;
-        }else{
-            int num_ocurrences = table.get("methodMod");
-            table.put("methodMod", ++num_ocurrences);
-            N1++;
-        }
+        countOperators(ctx.getText(), "methodMod");
     }
 
     /* contador para cuando se usa lenght */
     @Override public void enterExpressionName(Java8Parser.ExpressionNameContext ctx) { 
-        if((ctx.getText().indexOf("length") != -1)){
-            if (!table.containsKey("length")){
-                table.put("length", 1);
-                n1++;
-                N1++;
-            }else{
-                int num_ocurrences = table.get("length");
-                table.put("length",++num_ocurrences);
-                N1++;
-            }
-        }
+        countOperators(ctx.getText(), "length");
     }
 
     /* contador para la expresion this */
     @Override public void enterPrimary(Java8Parser.PrimaryContext ctx) { 
-        if((ctx.getText().indexOf("this") != -1)){
-            if (!table.containsKey("this")){
-                table.put("this", 1);
-                n1++;
-                N1++;
-            }else{
-                int num_ocurrences = table.get("this");
-                table.put("this",++num_ocurrences);
-                N1++;
-            }
-        }
+        countOperators(ctx.getText(), "methodMod");
     }
     /* contador de todos los tipos de dato (int float boolean ...) */
     @Override public void enterUnannType(Java8Parser.UnannTypeContext ctx) { 
@@ -679,18 +346,7 @@ public class metricador extends Java8BaseListener{
         int max = Collections.max(Arrays.asList(possibles));
         int index = Arrays.asList(possibles).indexOf(max);
         first = names[index];
-
-        if((ctx.getText().indexOf(first) != -1)){
-            if (!datatypes.containsKey(first)){
-                datatypes.put(first, 1);
-                n2++;
-                N2++;
-            }else{
-                int num_ocurrences = datatypes.get(first);
-                datatypes.put(first,++num_ocurrences);
-                N2++;
-            }
-        }        
+        countOperands(ctx.getText(), first); 
     }
     /* contador de veces que se llama un id como operando*/
     @Override public void enterVariableDeclaratorId(Java8Parser.VariableDeclaratorIdContext ctx) {
@@ -730,18 +386,7 @@ public class metricador extends Java8BaseListener{
         int max = Collections.max(Arrays.asList(possibles));
         int index = Arrays.asList(possibles).indexOf(max);
         first = names[index];
-
-        if((ctx.getText().indexOf(first) != -1)){
-            if (!methodtypes.containsKey(first)){
-                methodtypes.put(first, 1);
-                n2++;
-                N2++;
-            }else{
-                int num_ocurrences = methodtypes.get(first);
-                methodtypes.put(first,++num_ocurrences);
-                N2++;
-            }
-        }        
+        countOperands(ctx.getText(), first); 
      }
 
 
