@@ -41,13 +41,13 @@ public class metricador extends Java8BaseListener{
     }
     public void countOperands(String ctx, String first) {
         if (ctx.indexOf(first) != -1) {            
-            if (!table.containsKey(first)) {                
-                table.put(first, 1);
+            if (!datatypes.containsKey(first)) {                
+                datatypes.put(first, 1);
                 n2++;
                 N2++;                
             } else {                
-                int num_ocurrences = table.get(first);
-                table.put(first,++num_ocurrences);
+                int num_ocurrences = datatypes.get(first);
+                datatypes.put(first,++num_ocurrences);
                 N2++;                
             }
         }
@@ -97,7 +97,7 @@ public class metricador extends Java8BaseListener{
         double V = N * (Math.log(n1+n2) / (Math.log(2)));  
         double L = (2.0*n2) / (n1*N2);
         double E = (n1+N2 * (N1+N2)* (Math.log(n1+n2) / (Math.log(2))) ) / (2*n2);    
-        System.out.println("Longitud del programa: "+N);
+        System.out.println("Longitud del programa: "+ (int) N);
         System.out.println("Volumen del programa: "+V);
         System.out.println("Nivel de especificacion de abtraccion: "+L);
         System.out.println("Esfuerzo del programa: "+E);
