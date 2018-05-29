@@ -24,6 +24,11 @@ public class metricador extends Java8BaseListener{
     Map <String, Integer> tableIndex = new HashMap<String, Integer>();
     Map <Integer, String> tableName = new HashMap<Integer, String>();
     List< Map <String, Float> > tables = new ArrayList<Map<String, Float>>();
+
+    /*para sacar los metodos que tiene una funcion*/
+    String nameClass = "";
+    List<String []> graph= new ArrayList<String []>();
+
     String currentTable;
 
     public void countOperators(String ctx, String first) {
@@ -72,6 +77,8 @@ public class metricador extends Java8BaseListener{
         tableName.put(tables.size(), name);
         tables.add(newTable);
         currentTable = name;
+
+        
      }
 
     @Override public void exitMethodDeclaration(Java8Parser.MethodDeclarationContext ctx) {
@@ -302,7 +309,15 @@ public class metricador extends Java8BaseListener{
     @Override public void enterNormalClassDeclaration(Java8Parser.NormalClassDeclarationContext ctx) { 
         contadorClases++;
         countOperators(ctx.getText(), "class");
+        nameClass = ctx.Identifier().getText();
+        
     }
+
+    /*reset del nombre de clase en analisis*/
+    @Override public void exitNormalClassDeclaration(Java8Parser.NormalClassDeclarationContext ctx) { 
+        nameClass = "";
+    }
+
     /* contador de los new */
     @Override public void enterArrayCreationExpression(Java8Parser.ArrayCreationExpressionContext ctx) { 
         countOperators(ctx.getText(), "new");
