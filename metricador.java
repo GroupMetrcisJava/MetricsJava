@@ -21,13 +21,28 @@ public class metricador extends Java8BaseListener{
     Map <String, Integer> datatypes = new HashMap<String, Integer>();
     Map <String, Integer> methodtypes = new HashMap<String, Integer>();
 
+    /*tableIndex me da la correspondencia entre nombre de la tabla y el indice donde esta en la lista tables*/
+
     Map <String, Integer> tableIndex = new HashMap<String, Integer>();
+
+    /*tablename me da la correspondencia entre indice de la tabla (indice donde esta en la lista tables)
+    * y su correspondencia con el nombre de la tabla
+    * Se usara para hallar la tabla actual una vez que acabe de sacar las estadisticas de la funcion
+    */
+
     Map <Integer, String> tableName = new HashMap<Integer, String>();
+
+    /**Lista de mapas que contendran los datos numericos por funcion */
+    
     List< Map <String, Float> > tables = new ArrayList<Map<String, Float>>();
+
+    /**Este string me indica cual es el nombre de la tabla actual */
     String currentTable;
 
     public void countOperators(String ctx, String first) {
-        if (ctx.indexOf(first) != -1) {            
+        if (ctx.indexOf(first) != -1) {
+            //Map<String, Float> auxTable = tables.get(tableIndex.get(currentTable));
+            System.out.println("tabla funciones: " + tables);  
             if (!table.containsKey(first)) {                
                 table.put(first, 1);
                 n1++;
