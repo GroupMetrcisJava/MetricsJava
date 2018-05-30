@@ -1,0 +1,11 @@
+java correr ./Ejemplos/entrada2.in
+java correr ./Ejemplos/entrada2.in > salida.txt
+python3 graficador.py
+
+java correr ./Ejemplos/entrada4.in
+java correr ./Ejemplos/entrada4.in > salida.txt
+python3 graficador.py
+
+java correr ./Ejemplos/entrada5.in
+java correr ./Ejemplos/entrada5.in > salida.txt
+python3 graficador.py

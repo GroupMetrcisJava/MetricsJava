@@ -1,78 +1,915 @@
+# Variables locales: 4
+
+Nombre tabla: countOperators
+tabla: {n1=11.0, N1=47.0, n2=10.0, N2=13.0}
+tipos dato: {&&=2, ===2, ++=3, !=1, n1=1, N1=1, symAux=1, ctx=1, numAux=1, String=4, +=3, float=1, -=11, int=1, else=3, num_ocurrences=1, !==3, if=6, ==9, first=1, >=4}
+HALSTEAD MEDIDAS: ------
+N1: 47
+N2: 13
+n1: 11
+n2: 10
+Longitud del programa: 60
+Volumen del programa: 263.53904536672565
+Nivel de especificacion de abtraccion: 0.13986013986013987
+Esfuerzo del programa: 171.85037948837166
+
+# Variables locales: 4
+
+Nombre tabla: countOperands
+tabla: {n1=11.0, N1=47.0, n2=10.0, N2=13.0}
+tipos dato: {&&=2, ===2, ++=3, !=1, n2=1, N2=1, ctx=1, numAux=1, String=4, +=3, float=1, -=11, int=1, else=3, varAux=1, num_ocurrences=1, !==3, if=6, ==9, first=1, >=4}
+HALSTEAD MEDIDAS: ------
+N1: 47
+N2: 13
+n1: 11
+n2: 10
+Longitud del programa: 60
+Volumen del programa: 263.53904536672565
+Nivel de especificacion de abtraccion: 0.13986013986013987
+Esfuerzo del programa: 171.85037948837166
+
 # Variables locales: 3
 
-Nombre tabla: funcion2
-tabla: {n1=4.0, N1=6.0, n2=6.0, N2=6.0}
-tipos dato: {a=1, boolean=1, v=1, w=1, true=1, false=1, float=1, while=1, ==3, int=1}
+Nombre tabla: exitNormalClassDeclaration
+tabla: {n1=3.0, N1=20.0, n2=5.0, N2=7.0}
+tipos dato: {symAux=1, ctx=1, numAux=1, varAux=1, String=3, +=3, ==4, -=13}
 HALSTEAD MEDIDAS: ------
-N1: 6
-N2: 6
-n1: 4
-n2: 6
-Longitud del programa: 12
-Volumen del programa: 39.863137138648355
-Nivel de especificacion de abtraccion: 0.5
-Esfuerzo del programa: 20.26490190265751
+N1: 20
+N2: 7
+n1: 3
+n2: 5
+Longitud del programa: 27
+Volumen del programa: 81.0
+Nivel de especificacion de abtraccion: 0.47619047619047616
+Esfuerzo del programa: 57.0
 
-# Variables locales: 3
+# Variables locales: 0
 
-Nombre tabla: funcion3
-tabla: {n1=1.0, N1=3.0, n2=6.0, N2=6.0}
-tipos dato: {a=1, b=1, c=1, String=1, float=1, ==3, int=1}
+Nombre tabla: enterLocalVariableDeclarationStatement
+tabla: {n1=1.0, N1=1.0, n2=1.0, N2=1.0}
+tipos dato: {++=1, ctx=1}
 HALSTEAD MEDIDAS: ------
-N1: 3
-N2: 6
+N1: 1
+N2: 1
 n1: 1
-n2: 6
-Longitud del programa: 9
-Volumen del programa: 25.26619429851844
+n2: 1
+Longitud del programa: 2
+Volumen del programa: 2.0
 Nivel de especificacion de abtraccion: 2.0
-Esfuerzo del programa: 12.716430482592552
+Esfuerzo del programa: 1.5
+
+# Variables locales: 5
+
+Nombre tabla: enterMethodDeclarator
+tabla: {n1=4.0, N1=13.0, n2=7.0, N2=11.0}
+tipos dato: {new=1, newVarTable=1, []=1, ctx=1, context=1, name=1, newTable=1, arrayCadena[]=1, String=5, ==9, >=2}
+HALSTEAD MEDIDAS: ------
+N1: 13
+N2: 11
+n1: 4
+n2: 7
+Longitud del programa: 24
+Volumen del programa: 83.02635884729514
+Nivel de especificacion de abtraccion: 0.3181818181818182
+Esfuerzo del programa: 65.52071052287475
+
+# Variables locales: 14
+
+Nombre tabla: exitMethodDeclaration
+tabla: {n1=10.0, N1=86.0, n2=25.0, N2=39.0}
+tipos dato: {n1=1, n2=1, E=1, numAux=1, for=2, concurrences=2, String=8, float=2, L=1, N=1, V=1, else=2, auxSymClass=1, classn1=1, if=3, classn2=1, auxSymFun=1, ++=1, N1=1, N2=1, ctx=1, double=4, *=7, +=27, auxVarClass=1, -=16, int=2, /=5, auxNumClass=1, auxVarFun=1, x=2, classN1=1, ==22, classN2=1, >=1}
+HALSTEAD MEDIDAS: ------
+N1: 86
+N2: 39
+n1: 10
+n2: 25
+Longitud del programa: 125
+Volumen del programa: 641.1603771181208
+Nivel de especificacion de abtraccion: 0.1282051282051282
+Esfuerzo del programa: 500.3050941521342
 
 # Variables locales: 3
 
-Nombre tabla: main
-tabla: {n1=7.0, N1=10.0, n2=8.0, N2=10.0}
-tipos dato: {++=1, []=1, d=1, for=1, i=1, String=1, float=1, int=3, args=1, true=1, y=1, z=1, <=1, ==4, if=1}
+Nombre tabla: exitCompilationUnit
+tabla: {n1=9.0, N1=22.0, n2=7.0, N2=9.0}
+tipos dato: {++=1, []=2, ctx=1, &=4, itr=1, edges=1, for=1, length=1, i=1, +=6, String=3, while=1, int=1, palabras=1, <=1, ==5}
 HALSTEAD MEDIDAS: ------
-N1: 10
-N2: 10
+N1: 22
+N2: 9
+n1: 9
+n2: 7
+Longitud del programa: 31
+Volumen del programa: 124.0
+Nivel de especificacion de abtraccion: 0.1728395061728395
+Esfuerzo del programa: 80.35714285714286
+
+# Variables locales: 0
+
+Nombre tabla: enterVariableDeclarator
+tabla: {n1=0.0, N1=0.0, n2=1.0, N2=1.0}
+tipos dato: {ctx=1}
+HALSTEAD MEDIDAS: ------
+N1: 0
+N2: 1
+n1: 0
+n2: 1
+Longitud del programa: 1
+Volumen del programa: 0.0
+Nivel de especificacion de abtraccion: Infinity
+Esfuerzo del programa: 0.0
+
+# Variables locales: 2
+
+Nombre tabla: enterAdditiveExpression
+tabla: {n1=7.0, N1=16.0, n2=5.0, N2=5.0}
+tipos dato: {possibles=1, ===1, []=1, ctx=1, else=1, context=1, String=1, +=5, ==4, -=3, if=1, first=1}
+HALSTEAD MEDIDAS: ------
+N1: 16
+N2: 5
+n1: 7
+n2: 5
+Longitud del programa: 21
+Volumen del programa: 75.28421251514429
+Nivel de especificacion de abtraccion: 0.2857142857142857
+Esfuerzo del programa: 38.34210625757214
+
+# Variables locales: 2
+
+Nombre tabla: enterMultiplicativeExpression
+tabla: {n1=8.0, N1=25.0, n2=5.0, N2=5.0}
+tipos dato: {===2, []=1, %=3, ctx=1, *=5, String=1, /=5, possibles=1, else=2, context=1, ==5, if=2, first=1}
+HALSTEAD MEDIDAS: ------
+N1: 25
+N2: 5
+n1: 8
+n2: 5
+Longitud del programa: 30
+Volumen del programa: 111.01319154423277
+Nivel de especificacion de abtraccion: 0.25
+Esfuerzo del programa: 56.30659577211638
+
+# Variables locales: 1
+
+Nombre tabla: enterIfThenStatement
+tabla: {n1=5.0, N1=9.0, n2=3.0, N2=3.0}
+tipos dato: {new=1, []=1, ctx=1, else=1, arrayCadena[]=1, String=1, ==5, if=1}
+HALSTEAD MEDIDAS: ------
+N1: 9
+N2: 3
+n1: 5
+n2: 3
+Longitud del programa: 12
+Volumen del programa: 36.0
+Nivel de especificacion de abtraccion: 0.4
+Esfuerzo del programa: 18.833333333333332
+
+# Variables locales: 0
+
+Nombre tabla: exitIfThenStatement
+tabla: {n1=1.0, N1=1.0, n2=1.0, N2=1.0}
+tipos dato: {ctx=1, ==1}
+HALSTEAD MEDIDAS: ------
+N1: 1
+N2: 1
+n1: 1
+n2: 1
+Longitud del programa: 2
+Volumen del programa: 2.0
+Nivel de especificacion de abtraccion: 2.0
+Esfuerzo del programa: 1.5
+
+# Variables locales: 0
+
+Nombre tabla: enterIfThenElseStatement
+tabla: {n1=0.0, N1=0.0, n2=1.0, N2=1.0}
+tipos dato: {ctx=1}
+HALSTEAD MEDIDAS: ------
+N1: 0
+N2: 1
+n1: 0
+n2: 1
+Longitud del programa: 1
+Volumen del programa: 0.0
+Nivel de especificacion de abtraccion: Infinity
+Esfuerzo del programa: 0.0
+
+# Variables locales: 0
+
+Nombre tabla: enterSwitchStatement
+tabla: {n1=0.0, N1=0.0, n2=1.0, N2=1.0}
+tipos dato: {ctx=1}
+HALSTEAD MEDIDAS: ------
+N1: 0
+N2: 1
+n1: 0
+n2: 1
+Longitud del programa: 1
+Volumen del programa: 0.0
+Nivel de especificacion de abtraccion: Infinity
+Esfuerzo del programa: 0.0
+
+# Variables locales: 0
+
+Nombre tabla: enterSwitchLabel
+tabla: {n1=0.0, N1=0.0, n2=1.0, N2=1.0}
+tipos dato: {ctx=1}
+HALSTEAD MEDIDAS: ------
+N1: 0
+N2: 1
+n1: 0
+n2: 1
+Longitud del programa: 1
+Volumen del programa: 0.0
+Nivel de especificacion de abtraccion: Infinity
+Esfuerzo del programa: 0.0
+
+# Variables locales: 0
+
+Nombre tabla: enterBreakStatement
+tabla: {n1=0.0, N1=0.0, n2=1.0, N2=1.0}
+tipos dato: {ctx=1}
+HALSTEAD MEDIDAS: ------
+N1: 0
+N2: 1
+n1: 0
+n2: 1
+Longitud del programa: 1
+Volumen del programa: 0.0
+Nivel de especificacion de abtraccion: Infinity
+Esfuerzo del programa: 0.0
+
+# Variables locales: 1
+
+Nombre tabla: enterForStatement
+tabla: {n1=5.0, N1=9.0, n2=3.0, N2=3.0}
+tipos dato: {new=1, []=1, ctx=1, else=1, arrayCadena[]=1, String=1, ==5, if=1}
+HALSTEAD MEDIDAS: ------
+N1: 9
+N2: 3
+n1: 5
+n2: 3
+Longitud del programa: 12
+Volumen del programa: 36.0
+Nivel de especificacion de abtraccion: 0.4
+Esfuerzo del programa: 18.833333333333332
+
+# Variables locales: 0
+
+Nombre tabla: exitForStatement
+tabla: {n1=1.0, N1=1.0, n2=1.0, N2=1.0}
+tipos dato: {ctx=1, ==1}
+HALSTEAD MEDIDAS: ------
+N1: 1
+N2: 1
+n1: 1
+n2: 1
+Longitud del programa: 2
+Volumen del programa: 2.0
+Nivel de especificacion de abtraccion: 2.0
+Esfuerzo del programa: 1.5
+
+# Variables locales: 0
+
+Nombre tabla: enterContinueStatement
+tabla: {n1=0.0, N1=0.0, n2=1.0, N2=1.0}
+tipos dato: {ctx=1}
+HALSTEAD MEDIDAS: ------
+N1: 0
+N2: 1
+n1: 0
+n2: 1
+Longitud del programa: 1
+Volumen del programa: 0.0
+Nivel de especificacion de abtraccion: Infinity
+Esfuerzo del programa: 0.0
+
+# Variables locales: 0
+
+Nombre tabla: enterDoStatement
+tabla: {n1=0.0, N1=0.0, n2=1.0, N2=1.0}
+tipos dato: {ctx=1}
+HALSTEAD MEDIDAS: ------
+N1: 0
+N2: 1
+n1: 0
+n2: 1
+Longitud del programa: 1
+Volumen del programa: 0.0
+Nivel de especificacion de abtraccion: Infinity
+Esfuerzo del programa: 0.0
+
+# Variables locales: 1
+
+Nombre tabla: enterWhileStatement
+tabla: {n1=5.0, N1=9.0, n2=3.0, N2=3.0}
+tipos dato: {new=1, []=1, ctx=1, else=1, arrayCadena[]=1, String=1, ==5, if=1}
+HALSTEAD MEDIDAS: ------
+N1: 9
+N2: 3
+n1: 5
+n2: 3
+Longitud del programa: 12
+Volumen del programa: 36.0
+Nivel de especificacion de abtraccion: 0.4
+Esfuerzo del programa: 18.833333333333332
+
+# Variables locales: 0
+
+Nombre tabla: exitWhileStatement
+tabla: {n1=1.0, N1=1.0, n2=1.0, N2=1.0}
+tipos dato: {ctx=1, ==1}
+HALSTEAD MEDIDAS: ------
+N1: 1
+N2: 1
+n1: 1
+n2: 1
+Longitud del programa: 2
+Volumen del programa: 2.0
+Nivel de especificacion de abtraccion: 2.0
+Esfuerzo del programa: 1.5
+
+# Variables locales: 0
+
+Nombre tabla: enterLiteral
+tabla: {n1=2.0, N1=2.0, n2=1.0, N2=1.0}
+tipos dato: {ctx=1, true=1, false=1}
+HALSTEAD MEDIDAS: ------
+N1: 2
+N2: 1
+n1: 2
+n2: 1
+Longitud del programa: 3
+Volumen del programa: 4.754887502163469
+Nivel de especificacion de abtraccion: 1.0
+Esfuerzo del programa: 3.3774437510817346
+
+# Variables locales: 0
+
+Nombre tabla: enterConditionalAndExpression
+tabla: {n1=2.0, N1=2.0, n2=1.0, N2=1.0}
+tipos dato: {&&=1, ctx=1, &=1}
+HALSTEAD MEDIDAS: ------
+N1: 2
+N2: 1
+n1: 2
+n2: 1
+Longitud del programa: 3
+Volumen del programa: 4.754887502163469
+Nivel de especificacion de abtraccion: 1.0
+Esfuerzo del programa: 3.3774437510817346
+
+# Variables locales: 0
+
+Nombre tabla: enterConditionalOrExpression
+tabla: {n1=1.0, N1=1.0, n2=1.0, N2=1.0}
+tipos dato: {||=1, ctx=1}
+HALSTEAD MEDIDAS: ------
+N1: 1
+N2: 1
+n1: 1
+n2: 1
+Longitud del programa: 2
+Volumen del programa: 2.0
+Nivel de especificacion de abtraccion: 2.0
+Esfuerzo del programa: 1.5
+
+# Variables locales: 0
+
+Nombre tabla: enterUnaryExpressionNotPlusMinus
+tabla: {n1=1.0, N1=1.0, n2=1.0, N2=1.0}
+tipos dato: {!=1, ctx=1}
+HALSTEAD MEDIDAS: ------
+N1: 1
+N2: 1
+n1: 1
+n2: 1
+Longitud del programa: 2
+Volumen del programa: 2.0
+Nivel de especificacion de abtraccion: 2.0
+Esfuerzo del programa: 1.5
+
+# Variables locales: 1
+
+Nombre tabla: enterAssignmentOperator
+tabla: {n1=11.0, N1=12.0, n2=4.0, N2=5.0}
+tipos dato: {<==1, %=1, ctx=1, &=1, operatorMap=1, for=1, *=1, String=2, +=1, -=1, /=1, x=1, ==1, >=1, >==2}
+HALSTEAD MEDIDAS: ------
+N1: 12
+N2: 5
+n1: 11
+n2: 4
+Longitud del programa: 17
+Volumen del programa: 66.41714012534482
+Nivel de especificacion de abtraccion: 0.14545454545454545
+Esfuerzo del programa: 42.88571257834051
+
+# Variables locales: 0
+
+Nombre tabla: enterAndExpression
+tabla: {n1=1.0, N1=1.0, n2=1.0, N2=1.0}
+tipos dato: {ctx=1, &=1}
+HALSTEAD MEDIDAS: ------
+N1: 1
+N2: 1
+n1: 1
+n2: 1
+Longitud del programa: 2
+Volumen del programa: 2.0
+Nivel de especificacion de abtraccion: 2.0
+Esfuerzo del programa: 1.5
+
+# Variables locales: 0
+
+Nombre tabla: enterPostIncrementExpression
+tabla: {n1=1.0, N1=1.0, n2=1.0, N2=1.0}
+tipos dato: {ctx=1, +=1}
+HALSTEAD MEDIDAS: ------
+N1: 1
+N2: 1
+n1: 1
+n2: 1
+Longitud del programa: 2
+Volumen del programa: 2.0
+Nivel de especificacion de abtraccion: 2.0
+Esfuerzo del programa: 1.5
+
+# Variables locales: 0
+
+Nombre tabla: enterPreIncrementExpression
+tabla: {n1=1.0, N1=1.0, n2=1.0, N2=1.0}
+tipos dato: {ctx=1, +=1}
+HALSTEAD MEDIDAS: ------
+N1: 1
+N2: 1
+n1: 1
+n2: 1
+Longitud del programa: 2
+Volumen del programa: 2.0
+Nivel de especificacion de abtraccion: 2.0
+Esfuerzo del programa: 1.5
+
+# Variables locales: 0
+
+Nombre tabla: enterPreDecrementExpression
+tabla: {n1=1.0, N1=1.0, n2=1.0, N2=1.0}
+tipos dato: {ctx=1, -=1}
+HALSTEAD MEDIDAS: ------
+N1: 1
+N2: 1
+n1: 1
+n2: 1
+Longitud del programa: 2
+Volumen del programa: 2.0
+Nivel de especificacion de abtraccion: 2.0
+Esfuerzo del programa: 1.5
+
+# Variables locales: 2
+
+Nombre tabla: enterRelationalExpression
+tabla: {n1=9.0, N1=34.0, n2=5.0, N2=5.0}
+tipos dato: {===3, <==5, []=1, ctx=1, String=1, possible=1, else=3, context=1, <=5, ==6, if=3, first=1, >=3, >==5}
+HALSTEAD MEDIDAS: ------
+N1: 34
+N2: 5
+n1: 9
+n2: 5
+Longitud del programa: 39
+Volumen del programa: 148.48684196024655
+Nivel de especificacion de abtraccion: 0.2222222222222222
+Esfuerzo del programa: 75.14342098012328
+
+# Variables locales: 2
+
+Nombre tabla: enterEqualityExpression
+tabla: {n1=7.0, N1=19.0, n2=5.0, N2=5.0}
+tipos dato: {===6, !=3, []=1, ctx=1, else=1, context=1, String=1, possible=1, !==3, ==4, if=1, first=1}
+HALSTEAD MEDIDAS: ------
+N1: 19
+N2: 5
+n1: 7
+n2: 5
+Longitud del programa: 24
+Volumen del programa: 86.03910001730776
+Nivel de especificacion de abtraccion: 0.2857142857142857
+Esfuerzo del programa: 43.71955000865388
+
+# Variables locales: 0
+
+Nombre tabla: enterReturnStatement
+tabla: {n1=0.0, N1=0.0, n2=1.0, N2=1.0}
+tipos dato: {ctx=1}
+HALSTEAD MEDIDAS: ------
+N1: 0
+N2: 1
+n1: 0
+n2: 1
+Longitud del programa: 1
+Volumen del programa: 0.0
+Nivel de especificacion de abtraccion: Infinity
+Esfuerzo del programa: 0.0
+
+# Variables locales: 0
+
+Nombre tabla: enterDims
+tabla: {n1=1.0, N1=1.0, n2=1.0, N2=1.0}
+tipos dato: {++=1, ctx=1}
+HALSTEAD MEDIDAS: ------
+N1: 1
+N2: 1
+n1: 1
+n2: 1
+Longitud del programa: 2
+Volumen del programa: 2.0
+Nivel de especificacion de abtraccion: 2.0
+Esfuerzo del programa: 1.5
+
+# Variables locales: 0
+
+Nombre tabla: enterImportDeclaration
+tabla: {n1=1.0, N1=1.0, n2=1.0, N2=1.0}
+tipos dato: {++=1, ctx=1}
+HALSTEAD MEDIDAS: ------
+N1: 1
+N2: 1
+n1: 1
+n2: 1
+Longitud del programa: 2
+Volumen del programa: 2.0
+Nivel de especificacion de abtraccion: 2.0
+Esfuerzo del programa: 1.5
+
+# Variables locales: 6
+
+Nombre tabla: enterNormalClassDeclaration
+tabla: {n1=7.0, N1=16.0, n2=8.0, N2=13.0}
+tipos dato: {++=1, new=1, newVarTable=1, []=1, subClass=1, ctx=1, String=6, else=1, context=1, name=1, newTable=1, arrayCadena[]=1, ==9, if=1, >=2}
+HALSTEAD MEDIDAS: ------
+N1: 16
+N2: 13
 n1: 7
 n2: 8
+Longitud del programa: 29
+Volumen del programa: 113.29982727264704
+Nivel de especificacion de abtraccion: 0.17582417582417584
+Esfuerzo del programa: 92.49360965902572
+
+# Variables locales: 0
+
+Nombre tabla: enterArrayCreationExpression
+tabla: {n1=0.0, N1=0.0, n2=1.0, N2=1.0}
+tipos dato: {ctx=1}
+HALSTEAD MEDIDAS: ------
+N1: 0
+N2: 1
+n1: 0
+n2: 1
+Longitud del programa: 1
+Volumen del programa: 0.0
+Nivel de especificacion de abtraccion: Infinity
+Esfuerzo del programa: 0.0
+
+# Variables locales: 0
+
+Nombre tabla: enterClassModifier
+tabla: {n1=0.0, N1=0.0, n2=1.0, N2=1.0}
+tipos dato: {ctx=1}
+HALSTEAD MEDIDAS: ------
+N1: 0
+N2: 1
+n1: 0
+n2: 1
+Longitud del programa: 1
+Volumen del programa: 0.0
+Nivel de especificacion de abtraccion: Infinity
+Esfuerzo del programa: 0.0
+
+# Variables locales: 0
+
+Nombre tabla: enterMethodModifier
+tabla: {n1=1.0, N1=1.0, n2=1.0, N2=1.0}
+tipos dato: {ctx=1, methodMod=1}
+HALSTEAD MEDIDAS: ------
+N1: 1
+N2: 1
+n1: 1
+n2: 1
+Longitud del programa: 2
+Volumen del programa: 2.0
+Nivel de especificacion de abtraccion: 2.0
+Esfuerzo del programa: 1.5
+
+# Variables locales: 0
+
+Nombre tabla: enterExpressionName
+tabla: {n1=0.0, N1=0.0, n2=1.0, N2=1.0}
+tipos dato: {ctx=1}
+HALSTEAD MEDIDAS: ------
+N1: 0
+N2: 1
+n1: 0
+n2: 1
+Longitud del programa: 1
+Volumen del programa: 0.0
+Nivel de especificacion de abtraccion: Infinity
+Esfuerzo del programa: 0.0
+
+# Variables locales: 0
+
+Nombre tabla: enterPrimary
+tabla: {n1=1.0, N1=1.0, n2=1.0, N2=1.0}
+tipos dato: {ctx=1, methodMod=1}
+HALSTEAD MEDIDAS: ------
+N1: 1
+N2: 1
+n1: 1
+n2: 1
+Longitud del programa: 2
+Volumen del programa: 2.0
+Nivel de especificacion de abtraccion: 2.0
+Esfuerzo del programa: 1.5
+
+# Variables locales: 5
+
+Nombre tabla: enterUnannType
+tabla: {n1=3.0, N1=9.0, n2=9.0, N2=11.0}
+tipos dato: {++=1, possibles=1, []=2, names=1, max=1, ctx=1, context=1, index=1, String=2, ==6, first=1, int=2}
+HALSTEAD MEDIDAS: ------
+N1: 9
+N2: 11
+n1: 3
+n2: 9
 Longitud del programa: 20
-Volumen del programa: 78.13781191217038
-Nivel de especificacion de abtraccion: 0.22857142857142856
-Esfuerzo del programa: 49.273632445106486
+Volumen del programa: 71.69925001442313
+Nivel de especificacion de abtraccion: 0.5454545454545454
+Esfuerzo del programa: 43.98287500881414
+
+# Variables locales: 2
+
+Nombre tabla: enterVariableDeclaratorId
+tabla: {n1=6.0, N1=11.0, n2=4.0, N2=5.0}
+tipos dato: {++=1, new=1, []=1, ctx=1, else=1, arrayCadena[]=1, String=2, ==6, if=1, first=1}
+HALSTEAD MEDIDAS: ------
+N1: 11
+N2: 5
+n1: 6
+n2: 4
+Longitud del programa: 16
+Volumen del programa: 53.1508495181978
+Nivel de especificacion de abtraccion: 0.26666666666666666
+Esfuerzo del programa: 33.969280948873624
+
+# Variables locales: 0
+
+Nombre tabla: exitVariableDeclaratorId
+tabla: {n1=1.0, N1=1.0, n2=1.0, N2=1.0}
+tipos dato: {ctx=1, ==1}
+HALSTEAD MEDIDAS: ------
+N1: 1
+N2: 1
+n1: 1
+n2: 1
+Longitud del programa: 2
+Volumen del programa: 2.0
+Nivel de especificacion de abtraccion: 2.0
+Esfuerzo del programa: 1.5
+
+# Variables locales: 5
+
+Nombre tabla: enterResult
+tabla: {n1=2.0, N1=8.0, n2=9.0, N2=11.0}
+tipos dato: {possibles=1, []=2, names=1, max=1, ctx=1, context=1, index=1, String=2, ==6, first=1, int=2}
+HALSTEAD MEDIDAS: ------
+N1: 8
+N2: 11
+n1: 2
+n2: 9
+Longitud del programa: 19
+Volumen del programa: 65.72920075410866
+Nivel de especificacion de abtraccion: 0.8181818181818182
+Esfuerzo del programa: 40.27895601639974
 
 -------Just exited from a class
-Class: classinput
-numClass: {n1=15.0, N1=23.0, n2=26.0, N2=29.0}
-varClass: {array[]=1, for=2, String=4, float=7, while=2, class=1, if=2, ++=2, a=4, []=4, b=2, void=1, c=2, d=2, false=2, i=2, int=12, args=2, matrix[][]=1, r=1, boolean=2, v=2, w=2, true=4, y=2, z=2, <=2, ==21}
-symClass: {array[]=1, for=2, String=4, float=7, while=2, class=1, if=2, ++=2, a=4, []=4, b=2, void=1, c=2, d=2, false=2, i=2, int=12, args=2, matrix[][]=1, r=1, boolean=2, v=2, w=2, true=4, y=2, z=2, <=2, ==21}
-& Funciones: 3
-& Imports:  2
+Class: classmetricadorextendsJava8BaseListener
+numClass: {n1=146.0, N1=469.0, n2=183.0, N2=245.0}
+varClass: {numAux=8, operatorMap=2, String=114, tableName=1, nameMethod=1, possibles=8, tables=1, else=40, context=16, classn1=2, if=54, classn2=2, !=12, symFunc=1, %=8, ctx=92, double=8, &=14, index=4, *=26, +=100, symClass=1, -=112, /=22, nameIf=1, palabras=2, !==18, <=12, ==272, >=45, currentTable=1, E=2, concurrences=4, L=2, N=2, numClass=1, nameClass=1, contadorClases=1, V=2, num_ocurrences=4, auxSymFun=2, ++=28, []=34, symAux=4, subClass=2, max=4, i=2, possible=4, methodMod=4, auxNumClass=2, nameWhile=1, names=4, contadorTiposDato=1, x=6, newTable=4, contadorArrays=1, first=18, ||=2, <==12, n1=4, n2=4, varFunc=1, nameVariable=1, float=8, while=2, nameFor=1, ===32, new=12, void=1, N1=4, N2=4, itr=2, graph=1, auxVarFun=2, name=4, true=2, contadorLocales=1, tableIndex=1, >==14, &&=10, classes=1, for=8, contadorImports=1, contadorIds=1, contadorFunciones=1, auxSymClass=2, numFunc=1, class=1, newVarTable=4, varClass=1, edges=2, length=2, false=2, auxVarClass=2, int=25, varAux=4, arrayCadena[]=12, classN1=2, classN2=2}
+symClass: {numAux=8, operatorMap=2, String=114, tableName=1, nameMethod=1, possibles=8, tables=1, else=40, context=16, classn1=2, if=54, classn2=2, !=12, symFunc=1, %=8, ctx=92, double=8, &=14, index=4, *=26, +=100, symClass=1, -=112, /=22, nameIf=1, palabras=2, !==18, <=12, ==272, >=45, currentTable=1, E=2, concurrences=4, L=2, N=2, numClass=1, nameClass=1, contadorClases=1, V=2, num_ocurrences=4, auxSymFun=2, ++=28, []=34, symAux=4, subClass=2, max=4, i=2, possible=4, methodMod=4, auxNumClass=2, nameWhile=1, names=4, contadorTiposDato=1, x=6, newTable=4, contadorArrays=1, first=18, ||=2, <==12, n1=4, n2=4, varFunc=1, nameVariable=1, float=8, while=2, nameFor=1, ===32, new=12, void=1, N1=4, N2=4, itr=2, graph=1, auxVarFun=2, name=4, true=2, contadorLocales=1, tableIndex=1, >==14, &&=10, classes=1, for=8, contadorImports=1, contadorIds=1, contadorFunciones=1, auxSymClass=2, numFunc=1, class=1, newVarTable=4, varClass=1, edges=2, length=2, false=2, auxVarClass=2, int=25, varAux=4, arrayCadena[]=12, classN1=2, classN2=2}
+& Funciones: 46
+& Imports:  8
 & Clases: 1
-& Arreglos: 3
+& Arreglos: 18
 []
 {}
 DEPENDENCIAS:
-|input|r
-|input|array
-|input|matrix
-|input|funcion2
-|funcion2|w
-|funcion2|v
-|funcion2|WHILE
-|funcion2|a
-|input|funcion3
-|funcion3|b
-|funcion3|c
-|funcion3|a
-|input|main
-|main|args
-|main|z
-|main|FOR
-|main|i
-|main|d
-|main|IF
-|main|y
+|metricador|contadorFunciones
+|metricador|contadorLocales
+|metricador|contadorImports
+|metricador|contadorClases
+|metricador|contadorArrays
+|metricador|contadorTiposDato
+|metricador|contadorIds
+|metricador|numFunc
+|metricador|symFunc
+|metricador|varFunc
+|metricador|tableIndex
+|metricador|tableName
+|metricador|tables
+|metricador|nameClass
+|metricador|nameMethod
+|metricador|nameVariable
+|metricador|nameWhile
+|metricador|nameFor
+|metricador|nameIf
+|metricador|graph
+|metricador|numClass
+|metricador|varClass
+|metricador|symClass
+|metricador|classes
+|metricador|currentTable
+|metricador|countOperators
+|countOperators|ctx
+|countOperators|first
+|countOperators|IF
+|countOperators|numAux
+|countOperators|symAux
+|countOperators|IF
+|countOperators|n1
+|countOperators|N1
+|countOperators|num_ocurrences
+|countOperators|IF
+|metricador|countOperands
+|countOperands|ctx
+|countOperands|first
+|countOperands|IF
+|countOperands|numAux
+|countOperands|varAux
+|countOperands|IF
+|countOperands|n2
+|countOperands|N2
+|countOperands|num_ocurrences
+|countOperands|IF
+|metricador|exitNormalClassDeclaration
+|exitNormalClassDeclaration|ctx
+|exitNormalClassDeclaration|numAux
+|exitNormalClassDeclaration|varAux
+|exitNormalClassDeclaration|symAux
+|metricador|enterLocalVariableDeclarationStatement
+|enterLocalVariableDeclarationStatement|ctx
+|metricador|enterMethodDeclarator
+|enterMethodDeclarator|ctx
+|enterMethodDeclarator|context
+|enterMethodDeclarator|name
+|enterMethodDeclarator|newTable
+|enterMethodDeclarator|newVarTable
+|enterMethodDeclarator|arrayCadena
+|metricador|exitMethodDeclaration
+|exitMethodDeclaration|ctx
+|exitMethodDeclaration|numAux
+|exitMethodDeclaration|n1
+|exitMethodDeclaration|N1
+|exitMethodDeclaration|n2
+|exitMethodDeclaration|N2
+|exitMethodDeclaration|N
+|exitMethodDeclaration|V
+|exitMethodDeclaration|L
+|exitMethodDeclaration|E
+|exitMethodDeclaration|IF
+|exitMethodDeclaration|auxNumClass
+|exitMethodDeclaration|auxVarClass
+|exitMethodDeclaration|auxSymClass
+|exitMethodDeclaration|classn1
+|exitMethodDeclaration|classN1
+|exitMethodDeclaration|classn2
+|exitMethodDeclaration|classN2
+|exitMethodDeclaration|auxVarFun
+|exitMethodDeclaration|FOR
+|exitMethodDeclaration|x
+|exitMethodDeclaration|concurrences
+|exitMethodDeclaration|auxSymFun
+|exitMethodDeclaration|FOR
+|exitMethodDeclaration|x
+|exitMethodDeclaration|concurrences
+|metricador|exitCompilationUnit
+|exitCompilationUnit|ctx
+|exitCompilationUnit|itr
+|exitCompilationUnit|WHILE
+|exitCompilationUnit|palabras
+|exitCompilationUnit|edges
+|exitCompilationUnit|FOR
+|exitCompilationUnit|i
+|metricador|enterVariableDeclarator
+|enterVariableDeclarator|ctx
+|metricador|enterAdditiveExpression
+|enterAdditiveExpression|ctx
+|enterAdditiveExpression|first
+|enterAdditiveExpression|context
+|enterAdditiveExpression|possibles
+|metricador|enterMultiplicativeExpression
+|enterMultiplicativeExpression|ctx
+|enterMultiplicativeExpression|first
+|enterMultiplicativeExpression|context
+|enterMultiplicativeExpression|possibles
+|metricador|enterIfThenStatement
+|enterIfThenStatement|ctx
+|enterIfThenStatement|arrayCadena
+|metricador|exitIfThenStatement
+|exitIfThenStatement|ctx
+|metricador|enterIfThenElseStatement
+|enterIfThenElseStatement|ctx
+|metricador|enterSwitchStatement
+|enterSwitchStatement|ctx
+|metricador|enterSwitchLabel
+|enterSwitchLabel|ctx
+|metricador|enterBreakStatement
+|enterBreakStatement|ctx
+|metricador|enterForStatement
+|enterForStatement|ctx
+|enterForStatement|arrayCadena
+|metricador|exitForStatement
+|exitForStatement|ctx
+|metricador|enterContinueStatement
+|enterContinueStatement|ctx
+|metricador|enterDoStatement
+|enterDoStatement|ctx
+|metricador|enterWhileStatement
+|enterWhileStatement|ctx
+|enterWhileStatement|arrayCadena
+|metricador|exitWhileStatement
+|exitWhileStatement|ctx
+|metricador|enterLiteral
+|enterLiteral|ctx
+|metricador|enterConditionalAndExpression
+|enterConditionalAndExpression|ctx
+|metricador|enterConditionalOrExpression
+|enterConditionalOrExpression|ctx
+|metricador|enterUnaryExpressionNotPlusMinus
+|enterUnaryExpressionNotPlusMinus|ctx
+|metricador|enterAssignmentOperator
+|enterAssignmentOperator|ctx
+|enterAssignmentOperator|operatorMap
+|enterAssignmentOperator|FOR
+|enterAssignmentOperator|x
+|metricador|enterAndExpression
+|enterAndExpression|ctx
+|metricador|enterPostIncrementExpression
+|enterPostIncrementExpression|ctx
+|metricador|enterPreIncrementExpression
+|enterPreIncrementExpression|ctx
+|metricador|enterPreDecrementExpression
+|enterPreDecrementExpression|ctx
+|metricador|enterRelationalExpression
+|enterRelationalExpression|ctx
+|enterRelationalExpression|first
+|enterRelationalExpression|context
+|enterRelationalExpression|possible
+|metricador|enterEqualityExpression
+|enterEqualityExpression|ctx
+|enterEqualityExpression|first
+|enterEqualityExpression|context
+|enterEqualityExpression|possible
+|metricador|enterReturnStatement
+|enterReturnStatement|ctx
+|metricador|enterDims
+|enterDims|ctx
+|metricador|enterImportDeclaration
+|enterImportDeclaration|ctx
+|metricador|enterNormalClassDeclaration
+|enterNormalClassDeclaration|ctx
+|enterNormalClassDeclaration|context
+|enterNormalClassDeclaration|name
+|enterNormalClassDeclaration|newTable
+|enterNormalClassDeclaration|newVarTable
+|enterNormalClassDeclaration|subClass
+|enterNormalClassDeclaration|arrayCadena
+|metricador|enterArrayCreationExpression
+|enterArrayCreationExpression|ctx
+|metricador|enterClassModifier
+|enterClassModifier|ctx
+|metricador|enterMethodModifier
+|enterMethodModifier|ctx
+|metricador|enterExpressionName
+|enterExpressionName|ctx
+|metricador|enterPrimary
+|enterPrimary|ctx
+|metricador|enterUnannType
+|enterUnannType|ctx
+|enterUnannType|first
+|enterUnannType|context
+|enterUnannType|names
+|enterUnannType|possibles
+|enterUnannType|max
+|enterUnannType|index
+|metricador|enterVariableDeclaratorId
+|enterVariableDeclaratorId|ctx
+|enterVariableDeclaratorId|first
+|enterVariableDeclaratorId|arrayCadena
+|metricador|exitVariableDeclaratorId
+|exitVariableDeclaratorId|ctx
+|metricador|enterResult
+|enterResult|ctx
+|enterResult|first
+|enterResult|context
+|enterResult|names
+|enterResult|possibles
+|enterResult|max
+|enterResult|index
 
