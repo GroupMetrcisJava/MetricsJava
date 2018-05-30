@@ -14,6 +14,7 @@ G = nx.Graph()
 """G.add_node("clase")
 G.add_node("metodo")"""
 G.add_edge("clase","metodo")
+G.add_edge("clase", "clase2")
 options = {
      'node_color': 'black',
      'node_size': 100,
