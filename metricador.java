@@ -15,56 +15,103 @@ public class metricador extends Java8BaseListener{
     static int contadorTiposDato = 0;
     static int contadorIds = 0;
     
-    int N1, N2, n1, n2 = 0;
-    int size = 0;
-    Map <String, Integer> table = new HashMap<String, Integer>();
-    Map <String, Integer> datatypes = new HashMap<String, Integer>();
-    Map <String, Integer> methodtypes = new HashMap<String, Integer>();
-
-    /*tableIndex me da la correspondencia entre nombre de la tabla y el indice donde esta en la lista tables*/
-
-    Map <String, Integer> tableIndex = new HashMap<String, Integer>();
-
-    /*tablename me da la correspondencia entre indice de la tabla (indice donde esta en la lista tables)
-    * y su correspondencia con el nombre de la tabla
-    * Se usara para hallar la tabla actual una vez que acabe de sacar las estadisticas de la funcion
-    */
-
-    Map <Integer, String> tableName = new HashMap<Integer, String>();
-
-    /**Lista de mapas que contendran los datos numericos por funcion */
     
-    List< Map <String, Float> > tables = new ArrayList<Map<String, Float>>();
+    /**Mapa que guarda los valores numericos por funcion */
+    Map <String, Map<String, Float>> numFunc = new HashMap<String, Map<String, Float>>();
+    /**Mapa que guarda la tabla de simbolos por funcion */
+    Map <String, Map<String, Integer>> symFunc = new HashMap<String, Map<String, Integer>>();
+    /**Mapa que guarda la tabla de operandos por funcion */
+    Map <String, Map<String, Integer>> varFunc = new HashMap<String, Map<String, Integer>>();
 
-    /**Este string me indica cual es el nombre de la tabla actual */
+    /**Mapa que guarda los valores numericos por clase */
+    Map <String, Map<String, Float>> numClass = new HashMap<String, Map<String, Float>>();
+    /**Mapa que guarda la tabla de operandos por funcion */
+    Map <String, Map<String, Integer>> varClass = new HashMap<String, Map<String, Integer>>();
+    /**Mapa que guarda la tabla de operandos por funcion */
+    Map <String, Map<String, Integer>> symClass = new HashMap<String, Map<String, Integer>>();
+
+    /**Lista para ver orden de las clases */
+    List <String> classes = new ArrayList<String>();
+    /**Nombre de la tabla actual */
     String currentTable;
 
     public void countOperators(String ctx, String first) {
         if (ctx.indexOf(first) != -1) {
-            //Map<String, Float> auxTable = tables.get(tableIndex.get(currentTable));
-            System.out.println("tabla funciones: " + tables);  
-            if (!table.containsKey(first)) {                
-                table.put(first, 1);
-                n1++;
-                N1++;                
+            /* System.out.println("operators");            
+            System.out.println("context: "+ ctx);
+            System.out.println("first: "+ first); */
+            Map<String, Float> numAux = new HashMap<String, Float>();
+            Map<String, Integer> symAux = new HashMap<String, Integer>();
+            if (currentTable == null && classes.size() > 0) {
+                //System.out.println("Has classes");
+                numAux = numClass.get(classes.get(classes.size() - 1));
+                symAux = symClass.get(classes.get(classes.size() - 1));
+            } else if (currentTable != null) {
+                //System.out.println("No classes");
+                numAux = numFunc.get(currentTable);
+                symAux = symFunc.get(currentTable);
+            }                
+            float n1 = numAux.get("n1"), N1 = numAux.get("N1");            
+            if (!symAux.containsKey(first)) {                
+                symAux.put(first, 1);                
+                numAux.put("n1", ++n1);
             } else {                
-                int num_ocurrences = table.get(first);
-                table.put(first,++num_ocurrences);
-                N1++;                
-            }
+                int num_ocurrences = symAux.get(first);
+                symAux.put(first,++num_ocurrences);                
+            }            
+            numAux.put("N1", ++N1);
+            if (currentTable == null && classes.size() > 0) {
+                symClass.put(classes.get(classes.size() - 1), symAux);
+                numClass.put(classes.get(classes.size() - 1), numAux);
+                /* System.out.println("symClass: " + symClass);            
+                System.out.println("numClass: " + numClass); */
+            } else if (currentTable != null) {
+                symFunc.put(currentTable, symAux);
+                numFunc.put(currentTable, numAux);
+                /* System.out.println("symFunc: " + symFunc);            
+                System.out.println("numFunc: " + numFunc); */
+            }            
+            
         }
     }
     public void countOperands(String ctx, String first) {
-        if (ctx.indexOf(first) != -1) {            
-            if (!datatypes.containsKey(first)) {                
-                datatypes.put(first, 1);
-                n2++;
-                N2++;                
+        
+        if (ctx.indexOf(first) != -1) {
+            /* System.out.println("operands");
+            System.out.println("context: "+ ctx);
+            System.out.println("first: "+ first); */
+            Map<String, Float> numAux = new HashMap<String, Float>();
+            Map<String, Integer> varAux = new HashMap<String, Integer>();
+            
+            if (currentTable == null && classes.size() > 0) {
+                //System.out.println("Has classes");
+                numAux = numClass.get(classes.get(classes.size() - 1));
+                varAux = varClass.get(classes.get(classes.size() - 1));
+            } else if (currentTable != null) {
+                //System.out.println("No classes");
+                numAux = numFunc.get(currentTable);
+                varAux = varFunc.get(currentTable);
+            }                
+            float n2 = numAux.get("n2"), N2 = numAux.get("N2");            
+            if (!varAux.containsKey(first)) {                
+                varAux.put(first, 1);                
+                numAux.put("n2", ++n2);                
             } else {                
-                int num_ocurrences = datatypes.get(first);
-                datatypes.put(first,++num_ocurrences);
-                N2++;                
-            }
+                int num_ocurrences = varAux.get(first);
+                varAux.put(first,++num_ocurrences);                
+            }                    
+            numAux.put("N2", ++N2);
+            if (currentTable == null && classes.size() > 0) {
+                varClass.put(classes.get(classes.size() - 1), varAux);
+                numClass.put(classes.get(classes.size() - 1), numAux);
+                /* System.out.println("varClass: " + varClass);            
+                System.out.println("numClass: " + numClass); */
+            } else if (currentTable != null) {
+                varFunc.put(currentTable, varAux);
+                numFunc.put(currentTable, numAux);
+                /* System.out.println("varFunc: " + varFunc);            
+                System.out.println("numFunc: " + numFunc); */
+            }            
         }
     }
 
@@ -74,29 +121,33 @@ public class metricador extends Java8BaseListener{
 
     @Override public void enterMethodDeclarator(Java8Parser.MethodDeclaratorContext ctx) {
         String context = ctx.getText();
-        System.out.println("Method Context: " + context);
+        //System.out.println("Method Context: " + context);
         String name = context.substring(0, context.indexOf('('));
         Map<String, Float> newTable = new HashMap<String, Float>();
+        Map<String, Integer> newVarTable = new HashMap<String, Integer>();
         {{
             newTable.put("n1", (float)0);
             newTable.put("n2", (float)0);
             newTable.put("N1", (float)0);
             newTable.put("N2", (float)0);
         }}        
-        tableIndex.put(name, tables.size());
-        tableName.put(tables.size(), name);
-        tables.add(newTable);
+        numFunc.put(name, newTable);
+        varFunc.put(name, newVarTable);        
+        symFunc.put(name, newVarTable);
         currentTable = name;
+        /* System.out.println("Añadida nueva tabla :" + currentTable);
+        System.out.println("numFunc: " + numFunc);          
+        System.out.println("varFunc: " + varFunc);           */
      }
 
     @Override public void exitMethodDeclaration(Java8Parser.MethodDeclarationContext ctx) {
         contadorFunciones++;
-        Map<String,Float> auxTable = tables.get(tableIndex.get(currentTable));
+        Map<String,Float> numAux = numFunc.get(currentTable);
         System.out.println("# Variables locales: " + contadorLocales);
         contadorLocales = 0;
         System.out.println("\nNombre tabla: " + currentTable);   
-        System.out.println("tabla: "+ auxTable);
-        System.out.println("tipos dato: "+datatypes);
+        System.out.println("tabla: "+ numAux);
+        //System.out.println("tipos dato: "+datatypes);
         System.out.println("HALSTEAD MEDIDAS: ------");
         /*
         System.out.println("N1: " + auxTable.get("N1"));
@@ -104,6 +155,7 @@ public class metricador extends Java8BaseListener{
         System.out.println("n1: " + auxTable.get("n1"));
         System.out.println("n2: " + auxTable.get("n2"));
         */
+        float n1 =  numAux.get("n1"), N1 =  numAux.get("N1"), n2 =  numAux.get("n2"), N2 =  numAux.get("N2");
         System.out.println("N1: " + N1);
         System.out.println("N2: " + N2);
         System.out.println("n1: " + n1);
@@ -117,14 +169,6 @@ public class metricador extends Java8BaseListener{
         System.out.println("Nivel de especificacion de abtraccion: "+L);
         System.out.println("Esfuerzo del programa: "+E);
         System.out.println();
-
-        tables.remove(tables.size() - 1);
-        if (tables.size() > 0) {
-            currentTable = tableName.get(tables.size());
-        } else {
-            currentTable = "";
-        }
-        
      }
      @Override public void exitCompilationUnit(Java8Parser.CompilationUnitContext ctx) { 
          System.out.println("# Funciones: " + contadorFunciones);
@@ -132,8 +176,8 @@ public class metricador extends Java8BaseListener{
          System.out.println("# Clases: "+ contadorClases);
          System.out.println("# Arreglos: "+ contadorArrays);
 
-         System.out.println(tables);
-         System.out.println(tableIndex);
+         System.out.println(numFunc);
+         System.out.println(symFunc);
          
      }
     
@@ -311,12 +355,28 @@ public class metricador extends Java8BaseListener{
     /* contador de imports*/
     @Override public void enterImportDeclaration(Java8Parser.ImportDeclarationContext ctx) { 
         contadorImports++;
-        countOperators(ctx.getText(), "import");
+        //countOperators(ctx.getText(), "import");
     }
     /* contador de clases*/
     @Override public void enterNormalClassDeclaration(Java8Parser.NormalClassDeclarationContext ctx) { 
         contadorClases++;
-        countOperators(ctx.getText(), "class");
+        String context = ctx.getText();
+        String name = context.substring(context.indexOf("class"), context.indexOf('{'));                
+        Map<String, Float> newTable = new HashMap<String, Float>();
+        Map<String, Integer> newVarTable = new HashMap<String, Integer>();
+        {{
+            newTable.put("n1", (float)0);
+            newTable.put("n2", (float)0);
+            newTable.put("N1", (float)0);
+            newTable.put("N2", (float)0);
+        }}        
+        numClass.put(name, newTable);
+        varClass.put(name, newVarTable);
+        symClass.put(name, newVarTable);
+        classes.add(name);
+        /* System.out.println(numClass);
+        System.out.println(varClass);
+        System.out.println(classes);  */      
     }
     /* contador de los new */
     @Override public void enterArrayCreationExpression(Java8Parser.ArrayCreationExpressionContext ctx) { 
@@ -325,7 +385,7 @@ public class metricador extends Java8BaseListener{
 
     /*contador para los modificadores de acceso de las clases (private protected public) */
     @Override public void enterClassModifier(Java8Parser.ClassModifierContext ctx) { 
-        countOperators(ctx.getText(), "classMod");
+        //countOperators(ctx.getText(), "classMod");
     }
 
     /* contador modificadores para funciones (private public static ...) */
@@ -367,17 +427,7 @@ public class metricador extends Java8BaseListener{
     @Override public void enterVariableDeclaratorId(Java8Parser.VariableDeclaratorIdContext ctx) {
         String first = ctx.getText();        
         contadorIds++;
-        if((ctx.getText().indexOf(first) != -1)){
-            if (!datatypes.containsKey(first)){
-                datatypes.put(first, 1);
-                n2++;
-                N2++;
-            }else{
-                int num_ocurrences = datatypes.get(first);
-                datatypes.put(first,++num_ocurrences);
-                N2++;
-            }
-        }
+        countOperands(first, first);
     }
      /* contador de tipos de dato para funciones */
      @Override public void enterResult(Java8Parser.ResultContext ctx) {
