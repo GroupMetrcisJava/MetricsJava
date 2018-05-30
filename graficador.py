@@ -10,15 +10,29 @@ def configPath():
     os.system("alias antlr4='java -jar /usr/local/lib/antlr-4.7.1-complete.jar'")
     os.system("alias grun='java org.antlr.v4.gui.TestRig'")
 
+def edges(G):
+    archivo = open('salida.txt','r')
+    vertex = []
+    for linea in archivo:
+        nodos = ""
+        if linea[0] == '|':
+            nodos = linea.split('|')
+            nodoDesde = str(nodos[1])
+            nodoHacia = str(nodos[2])
+            nodoHacia = nodoHacia.replace('\n','')
+            G.add_edge(nodoDesde,nodoHacia)
+    archivo.close()
+    return G
+            
 G = nx.Graph()
-"""G.add_node("clase")
-G.add_node("metodo")"""
-G.add_edge("clase","metodo")
-G.add_edge("clase", "clase2")
+G = edges(G)
 options = {
-     'node_color': 'black',
-     'node_size': 100,
+     'node_color': 'yellow',
+     'node_size': 500,
      'width': 3,
-}
-nx.draw(G, with_labels=True, font_weight='bold')
+     'with_labels':True,
+     'font_weight':'bold',
+     'edge_color':'green'
+ }
+nx.draw(G, **options)
 plt.show()
