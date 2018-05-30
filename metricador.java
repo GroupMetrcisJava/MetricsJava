@@ -149,17 +149,12 @@ public class metricador extends Java8BaseListener{
         System.out.println("tabla: "+ numAux);
         //System.out.println("tipos dato: "+datatypes);
         System.out.println("HALSTEAD MEDIDAS: ------");
-        /*
-        System.out.println("N1: " + auxTable.get("N1"));
-        System.out.println("N2: " + auxTable.get("N2"));
-        System.out.println("n1: " + auxTable.get("n1"));
-        System.out.println("n2: " + auxTable.get("n2"));
-        */
+        
         float n1 =  numAux.get("n1"), N1 =  numAux.get("N1"), n2 =  numAux.get("n2"), N2 =  numAux.get("N2");
-        System.out.println("N1: " + N1);
-        System.out.println("N2: " + N2);
-        System.out.println("n1: " + n1);
-        System.out.println("n2: " + n2);
+        System.out.println("N1: " + (int) N1);
+        System.out.println("N2: " + (int) N2);
+        System.out.println("n1: " + (int) n1);
+        System.out.println("n2: " + (int) n2);
         double N = N1 + N2;
         double V = N * (Math.log(n1+n2) / (Math.log(2)));  
         double L = (2.0*n2) / (n1*N2);
@@ -171,15 +166,11 @@ public class metricador extends Java8BaseListener{
         System.out.println();
      }
      @Override public void exitCompilationUnit(Java8Parser.CompilationUnitContext ctx) { 
-         System.out.println("# Funciones: " + contadorFunciones);
-         System.out.println("# Imports:  "+ contadorImports);
-         System.out.println("# Clases: "+ contadorClases);
-         System.out.println("# Arreglos: "+ contadorArrays);
-
-         System.out.println(numFunc);
-         System.out.println(symFunc);
-         
-     }
+        System.out.println("# Funciones: " + contadorFunciones);
+        System.out.println("# Imports:  "+ contadorImports);
+        System.out.println("# Clases: "+ contadorClases);
+        System.out.println("# Arreglos: "+ contadorArrays);  
+    }
     
      /* Operacionaes de tipo A -> a = b */
      @Override public void enterVariableDeclarator(Java8Parser.VariableDeclaratorContext ctx) {
