@@ -1,76 +1,919 @@
-Method Context: funcion2()
+Method Context: countOperators(Stringctx,Stringfirst)
+# Variables locales: 1
+
+Nombre tabla: countOperators
+tabla: {n1=0.0, N1=0.0, n2=0.0, N2=0.0}
+tipos dato: {n1=1, n2=1, nameVariable=1, contadorImports=1, contadorIds=1, String=16, contadorFunciones=1, datatypes=1, tableName=1, nameClass=1, nameMethod=1, methodtypes=1, tables=1, contadorClases=1, num_ocurrences=1, nameFor=1, table=1, N1=1, void=1, N2=1, ctx=1, int=10, graph=1, nameWhile=1, size=1, nameIf=1, contadorTiposDato=1, contadorArrays=1, first=1, contadorLocales=1, tableIndex=1, currentTable=1}
+HALSTEAD MEDIDAS: ------
+N1: 52
+N2: 56
+n1: 12
+n2: 32
+Longitud del programa: 108
+Volumen del programa: 589.6186148128281
+Nivel de especificacion de abtraccion: 0.09523809523809523
+Esfuerzo del programa: 516.1037879612246
+
+Method Context: countOperands(Stringctx,Stringfirst)
+# Variables locales: 1
+
+Nombre tabla: countOperands
+tabla: {n1=0.0, N1=0.0, n2=0.0, N2=0.0}
+tipos dato: {n1=1, n2=1, nameVariable=1, contadorImports=1, contadorIds=1, String=18, contadorFunciones=1, datatypes=1, tableName=1, nameClass=1, nameMethod=1, methodtypes=1, tables=1, contadorClases=1, num_ocurrences=2, nameFor=1, table=1, N1=1, void=2, N2=1, ctx=2, int=11, graph=1, nameWhile=1, size=1, nameIf=1, contadorTiposDato=1, contadorArrays=1, first=2, contadorLocales=1, tableIndex=1, currentTable=1}
+HALSTEAD MEDIDAS: ------
+N1: 64
+N2: 63
+n1: 12
+n2: 32
+Longitud del programa: 127
+Volumen del programa: 693.3478155669368
+Nivel de especificacion de abtraccion: 0.08465608465608465
+Esfuerzo del programa: 682.7017559487034
+
+Method Context: enterLocalVariableDeclarationStatement(Java8Parser.LocalVariableDeclarationStatementContextctx)
+# Variables locales: 0
+
+Nombre tabla: enterLocalVariableDeclarationStatement
+tabla: {n1=0.0, N1=0.0, n2=0.0, N2=0.0}
+tipos dato: {n1=1, n2=1, nameVariable=1, contadorImports=1, contadorIds=1, String=18, contadorFunciones=1, datatypes=1, tableName=1, nameClass=1, nameMethod=1, methodtypes=1, tables=1, contadorClases=1, num_ocurrences=2, nameFor=1, table=1, N1=1, void=3, N2=1, ctx=3, int=11, graph=1, nameWhile=1, size=1, nameIf=1, contadorTiposDato=1, contadorArrays=1, first=2, contadorLocales=1, tableIndex=1, currentTable=1}
+HALSTEAD MEDIDAS: ------
+N1: 65
+N2: 65
+n1: 12
+n2: 32
+Longitud del programa: 130
+Volumen del programa: 709.7261104228487
+Nivel de especificacion de abtraccion: 0.08205128205128205
+Esfuerzo del programa: 721.0030808982057
+
+Method Context: enterMethodDeclarator(Java8Parser.MethodDeclaratorContextctx)
+# Variables locales: 4
+
+Nombre tabla: enterMethodDeclarator
+tabla: {n1=0.0, N1=0.0, n2=0.0, N2=0.0}
+tipos dato: {n1=1, n2=1, nameVariable=1, contadorImports=1, contadorIds=1, String=22, contadorFunciones=1, datatypes=1, tableName=1, nameClass=1, nameMethod=1, methodtypes=1, tables=1, contadorClases=1, context=1, num_ocurrences=2, nameFor=1, table=1, N1=1, void=4, N2=1, ctx=4, int=11, graph=1, nameWhile=1, size=1, nameIf=1, contadorTiposDato=1, name=1, newTable=1, arrayCadena[]=1, contadorArrays=1, first=2, contadorLocales=1, tableIndex=1, currentTable=1}
+HALSTEAD MEDIDAS: ------
+N1: 77
+N2: 75
+n1: 13
+n2: 36
+Longitud del programa: 152
+Volumen del programa: 853.4358963055116
+Nivel de especificacion de abtraccion: 0.07384615384615385
+Esfuerzo del programa: 889.1762808737969
+
+Method Context: exitMethodDeclaration(Java8Parser.MethodDeclarationContextctx)
+# Variables locales: 5
+
+Nombre tabla: exitMethodDeclaration
+tabla: {n1=0.0, N1=0.0, n2=0.0, N2=0.0}
+tipos dato: {n1=1, n2=1, E=1, nameVariable=1, contadorImports=1, contadorIds=1, String=23, L=1, contadorFunciones=1, datatypes=1, N=1, tableName=1, nameClass=1, nameMethod=1, methodtypes=1, tables=1, contadorClases=1, V=1, context=1, num_ocurrences=2, nameFor=1, table=1, N1=1, void=5, N2=1, ctx=5, double=4, int=11, graph=1, nameWhile=1, size=1, nameIf=1, auxTable=1, contadorTiposDato=1, name=1, newTable=1, arrayCadena[]=1, contadorArrays=1, first=2, contadorLocales=1, tableIndex=1, currentTable=1}
+HALSTEAD MEDIDAS: ------
+N1: 125
+N2: 87
+n1: 15
+n2: 42
+Longitud del programa: 212
+Volumen del programa: 1236.5726830029253
+Nivel de especificacion de abtraccion: 0.06436781609195402
+Esfuerzo del programa: 1280.9145645387441
+
+Method Context: exitCompilationUnit(Java8Parser.CompilationUnitContextctx)
 # Variables locales: 3
 
-Nombre tabla: funcion2
+Nombre tabla: exitCompilationUnit
 tabla: {n1=0.0, N1=0.0, n2=0.0, N2=0.0}
-tipos dato: {matrix[][]=1, a=1, r=1, array[]=1, void=1, boolean=1, v=1, w=1, float=2, int=3}
+tipos dato: {n1=1, n2=1, E=1, nameVariable=1, contadorImports=1, contadorIds=1, String=26, L=1, contadorFunciones=1, datatypes=1, N=1, tableName=1, nameClass=1, nameMethod=1, methodtypes=1, tables=1, contadorClases=1, V=1, context=1, num_ocurrences=2, nameFor=1, table=1, N1=1, void=6, N2=1, ctx=6, double=4, itr=1, edges=1, i=1, int=12, graph=1, nameWhile=1, size=1, nameIf=1, auxTable=1, contadorTiposDato=1, name=1, palabras=1, newTable=1, arrayCadena[]=1, contadorArrays=1, first=2, contadorLocales=1, tableIndex=1, currentTable=1}
 HALSTEAD MEDIDAS: ------
-N1: 12
-N2: 13
-n1: 7
-n2: 10
-Longitud del programa: 25
-Volumen del programa: 102.1865710312585
-Nivel de especificacion de abtraccion: 0.21978021978021978
-Esfuerzo del programa: 66.77127117031803
+N1: 147
+N2: 97
+n1: 20
+n2: 46
+Longitud del programa: 244
+Volumen del programa: 1474.8321651234626
+Nivel de especificacion de abtraccion: 0.04742268041237113
+Esfuerzo del programa: 1555.2034784453901
 
-Method Context: funcion3()
+Method Context: enterVariableDeclarator(Java8Parser.VariableDeclaratorContextctx)
+# Variables locales: 0
+
+Nombre tabla: enterVariableDeclarator
+tabla: {n1=0.0, N1=0.0, n2=0.0, N2=0.0}
+tipos dato: {n1=1, n2=1, E=1, nameVariable=1, contadorImports=1, contadorIds=1, String=26, L=1, contadorFunciones=1, datatypes=1, N=1, tableName=1, nameClass=1, nameMethod=1, methodtypes=1, tables=1, contadorClases=1, V=1, context=1, num_ocurrences=2, nameFor=1, table=1, N1=1, void=7, N2=1, ctx=7, double=4, itr=1, edges=1, i=1, int=12, graph=1, nameWhile=1, size=1, nameIf=1, auxTable=1, contadorTiposDato=1, name=1, palabras=1, newTable=1, arrayCadena[]=1, contadorArrays=1, first=2, contadorLocales=1, tableIndex=1, currentTable=1}
+HALSTEAD MEDIDAS: ------
+N1: 147
+N2: 99
+n1: 20
+n2: 46
+Longitud del programa: 246
+Volumen del programa: 1486.9209533621795
+Nivel de especificacion de abtraccion: 0.046464646464646465
+Esfuerzo del programa: 1600.2736345962583
+
+Method Context: enterAdditiveExpression(Java8Parser.AdditiveExpressionContextctx)
+# Variables locales: 2
+
+Nombre tabla: enterAdditiveExpression
+tabla: {n1=0.0, N1=0.0, n2=0.0, N2=0.0}
+tipos dato: {n1=1, n2=1, E=1, nameVariable=1, contadorImports=1, contadorIds=1, String=27, L=1, contadorFunciones=1, datatypes=1, N=1, tableName=1, nameClass=1, nameMethod=1, possibles=1, methodtypes=1, tables=1, contadorClases=1, V=1, context=2, num_ocurrences=2, nameFor=1, table=1, N1=1, void=8, N2=1, ctx=8, double=4, itr=1, edges=1, i=1, int=12, graph=1, nameWhile=1, size=1, nameIf=1, auxTable=1, contadorTiposDato=1, name=1, palabras=1, newTable=1, arrayCadena[]=1, contadorArrays=1, first=3, contadorLocales=1, tableIndex=1, currentTable=1}
+HALSTEAD MEDIDAS: ------
+N1: 163
+N2: 105
+n1: 21
+n2: 47
+Longitud del programa: 268
+Volumen del programa: 1631.4400414550912
+Nivel de especificacion de abtraccion: 0.042630385487528344
+Esfuerzo del programa: 1822.5766420508994
+
+Method Context: enterMultiplicativeExpression(Java8Parser.MultiplicativeExpressionContextctx)
+# Variables locales: 2
+
+Nombre tabla: enterMultiplicativeExpression
+tabla: {n1=0.0, N1=0.0, n2=0.0, N2=0.0}
+tipos dato: {n1=1, n2=1, E=1, nameVariable=1, contadorImports=1, contadorIds=1, String=28, L=1, contadorFunciones=1, datatypes=1, N=1, tableName=1, nameClass=1, nameMethod=1, possibles=2, methodtypes=1, tables=1, contadorClases=1, V=1, context=3, num_ocurrences=2, nameFor=1, table=1, N1=1, void=9, N2=1, ctx=9, double=4, itr=1, edges=1, i=1, int=12, graph=1, nameWhile=1, size=1, nameIf=1, auxTable=1, contadorTiposDato=1, name=1, palabras=1, newTable=1, arrayCadena[]=1, contadorArrays=1, first=4, contadorLocales=1, tableIndex=1, currentTable=1}
+HALSTEAD MEDIDAS: ------
+N1: 188
+N2: 111
+n1: 22
+n2: 47
+Longitud del programa: 299
+Volumen del programa: 1826.448812576673
+Nivel de especificacion de abtraccion: 0.03849303849303849
+Esfuerzo del programa: 2156.9980659150074
+
+Method Context: enterIfThenStatement(Java8Parser.IfThenStatementContextctx)
+# Variables locales: 1
+
+Nombre tabla: enterIfThenStatement
+tabla: {n1=0.0, N1=0.0, n2=0.0, N2=0.0}
+tipos dato: {n1=1, n2=1, E=1, nameVariable=1, contadorImports=1, contadorIds=1, String=29, L=1, contadorFunciones=1, datatypes=1, N=1, tableName=1, nameClass=1, nameMethod=1, possibles=2, methodtypes=1, tables=1, contadorClases=1, V=1, context=3, num_ocurrences=2, nameFor=1, table=1, N1=1, void=10, N2=1, ctx=10, double=4, itr=1, edges=1, i=1, int=12, graph=1, nameWhile=1, size=1, nameIf=1, auxTable=1, contadorTiposDato=1, name=1, palabras=1, newTable=1, arrayCadena[]=2, contadorArrays=1, first=4, contadorLocales=1, tableIndex=1, currentTable=1}
+HALSTEAD MEDIDAS: ------
+N1: 197
+N2: 115
+n1: 22
+n2: 47
+Longitud del programa: 312
+Volumen del programa: 1905.859630514789
+Nivel de especificacion de abtraccion: 0.03715415019762846
+Esfuerzo del programa: 2331.8708245659654
+
+Method Context: exitIfThenStatement(Java8Parser.IfThenStatementContextctx)
+# Variables locales: 0
+
+Nombre tabla: exitIfThenStatement
+tabla: {n1=0.0, N1=0.0, n2=0.0, N2=0.0}
+tipos dato: {n1=1, n2=1, E=1, nameVariable=1, contadorImports=1, contadorIds=1, String=29, L=1, contadorFunciones=1, datatypes=1, N=1, tableName=1, nameClass=1, nameMethod=1, possibles=2, methodtypes=1, tables=1, contadorClases=1, V=1, context=3, num_ocurrences=2, nameFor=1, table=1, N1=1, void=11, N2=1, ctx=11, double=4, itr=1, edges=1, i=1, int=12, graph=1, nameWhile=1, size=1, nameIf=1, auxTable=1, contadorTiposDato=1, name=1, palabras=1, newTable=1, arrayCadena[]=2, contadorArrays=1, first=4, contadorLocales=1, tableIndex=1, currentTable=1}
+HALSTEAD MEDIDAS: ------
+N1: 198
+N2: 117
+n1: 22
+n2: 47
+Longitud del programa: 315
+Volumen del programa: 1924.1852038851237
+Nivel de especificacion de abtraccion: 0.03651903651903652
+Esfuerzo del programa: 2395.230519729356
+
+Method Context: enterIfThenElseStatement(Java8Parser.IfThenElseStatementContextctx)
+# Variables locales: 0
+
+Nombre tabla: enterIfThenElseStatement
+tabla: {n1=0.0, N1=0.0, n2=0.0, N2=0.0}
+tipos dato: {n1=1, n2=1, E=1, nameVariable=1, contadorImports=1, contadorIds=1, String=29, L=1, contadorFunciones=1, datatypes=1, N=1, tableName=1, nameClass=1, nameMethod=1, possibles=2, methodtypes=1, tables=1, contadorClases=1, V=1, context=3, num_ocurrences=2, nameFor=1, table=1, N1=1, void=12, N2=1, ctx=12, double=4, itr=1, edges=1, i=1, int=12, graph=1, nameWhile=1, size=1, nameIf=1, auxTable=1, contadorTiposDato=1, name=1, palabras=1, newTable=1, arrayCadena[]=2, contadorArrays=1, first=4, contadorLocales=1, tableIndex=1, currentTable=1}
+HALSTEAD MEDIDAS: ------
+N1: 198
+N2: 119
+n1: 22
+n2: 47
+Longitud del programa: 317
+Volumen del programa: 1936.40225279868
+Nivel de especificacion de abtraccion: 0.03590527119938885
+Esfuerzo del programa: 2451.6368945004565
+
+Method Context: enterSwitchStatement(Java8Parser.SwitchStatementContextctx)
+# Variables locales: 0
+
+Nombre tabla: enterSwitchStatement
+tabla: {n1=0.0, N1=0.0, n2=0.0, N2=0.0}
+tipos dato: {n1=1, n2=1, E=1, nameVariable=1, contadorImports=1, contadorIds=1, String=29, L=1, contadorFunciones=1, datatypes=1, N=1, tableName=1, nameClass=1, nameMethod=1, possibles=2, methodtypes=1, tables=1, contadorClases=1, V=1, context=3, num_ocurrences=2, nameFor=1, table=1, N1=1, void=13, N2=1, ctx=13, double=4, itr=1, edges=1, i=1, int=12, graph=1, nameWhile=1, size=1, nameIf=1, auxTable=1, contadorTiposDato=1, name=1, palabras=1, newTable=1, arrayCadena[]=2, contadorArrays=1, first=4, contadorLocales=1, tableIndex=1, currentTable=1}
+HALSTEAD MEDIDAS: ------
+N1: 198
+N2: 121
+n1: 22
+n2: 47
+Longitud del programa: 319
+Volumen del programa: 1948.6193017122362
+Nivel de especificacion de abtraccion: 0.035311795642374154
+Esfuerzo del programa: 2508.5631436934104
+
+Method Context: enterSwitchLabel(Java8Parser.SwitchLabelContextctx)
+# Variables locales: 0
+
+Nombre tabla: enterSwitchLabel
+tabla: {n1=0.0, N1=0.0, n2=0.0, N2=0.0}
+tipos dato: {n1=1, n2=1, E=1, nameVariable=1, contadorImports=1, contadorIds=1, String=29, L=1, contadorFunciones=1, datatypes=1, N=1, tableName=1, nameClass=1, nameMethod=1, possibles=2, methodtypes=1, tables=1, contadorClases=1, V=1, context=3, num_ocurrences=2, nameFor=1, table=1, N1=1, void=14, N2=1, ctx=14, double=4, itr=1, edges=1, i=1, int=12, graph=1, nameWhile=1, size=1, nameIf=1, auxTable=1, contadorTiposDato=1, name=1, palabras=1, newTable=1, arrayCadena[]=2, contadorArrays=1, first=4, contadorLocales=1, tableIndex=1, currentTable=1}
+HALSTEAD MEDIDAS: ------
+N1: 198
+N2: 123
+n1: 22
+n2: 47
+Longitud del programa: 321
+Volumen del programa: 1960.8363506257926
+Nivel de especificacion de abtraccion: 0.03473762010347376
+Esfuerzo del programa: 2566.009267308218
+
+Method Context: enterBreakStatement(Java8Parser.BreakStatementContextctx)
+# Variables locales: 0
+
+Nombre tabla: enterBreakStatement
+tabla: {n1=0.0, N1=0.0, n2=0.0, N2=0.0}
+tipos dato: {n1=1, n2=1, E=1, nameVariable=1, contadorImports=1, contadorIds=1, String=29, L=1, contadorFunciones=1, datatypes=1, N=1, tableName=1, nameClass=1, nameMethod=1, possibles=2, methodtypes=1, tables=1, contadorClases=1, V=1, context=3, num_ocurrences=2, nameFor=1, table=1, N1=1, void=15, N2=1, ctx=15, double=4, itr=1, edges=1, i=1, int=12, graph=1, nameWhile=1, size=1, nameIf=1, auxTable=1, contadorTiposDato=1, name=1, palabras=1, newTable=1, arrayCadena[]=2, contadorArrays=1, first=4, contadorLocales=1, tableIndex=1, currentTable=1}
+HALSTEAD MEDIDAS: ------
+N1: 198
+N2: 125
+n1: 22
+n2: 47
+Longitud del programa: 323
+Volumen del programa: 1973.053399539349
+Nivel de especificacion de abtraccion: 0.03418181818181818
+Esfuerzo del programa: 2623.975265344879
+
+Method Context: enterForStatement(Java8Parser.ForStatementContextctx)
+# Variables locales: 1
+
+Nombre tabla: enterForStatement
+tabla: {n1=0.0, N1=0.0, n2=0.0, N2=0.0}
+tipos dato: {n1=1, n2=1, E=1, nameVariable=1, contadorImports=1, contadorIds=1, String=30, L=1, contadorFunciones=1, datatypes=1, N=1, tableName=1, nameClass=1, nameMethod=1, possibles=2, methodtypes=1, tables=1, contadorClases=1, V=1, context=3, num_ocurrences=2, nameFor=1, table=1, N1=1, void=16, N2=1, ctx=16, double=4, itr=1, edges=1, i=1, int=12, graph=1, nameWhile=1, size=1, nameIf=1, auxTable=1, contadorTiposDato=1, name=1, palabras=1, newTable=1, arrayCadena[]=3, contadorArrays=1, first=4, contadorLocales=1, tableIndex=1, currentTable=1}
+HALSTEAD MEDIDAS: ------
+N1: 207
+N2: 129
+n1: 22
+n2: 47
+Longitud del programa: 336
+Volumen del programa: 2052.4642174774654
+Nivel de especificacion de abtraccion: 0.03312191684284708
+Esfuerzo del programa: 2816.9136601552445
+
+Method Context: exitForStatement(Java8Parser.ForStatementContextctx)
+# Variables locales: 0
+
+Nombre tabla: exitForStatement
+tabla: {n1=0.0, N1=0.0, n2=0.0, N2=0.0}
+tipos dato: {n1=1, n2=1, E=1, nameVariable=1, contadorImports=1, contadorIds=1, String=30, L=1, contadorFunciones=1, datatypes=1, N=1, tableName=1, nameClass=1, nameMethod=1, possibles=2, methodtypes=1, tables=1, contadorClases=1, V=1, context=3, num_ocurrences=2, nameFor=1, table=1, N1=1, void=17, N2=1, ctx=17, double=4, itr=1, edges=1, i=1, int=12, graph=1, nameWhile=1, size=1, nameIf=1, auxTable=1, contadorTiposDato=1, name=1, palabras=1, newTable=1, arrayCadena[]=3, contadorArrays=1, first=4, contadorLocales=1, tableIndex=1, currentTable=1}
+HALSTEAD MEDIDAS: ------
+N1: 208
+N2: 131
+n1: 22
+n2: 47
+Longitud del programa: 339
+Volumen del programa: 2070.7897908478
+Nivel de especificacion de abtraccion: 0.03261623872310895
+Esfuerzo del programa: 2886.1219425644867
+
+Method Context: enterContinueStatement(Java8Parser.ContinueStatementContextctx)
+# Variables locales: 0
+
+Nombre tabla: enterContinueStatement
+tabla: {n1=0.0, N1=0.0, n2=0.0, N2=0.0}
+tipos dato: {n1=1, n2=1, E=1, nameVariable=1, contadorImports=1, contadorIds=1, String=30, L=1, contadorFunciones=1, datatypes=1, N=1, tableName=1, nameClass=1, nameMethod=1, possibles=2, methodtypes=1, tables=1, contadorClases=1, V=1, context=3, num_ocurrences=2, nameFor=1, table=1, N1=1, void=18, N2=1, ctx=18, double=4, itr=1, edges=1, i=1, int=12, graph=1, nameWhile=1, size=1, nameIf=1, auxTable=1, contadorTiposDato=1, name=1, palabras=1, newTable=1, arrayCadena[]=3, contadorArrays=1, first=4, contadorLocales=1, tableIndex=1, currentTable=1}
+HALSTEAD MEDIDAS: ------
+N1: 208
+N2: 133
+n1: 22
+n2: 47
+Longitud del programa: 341
+Volumen del programa: 2083.006839761356
+Nivel de especificacion de abtraccion: 0.03212576896787423
+Esfuerzo del programa: 2947.4671243431953
+
+Method Context: enterDoStatement(Java8Parser.DoStatementContextctx)
+# Variables locales: 0
+
+Nombre tabla: enterDoStatement
+tabla: {n1=0.0, N1=0.0, n2=0.0, N2=0.0}
+tipos dato: {n1=1, n2=1, E=1, nameVariable=1, contadorImports=1, contadorIds=1, String=30, L=1, contadorFunciones=1, datatypes=1, N=1, tableName=1, nameClass=1, nameMethod=1, possibles=2, methodtypes=1, tables=1, contadorClases=1, V=1, context=3, num_ocurrences=2, nameFor=1, table=1, N1=1, void=19, N2=1, ctx=19, double=4, itr=1, edges=1, i=1, int=12, graph=1, nameWhile=1, size=1, nameIf=1, auxTable=1, contadorTiposDato=1, name=1, palabras=1, newTable=1, arrayCadena[]=3, contadorArrays=1, first=4, contadorLocales=1, tableIndex=1, currentTable=1}
+HALSTEAD MEDIDAS: ------
+N1: 208
+N2: 135
+n1: 22
+n2: 47
+Longitud del programa: 343
+Volumen del programa: 2095.2238886749124
+Nivel de especificacion de abtraccion: 0.03164983164983165
+Esfuerzo del programa: 3009.3321805437567
+
+Method Context: enterWhileStatement(Java8Parser.WhileStatementContextctx)
+# Variables locales: 1
+
+Nombre tabla: enterWhileStatement
+tabla: {n1=0.0, N1=0.0, n2=0.0, N2=0.0}
+tipos dato: {n1=1, n2=1, E=1, nameVariable=1, contadorImports=1, contadorIds=1, String=31, L=1, contadorFunciones=1, datatypes=1, N=1, tableName=1, nameClass=1, nameMethod=1, possibles=2, methodtypes=1, tables=1, contadorClases=1, V=1, context=3, num_ocurrences=2, nameFor=1, table=1, N1=1, void=20, N2=1, ctx=20, double=4, itr=1, edges=1, i=1, int=12, graph=1, nameWhile=1, size=1, nameIf=1, auxTable=1, contadorTiposDato=1, name=1, palabras=1, newTable=1, arrayCadena[]=4, contadorArrays=1, first=4, contadorLocales=1, tableIndex=1, currentTable=1}
+HALSTEAD MEDIDAS: ------
+N1: 217
+N2: 139
+n1: 22
+n2: 47
+Longitud del programa: 356
+Volumen del programa: 2174.6347066130284
+Nivel de especificacion de abtraccion: 0.030739045127534337
+Esfuerzo del programa: 3215.9172789277764
+
+Method Context: exitWhileStatement(Java8Parser.WhileStatementContextctx)
+# Variables locales: 0
+
+Nombre tabla: exitWhileStatement
+tabla: {n1=0.0, N1=0.0, n2=0.0, N2=0.0}
+tipos dato: {n1=1, n2=1, E=1, nameVariable=1, contadorImports=1, contadorIds=1, String=31, L=1, contadorFunciones=1, datatypes=1, N=1, tableName=1, nameClass=1, nameMethod=1, possibles=2, methodtypes=1, tables=1, contadorClases=1, V=1, context=3, num_ocurrences=2, nameFor=1, table=1, N1=1, void=21, N2=1, ctx=21, double=4, itr=1, edges=1, i=1, int=12, graph=1, nameWhile=1, size=1, nameIf=1, auxTable=1, contadorTiposDato=1, name=1, palabras=1, newTable=1, arrayCadena[]=4, contadorArrays=1, first=4, contadorLocales=1, tableIndex=1, currentTable=1}
+HALSTEAD MEDIDAS: ------
+N1: 218
+N2: 141
+n1: 22
+n2: 47
+Longitud del programa: 359
+Volumen del programa: 2192.960279983363
+Nivel de especificacion de abtraccion: 0.030303030303030304
+Esfuerzo del programa: 3289.6744625282363
+
+Method Context: enterLiteral(Java8Parser.LiteralContextctx)
+# Variables locales: 0
+
+Nombre tabla: enterLiteral
+tabla: {n1=0.0, N1=0.0, n2=0.0, N2=0.0}
+tipos dato: {n1=1, n2=1, E=1, nameVariable=1, contadorImports=1, contadorIds=1, String=31, L=1, contadorFunciones=1, datatypes=1, N=1, tableName=1, nameClass=1, nameMethod=1, possibles=2, methodtypes=1, tables=1, contadorClases=1, V=1, context=3, num_ocurrences=2, nameFor=1, table=1, N1=1, void=22, N2=1, ctx=22, double=4, itr=1, edges=1, i=1, int=12, graph=1, nameWhile=1, size=1, nameIf=1, auxTable=1, contadorTiposDato=1, name=1, palabras=1, newTable=1, arrayCadena[]=4, contadorArrays=1, first=4, contadorLocales=1, tableIndex=1, currentTable=1}
+HALSTEAD MEDIDAS: ------
+N1: 220
+N2: 143
+n1: 24
+n2: 47
+Longitud del programa: 363
+Volumen del programa: 2232.3582043802
+Nivel de especificacion de abtraccion: 0.027389277389277388
+Esfuerzo del programa: 3396.289608791155
+
+Method Context: enterConditionalAndExpression(Java8Parser.ConditionalAndExpressionContextctx)
+# Variables locales: 0
+
+Nombre tabla: enterConditionalAndExpression
+tabla: {n1=0.0, N1=0.0, n2=0.0, N2=0.0}
+tipos dato: {n1=1, n2=1, E=1, nameVariable=1, contadorImports=1, contadorIds=1, String=31, L=1, contadorFunciones=1, datatypes=1, N=1, tableName=1, nameClass=1, nameMethod=1, possibles=2, methodtypes=1, tables=1, contadorClases=1, V=1, context=3, num_ocurrences=2, nameFor=1, table=1, N1=1, void=23, N2=1, ctx=23, double=4, itr=1, edges=1, i=1, int=12, graph=1, nameWhile=1, size=1, nameIf=1, auxTable=1, contadorTiposDato=1, name=1, palabras=1, newTable=1, arrayCadena[]=4, contadorArrays=1, first=4, contadorLocales=1, tableIndex=1, currentTable=1}
+HALSTEAD MEDIDAS: ------
+N1: 222
+N2: 145
+n1: 25
+n2: 47
+Longitud del programa: 367
+Volumen del programa: 2264.3624755293285
+Nivel de especificacion de abtraccion: 0.02593103448275862
+Esfuerzo del programa: 3493.165520763326
+
+Method Context: enterConditionalOrExpression(Java8Parser.ConditionalOrExpressionContextctx)
+# Variables locales: 0
+
+Nombre tabla: enterConditionalOrExpression
+tabla: {n1=0.0, N1=0.0, n2=0.0, N2=0.0}
+tipos dato: {n1=1, n2=1, E=1, nameVariable=1, contadorImports=1, contadorIds=1, String=31, L=1, contadorFunciones=1, datatypes=1, N=1, tableName=1, nameClass=1, nameMethod=1, possibles=2, methodtypes=1, tables=1, contadorClases=1, V=1, context=3, num_ocurrences=2, nameFor=1, table=1, N1=1, void=24, N2=1, ctx=24, double=4, itr=1, edges=1, i=1, int=12, graph=1, nameWhile=1, size=1, nameIf=1, auxTable=1, contadorTiposDato=1, name=1, palabras=1, newTable=1, arrayCadena[]=4, contadorArrays=1, first=4, contadorLocales=1, tableIndex=1, currentTable=1}
+HALSTEAD MEDIDAS: ------
+N1: 223
+N2: 147
+n1: 26
+n2: 47
+Longitud del programa: 370
+Volumen del programa: 2290.2350867856067
+Nivel de especificacion de abtraccion: 0.024594453165881738
+Esfuerzo del programa: 3581.8144442285547
+
+Method Context: enterUnaryExpressionNotPlusMinus(Java8Parser.UnaryExpressionNotPlusMinusContextctx)
+# Variables locales: 0
+
+Nombre tabla: enterUnaryExpressionNotPlusMinus
+tabla: {n1=0.0, N1=0.0, n2=0.0, N2=0.0}
+tipos dato: {n1=1, n2=1, E=1, nameVariable=1, contadorImports=1, contadorIds=1, String=31, L=1, contadorFunciones=1, datatypes=1, N=1, tableName=1, nameClass=1, nameMethod=1, possibles=2, methodtypes=1, tables=1, contadorClases=1, V=1, context=3, num_ocurrences=2, nameFor=1, table=1, N1=1, void=25, N2=1, ctx=25, double=4, itr=1, edges=1, i=1, int=12, graph=1, nameWhile=1, size=1, nameIf=1, auxTable=1, contadorTiposDato=1, name=1, palabras=1, newTable=1, arrayCadena[]=4, contadorArrays=1, first=4, contadorLocales=1, tableIndex=1, currentTable=1}
+HALSTEAD MEDIDAS: ------
+N1: 224
+N2: 149
+n1: 26
+n2: 47
+Longitud del programa: 373
+Volumen del programa: 2308.8045604622466
+Nivel de especificacion de abtraccion: 0.024264326277749097
+Esfuerzo del programa: 3659.9774415837737
+
+Method Context: enterAssignmentOperator(Java8Parser.AssignmentOperatorContextctx)
+# Variables locales: 1
+
+Nombre tabla: enterAssignmentOperator
+tabla: {n1=0.0, N1=0.0, n2=0.0, N2=0.0}
+tipos dato: {n1=1, n2=1, nameVariable=1, operatorMap=1, String=33, datatypes=1, tableName=1, nameMethod=1, possibles=2, tables=1, context=3, nameFor=1, N1=1, void=26, N2=1, ctx=26, double=4, itr=1, graph=1, size=1, nameIf=1, name=1, palabras=1, contadorLocales=1, tableIndex=1, currentTable=1, E=1, contadorImports=1, contadorIds=1, L=1, contadorFunciones=1, N=1, nameClass=1, methodtypes=1, contadorClases=1, V=1, num_ocurrences=2, table=1, edges=1, i=1, int=12, nameWhile=1, auxTable=1, contadorTiposDato=1, x=1, newTable=1, arrayCadena[]=4, contadorArrays=1, first=4}
+HALSTEAD MEDIDAS: ------
+N1: 236
+N2: 155
+n1: 28
+n2: 49
+Longitud del programa: 391
+Volumen del programa: 2450.313537411707
+Nivel de especificacion de abtraccion: 0.02258064516129032
+Esfuerzo del programa: 3875.781615294026
+
+Method Context: enterAndExpression(Java8Parser.AndExpressionContextctx)
+# Variables locales: 0
+
+Nombre tabla: enterAndExpression
+tabla: {n1=0.0, N1=0.0, n2=0.0, N2=0.0}
+tipos dato: {n1=1, n2=1, nameVariable=1, operatorMap=1, String=33, datatypes=1, tableName=1, nameMethod=1, possibles=2, tables=1, context=3, nameFor=1, N1=1, void=27, N2=1, ctx=27, double=4, itr=1, graph=1, size=1, nameIf=1, name=1, palabras=1, contadorLocales=1, tableIndex=1, currentTable=1, E=1, contadorImports=1, contadorIds=1, L=1, contadorFunciones=1, N=1, nameClass=1, methodtypes=1, contadorClases=1, V=1, num_ocurrences=2, table=1, edges=1, i=1, int=12, nameWhile=1, auxTable=1, contadorTiposDato=1, x=1, newTable=1, arrayCadena[]=4, contadorArrays=1, first=4}
+HALSTEAD MEDIDAS: ------
+N1: 237
+N2: 157
+n1: 28
+n2: 49
+Longitud del programa: 394
+Volumen del programa: 2469.1138970337915
+Nivel de especificacion de abtraccion: 0.022292993630573247
+Esfuerzo del programa: 3955.906957492911
+
+Method Context: enterPostIncrementExpression(Java8Parser.PostIncrementExpressionContextctx)
+# Variables locales: 0
+
+Nombre tabla: enterPostIncrementExpression
+tabla: {n1=0.0, N1=0.0, n2=0.0, N2=0.0}
+tipos dato: {n1=1, n2=1, nameVariable=1, operatorMap=1, String=33, datatypes=1, tableName=1, nameMethod=1, possibles=2, tables=1, context=3, nameFor=1, N1=1, void=28, N2=1, ctx=28, double=4, itr=1, graph=1, size=1, nameIf=1, name=1, palabras=1, contadorLocales=1, tableIndex=1, currentTable=1, E=1, contadorImports=1, contadorIds=1, L=1, contadorFunciones=1, N=1, nameClass=1, methodtypes=1, contadorClases=1, V=1, num_ocurrences=2, table=1, edges=1, i=1, int=12, nameWhile=1, auxTable=1, contadorTiposDato=1, x=1, newTable=1, arrayCadena[]=4, contadorArrays=1, first=4}
+HALSTEAD MEDIDAS: ------
+N1: 238
+N2: 159
+n1: 28
+n2: 49
+Longitud del programa: 397
+Volumen del programa: 2487.914256655876
+Nivel de especificacion de abtraccion: 0.0220125786163522
+Esfuerzo del programa: 4036.7996613090236
+
+Method Context: enterPreIncrementExpression(Java8Parser.PreIncrementExpressionContextctx)
+# Variables locales: 0
+
+Nombre tabla: enterPreIncrementExpression
+tabla: {n1=0.0, N1=0.0, n2=0.0, N2=0.0}
+tipos dato: {n1=1, n2=1, nameVariable=1, operatorMap=1, String=33, datatypes=1, tableName=1, nameMethod=1, possibles=2, tables=1, context=3, nameFor=1, N1=1, void=29, N2=1, ctx=29, double=4, itr=1, graph=1, size=1, nameIf=1, name=1, palabras=1, contadorLocales=1, tableIndex=1, currentTable=1, E=1, contadorImports=1, contadorIds=1, L=1, contadorFunciones=1, N=1, nameClass=1, methodtypes=1, contadorClases=1, V=1, num_ocurrences=2, table=1, edges=1, i=1, int=12, nameWhile=1, auxTable=1, contadorTiposDato=1, x=1, newTable=1, arrayCadena[]=4, contadorArrays=1, first=4}
+HALSTEAD MEDIDAS: ------
+N1: 239
+N2: 161
+n1: 28
+n2: 49
+Longitud del programa: 400
+Volumen del programa: 2506.714616277961
+Nivel de especificacion de abtraccion: 0.021739130434782608
+Esfuerzo del programa: 4118.459726742364
+
+Method Context: enterPreDecrementExpression(Java8Parser.PreDecrementExpressionContextctx)
+# Variables locales: 0
+
+Nombre tabla: enterPreDecrementExpression
+tabla: {n1=0.0, N1=0.0, n2=0.0, N2=0.0}
+tipos dato: {n1=1, n2=1, nameVariable=1, operatorMap=1, String=33, datatypes=1, tableName=1, nameMethod=1, possibles=2, tables=1, context=3, nameFor=1, N1=1, void=30, N2=1, ctx=30, double=4, itr=1, graph=1, size=1, nameIf=1, name=1, palabras=1, contadorLocales=1, tableIndex=1, currentTable=1, E=1, contadorImports=1, contadorIds=1, L=1, contadorFunciones=1, N=1, nameClass=1, methodtypes=1, contadorClases=1, V=1, num_ocurrences=2, table=1, edges=1, i=1, int=12, nameWhile=1, auxTable=1, contadorTiposDato=1, x=1, newTable=1, arrayCadena[]=4, contadorArrays=1, first=4}
+HALSTEAD MEDIDAS: ------
+N1: 240
+N2: 163
+n1: 28
+n2: 49
+Longitud del programa: 403
+Volumen del programa: 2525.5149759000456
+Nivel de especificacion de abtraccion: 0.02147239263803681
+Esfuerzo del programa: 4200.887153792933
+
+Method Context: enterRelationalExpression(Java8Parser.RelationalExpressionContextctx)
+# Variables locales: 2
+
+Nombre tabla: enterRelationalExpression
+tabla: {n1=0.0, N1=0.0, n2=0.0, N2=0.0}
+tipos dato: {n1=1, n2=1, nameVariable=1, operatorMap=1, String=34, datatypes=1, tableName=1, nameMethod=1, possibles=2, tables=1, context=4, nameFor=1, N1=1, void=31, N2=1, ctx=31, double=4, itr=1, graph=1, size=1, nameIf=1, name=1, palabras=1, contadorLocales=1, tableIndex=1, currentTable=1, E=1, contadorImports=1, contadorIds=1, L=1, contadorFunciones=1, N=1, nameClass=1, methodtypes=1, contadorClases=1, V=1, num_ocurrences=2, table=1, edges=1, i=1, possible=1, int=12, nameWhile=1, auxTable=1, contadorTiposDato=1, x=1, newTable=1, arrayCadena[]=4, contadorArrays=1, first=5}
+HALSTEAD MEDIDAS: ------
+N1: 274
+N2: 169
+n1: 28
+n2: 50
+Longitud del programa: 443
+Volumen del programa: 2784.433182955976
+Nivel de especificacion de abtraccion: 0.021132713440405747
+Esfuerzo del programa: 4705.9720791956
+
+Method Context: enterEqualityExpression(Java8Parser.EqualityExpressionContextctx)
+# Variables locales: 2
+
+Nombre tabla: enterEqualityExpression
+tabla: {n1=0.0, N1=0.0, n2=0.0, N2=0.0}
+tipos dato: {n1=1, n2=1, nameVariable=1, operatorMap=1, String=35, datatypes=1, tableName=1, nameMethod=1, possibles=2, tables=1, context=5, nameFor=1, N1=1, void=32, N2=1, ctx=32, double=4, itr=1, graph=1, size=1, nameIf=1, name=1, palabras=1, contadorLocales=1, tableIndex=1, currentTable=1, E=1, contadorImports=1, contadorIds=1, L=1, contadorFunciones=1, N=1, nameClass=1, methodtypes=1, contadorClases=1, V=1, num_ocurrences=2, table=1, edges=1, i=1, possible=2, int=12, nameWhile=1, auxTable=1, contadorTiposDato=1, x=1, newTable=1, arrayCadena[]=4, contadorArrays=1, first=6}
+HALSTEAD MEDIDAS: ------
+N1: 293
+N2: 175
+n1: 28
+n2: 50
+Longitud del programa: 468
+Volumen del programa: 2941.5682384275324
+Nivel de especificacion de abtraccion: 0.02040816326530612
+Esfuerzo del programa: 5148.024417248182
+
+Method Context: enterReturnStatement(Java8Parser.ReturnStatementContextctx)
+# Variables locales: 0
+
+Nombre tabla: enterReturnStatement
+tabla: {n1=0.0, N1=0.0, n2=0.0, N2=0.0}
+tipos dato: {n1=1, n2=1, nameVariable=1, operatorMap=1, String=35, datatypes=1, tableName=1, nameMethod=1, possibles=2, tables=1, context=5, nameFor=1, N1=1, void=33, N2=1, ctx=33, double=4, itr=1, graph=1, size=1, nameIf=1, name=1, palabras=1, contadorLocales=1, tableIndex=1, currentTable=1, E=1, contadorImports=1, contadorIds=1, L=1, contadorFunciones=1, N=1, nameClass=1, methodtypes=1, contadorClases=1, V=1, num_ocurrences=2, table=1, edges=1, i=1, possible=2, int=12, nameWhile=1, auxTable=1, contadorTiposDato=1, x=1, newTable=1, arrayCadena[]=4, contadorArrays=1, first=6}
+HALSTEAD MEDIDAS: ------
+N1: 293
+N2: 177
+n1: 28
+n2: 50
+Longitud del programa: 470
+Volumen del programa: 2954.1390428652567
+Nivel de especificacion de abtraccion: 0.020177562550443905
+Esfuerzo del programa: 5229.106105871504
+
+Method Context: enterDims(Java8Parser.DimsContextctx)
+# Variables locales: 0
+
+Nombre tabla: enterDims
+tabla: {n1=0.0, N1=0.0, n2=0.0, N2=0.0}
+tipos dato: {n1=1, n2=1, nameVariable=1, operatorMap=1, String=35, datatypes=1, tableName=1, nameMethod=1, possibles=2, tables=1, context=5, nameFor=1, N1=1, void=34, N2=1, ctx=34, double=4, itr=1, graph=1, size=1, nameIf=1, name=1, palabras=1, contadorLocales=1, tableIndex=1, currentTable=1, E=1, contadorImports=1, contadorIds=1, L=1, contadorFunciones=1, N=1, nameClass=1, methodtypes=1, contadorClases=1, V=1, num_ocurrences=2, table=1, edges=1, i=1, possible=2, int=12, nameWhile=1, auxTable=1, contadorTiposDato=1, x=1, newTable=1, arrayCadena[]=4, contadorArrays=1, first=6}
+HALSTEAD MEDIDAS: ------
+N1: 294
+N2: 179
+n1: 28
+n2: 50
+Longitud del programa: 473
+Volumen del programa: 2972.9952495218436
+Nivel de especificacion de abtraccion: 0.019952114924181964
+Esfuerzo del programa: 5321.9414966441
+
+Method Context: enterImportDeclaration(Java8Parser.ImportDeclarationContextctx)
+# Variables locales: 0
+
+Nombre tabla: enterImportDeclaration
+tabla: {n1=0.0, N1=0.0, n2=0.0, N2=0.0}
+tipos dato: {n1=1, n2=1, nameVariable=1, operatorMap=1, String=35, datatypes=1, tableName=1, nameMethod=1, possibles=2, tables=1, context=5, nameFor=1, N1=1, void=35, N2=1, ctx=35, double=4, itr=1, graph=1, size=1, nameIf=1, name=1, palabras=1, contadorLocales=1, tableIndex=1, currentTable=1, E=1, contadorImports=1, contadorIds=1, L=1, contadorFunciones=1, N=1, nameClass=1, methodtypes=1, contadorClases=1, V=1, num_ocurrences=2, table=1, edges=1, i=1, possible=2, int=12, nameWhile=1, auxTable=1, contadorTiposDato=1, x=1, newTable=1, arrayCadena[]=4, contadorArrays=1, first=6}
+HALSTEAD MEDIDAS: ------
+N1: 295
+N2: 181
+n1: 28
+n2: 50
+Longitud del programa: 476
+Volumen del programa: 2991.8514561784305
+Nivel de especificacion de abtraccion: 0.01973164956590371
+Esfuerzo del programa: 5415.531135682959
+
+Method Context: enterNormalClassDeclaration(Java8Parser.NormalClassDeclarationContextctx)
+# Variables locales: 2
+
+Nombre tabla: enterNormalClassDeclaration
+tabla: {n1=0.0, N1=0.0, n2=0.0, N2=0.0}
+tipos dato: {n1=1, n2=1, nameVariable=1, operatorMap=1, String=37, datatypes=1, tableName=1, nameMethod=1, possibles=2, tables=1, context=5, nameFor=1, N1=1, void=36, N2=1, ctx=36, double=4, itr=1, graph=1, size=1, nameIf=1, name=1, palabras=1, contadorLocales=1, tableIndex=1, currentTable=1, E=1, contadorImports=1, contadorIds=1, L=1, contadorFunciones=1, N=1, nameClass=1, methodtypes=1, contadorClases=1, V=1, num_ocurrences=2, table=1, subClass=1, edges=1, i=1, possible=2, int=12, nameWhile=1, auxTable=1, contadorTiposDato=1, x=1, newTable=1, arrayCadena[]=5, contadorArrays=1, first=6}
+HALSTEAD MEDIDAS: ------
+N1: 305
+N2: 187
+n1: 28
+n2: 51
+Longitud del programa: 492
+Volumen del programa: 3101.4601281031346
+Nivel de especificacion de abtraccion: 0.01948051948051948
+Esfuerzo del programa: 5686.284744659668
+
+Method Context: exitNormalClassDeclaration(Java8Parser.NormalClassDeclarationContextctx)
+# Variables locales: 0
+
+Nombre tabla: exitNormalClassDeclaration
+tabla: {n1=0.0, N1=0.0, n2=0.0, N2=0.0}
+tipos dato: {n1=1, n2=1, nameVariable=1, operatorMap=1, String=37, datatypes=1, tableName=1, nameMethod=1, possibles=2, tables=1, context=5, nameFor=1, N1=1, void=37, N2=1, ctx=37, double=4, itr=1, graph=1, size=1, nameIf=1, name=1, palabras=1, contadorLocales=1, tableIndex=1, currentTable=1, E=1, contadorImports=1, contadorIds=1, L=1, contadorFunciones=1, N=1, nameClass=1, methodtypes=1, contadorClases=1, V=1, num_ocurrences=2, table=1, subClass=1, edges=1, i=1, possible=2, int=12, nameWhile=1, auxTable=1, contadorTiposDato=1, x=1, newTable=1, arrayCadena[]=5, contadorArrays=1, first=6}
+HALSTEAD MEDIDAS: ------
+N1: 306
+N2: 189
+n1: 28
+n2: 51
+Longitud del programa: 495
+Volumen del programa: 3120.371470347666
+Nivel de especificacion de abtraccion: 0.01927437641723356
+Esfuerzo del programa: 5782.139293095185
+
+Method Context: enterArrayCreationExpression(Java8Parser.ArrayCreationExpressionContextctx)
+# Variables locales: 0
+
+Nombre tabla: enterArrayCreationExpression
+tabla: {n1=0.0, N1=0.0, n2=0.0, N2=0.0}
+tipos dato: {n1=1, n2=1, nameVariable=1, operatorMap=1, String=37, datatypes=1, tableName=1, nameMethod=1, possibles=2, tables=1, context=5, nameFor=1, N1=1, void=38, N2=1, ctx=38, double=4, itr=1, graph=1, size=1, nameIf=1, name=1, palabras=1, contadorLocales=1, tableIndex=1, currentTable=1, E=1, contadorImports=1, contadorIds=1, L=1, contadorFunciones=1, N=1, nameClass=1, methodtypes=1, contadorClases=1, V=1, num_ocurrences=2, table=1, subClass=1, edges=1, i=1, possible=2, int=12, nameWhile=1, auxTable=1, contadorTiposDato=1, x=1, newTable=1, arrayCadena[]=5, contadorArrays=1, first=6}
+HALSTEAD MEDIDAS: ------
+N1: 306
+N2: 191
+n1: 28
+n2: 51
+Longitud del programa: 497
+Volumen del programa: 3132.97903184402
+Nivel de especificacion de abtraccion: 0.01907255048616305
+Esfuerzo del programa: 5866.931324335371
+
+Method Context: enterClassModifier(Java8Parser.ClassModifierContextctx)
+# Variables locales: 0
+
+Nombre tabla: enterClassModifier
+tabla: {n1=0.0, N1=0.0, n2=0.0, N2=0.0}
+tipos dato: {n1=1, n2=1, nameVariable=1, operatorMap=1, String=37, datatypes=1, tableName=1, nameMethod=1, possibles=2, tables=1, context=5, nameFor=1, N1=1, void=39, N2=1, ctx=39, double=4, itr=1, graph=1, size=1, nameIf=1, name=1, palabras=1, contadorLocales=1, tableIndex=1, currentTable=1, E=1, contadorImports=1, contadorIds=1, L=1, contadorFunciones=1, N=1, nameClass=1, methodtypes=1, contadorClases=1, V=1, num_ocurrences=2, table=1, subClass=1, edges=1, i=1, possible=2, int=12, nameWhile=1, auxTable=1, contadorTiposDato=1, x=1, newTable=1, arrayCadena[]=5, contadorArrays=1, first=6}
+HALSTEAD MEDIDAS: ------
+N1: 306
+N2: 193
+n1: 28
+n2: 51
+Longitud del programa: 499
+Volumen del programa: 3145.5865933403743
+Nivel de especificacion de abtraccion: 0.018874907475943746
+Esfuerzo del programa: 5952.217769751885
+
+Method Context: enterMethodModifier(Java8Parser.MethodModifierContextctx)
+# Variables locales: 0
+
+Nombre tabla: enterMethodModifier
+tabla: {n1=0.0, N1=0.0, n2=0.0, N2=0.0}
+tipos dato: {n1=1, n2=1, nameVariable=1, operatorMap=1, String=37, datatypes=1, tableName=1, nameMethod=1, possibles=2, tables=1, context=5, nameFor=1, N1=1, void=40, N2=1, ctx=40, double=4, itr=1, graph=1, size=1, nameIf=1, name=1, palabras=1, contadorLocales=1, tableIndex=1, currentTable=1, E=1, contadorImports=1, contadorIds=1, L=1, contadorFunciones=1, N=1, nameClass=1, methodtypes=1, contadorClases=1, V=1, num_ocurrences=2, table=1, subClass=1, edges=1, i=1, possible=2, int=12, nameWhile=1, auxTable=1, contadorTiposDato=1, x=1, newTable=1, arrayCadena[]=5, contadorArrays=1, first=6}
+HALSTEAD MEDIDAS: ------
+N1: 307
+N2: 195
+n1: 29
+n2: 51
+Longitud del programa: 502
+Volumen del programa: 3173.6079036334554
+Nivel de especificacion de abtraccion: 0.01803713527851459
+Esfuerzo del programa: 6067.475894201214
+
+Method Context: enterExpressionName(Java8Parser.ExpressionNameContextctx)
+# Variables locales: 0
+
+Nombre tabla: enterExpressionName
+tabla: {n1=0.0, N1=0.0, n2=0.0, N2=0.0}
+tipos dato: {n1=1, n2=1, nameVariable=1, operatorMap=1, String=37, datatypes=1, tableName=1, nameMethod=1, possibles=2, tables=1, context=5, nameFor=1, N1=1, void=41, N2=1, ctx=41, double=4, itr=1, graph=1, size=1, nameIf=1, name=1, palabras=1, contadorLocales=1, tableIndex=1, currentTable=1, E=1, contadorImports=1, contadorIds=1, L=1, contadorFunciones=1, N=1, nameClass=1, methodtypes=1, contadorClases=1, V=1, num_ocurrences=2, table=1, subClass=1, edges=1, i=1, possible=2, int=12, nameWhile=1, auxTable=1, contadorTiposDato=1, x=1, newTable=1, arrayCadena[]=5, contadorArrays=1, first=6}
+HALSTEAD MEDIDAS: ------
+N1: 307
+N2: 197
+n1: 29
+n2: 51
+Longitud del programa: 504
+Volumen del programa: 3186.2517598232303
+Nivel de especificacion de abtraccion: 0.01785401715385962
+Esfuerzo del programa: 6154.123496913494
+
+Method Context: enterPrimary(Java8Parser.PrimaryContextctx)
+# Variables locales: 0
+
+Nombre tabla: enterPrimary
+tabla: {n1=0.0, N1=0.0, n2=0.0, N2=0.0}
+tipos dato: {n1=1, n2=1, nameVariable=1, operatorMap=1, String=37, datatypes=1, tableName=1, nameMethod=1, possibles=2, tables=1, context=5, nameFor=1, N1=1, void=42, N2=1, ctx=42, double=4, itr=1, graph=1, size=1, nameIf=1, name=1, palabras=1, contadorLocales=1, tableIndex=1, currentTable=1, E=1, contadorImports=1, contadorIds=1, L=1, contadorFunciones=1, N=1, nameClass=1, methodtypes=1, contadorClases=1, V=1, num_ocurrences=2, table=1, subClass=1, edges=1, i=1, possible=2, int=12, nameWhile=1, auxTable=1, contadorTiposDato=1, x=1, newTable=1, arrayCadena[]=5, contadorArrays=1, first=6}
+HALSTEAD MEDIDAS: ------
+N1: 308
+N2: 199
+n1: 29
+n2: 51
+Longitud del programa: 507
+Volumen del programa: 3205.2175441078925
+Nivel de especificacion de abtraccion: 0.01767457979552937
+Esfuerzo del programa: 6253.600894877162
+
+Method Context: enterUnannType(Java8Parser.UnannTypeContextctx)
+# Variables locales: 5
+
+Nombre tabla: enterUnannType
+tabla: {n1=0.0, N1=0.0, n2=0.0, N2=0.0}
+tipos dato: {n1=1, n2=1, nameVariable=1, operatorMap=1, String=39, datatypes=1, tableName=1, nameMethod=1, possibles=3, tables=1, context=6, nameFor=1, N1=1, void=43, N2=1, ctx=43, double=4, itr=1, index=1, graph=1, size=1, nameIf=1, name=1, palabras=1, contadorLocales=1, tableIndex=1, currentTable=1, E=1, contadorImports=1, contadorIds=1, L=1, contadorFunciones=1, N=1, nameClass=1, methodtypes=1, contadorClases=1, V=1, num_ocurrences=2, table=1, subClass=1, max=1, edges=1, i=1, possible=2, int=14, nameWhile=1, names=1, auxTable=1, contadorTiposDato=1, x=1, newTable=1, arrayCadena[]=5, contadorArrays=1, first=7}
+HALSTEAD MEDIDAS: ------
+N1: 317
+N2: 211
+n1: 29
+n2: 54
+Longitud del programa: 528
+Volumen del programa: 3366.0208197511765
+Nivel de especificacion de abtraccion: 0.017649942801111294
+Esfuerzo del programa: 6576.475860810169
+
+Method Context: enterVariableDeclaratorId(Java8Parser.VariableDeclaratorIdContextctx)
 # Variables locales: 3
 
-Nombre tabla: funcion3
+Nombre tabla: enterVariableDeclaratorId
 tabla: {n1=0.0, N1=0.0, n2=0.0, N2=0.0}
-tipos dato: {a=2, array[]=1, b=1, void=2, c=1, String=1, float=3, int=4, matrix[][]=1, r=1, boolean=1, v=1, w=1}
+tipos dato: {n1=1, n2=1, nameVariable=1, operatorMap=1, String=41, datatypes=1, tableName=1, nameMethod=1, possibles=3, tables=1, context=6, nameFor=1, N1=1, void=44, N2=1, ctx=44, double=4, itr=1, index=1, graph=1, size=1, nameIf=1, name=1, palabras=1, contadorLocales=1, tableIndex=1, currentTable=1, E=1, contadorImports=1, contadorIds=1, L=1, contadorFunciones=1, N=1, nameClass=1, methodtypes=1, contadorClases=1, V=1, num_ocurrences=3, table=1, subClass=1, max=1, edges=1, i=1, possible=2, int=15, nameWhile=1, names=1, auxTable=1, contadorTiposDato=1, x=1, newTable=1, arrayCadena[]=6, contadorArrays=1, first=8}
 HALSTEAD MEDIDAS: ------
-N1: 15
-N2: 20
-n1: 7
-n2: 13
-Longitud del programa: 35
-Volumen del programa: 151.26748332105768
-Nivel de especificacion de abtraccion: 0.18571428571428572
-Esfuerzo del programa: 116.62883332389053
+N1: 343
+N2: 219
+n1: 29
+n2: 54
+Longitud del programa: 562
+Volumen del programa: 3582.772160416972
+Nivel de especificacion de abtraccion: 0.017005196032120924
+Esfuerzo del programa: 7265.334288252933
 
-Method Context: main(String[]args)
-# Variables locales: 3
+Method Context: exitVariableDeclaratorId(Java8Parser.VariableDeclaratorIdContextctx)
+# Variables locales: 0
 
-Nombre tabla: main
+Nombre tabla: exitVariableDeclaratorId
 tabla: {n1=0.0, N1=0.0, n2=0.0, N2=0.0}
-tipos dato: {a=2, array[]=1, b=1, void=3, c=1, d=1, i=1, String=2, float=4, int=7, args=1, matrix[][]=1, r=1, boolean=1, v=1, w=1, y=1, z=1}
+tipos dato: {n1=1, n2=1, nameVariable=1, operatorMap=1, String=41, datatypes=1, tableName=1, nameMethod=1, possibles=3, tables=1, context=6, nameFor=1, N1=1, void=45, N2=1, ctx=45, double=4, itr=1, index=1, graph=1, size=1, nameIf=1, name=1, palabras=1, contadorLocales=1, tableIndex=1, currentTable=1, E=1, contadorImports=1, contadorIds=1, L=1, contadorFunciones=1, N=1, nameClass=1, methodtypes=1, contadorClases=1, V=1, num_ocurrences=3, table=1, subClass=1, max=1, edges=1, i=1, possible=2, int=15, nameWhile=1, names=1, auxTable=1, contadorTiposDato=1, x=1, newTable=1, arrayCadena[]=6, contadorArrays=1, first=8}
 HALSTEAD MEDIDAS: ------
-N1: 25
-N2: 31
-n1: 11
-n2: 18
-Longitud del programa: 56
-Volumen del programa: 272.04693572714405
-Nivel de especificacion de abtraccion: 0.10557184750733138
-Esfuerzo del programa: 234.56819465392962
+N1: 344
+N2: 221
+n1: 29
+n2: 54
+Longitud del programa: 565
+Volumen del programa: 3601.897278711013
+Nivel de especificacion de abtraccion: 0.01685130285535965
+Esfuerzo del programa: 7370.817579584573
 
-& Funciones: 3
-& Imports:  2
+Method Context: enterResult(Java8Parser.ResultContextctx)
+# Variables locales: 5
+
+Nombre tabla: enterResult
+tabla: {n1=0.0, N1=0.0, n2=0.0, N2=0.0}
+tipos dato: {n1=1, n2=1, nameVariable=1, operatorMap=1, String=43, datatypes=1, tableName=1, nameMethod=1, possibles=4, tables=1, context=7, nameFor=1, N1=1, void=46, N2=1, ctx=46, double=4, itr=1, index=2, graph=1, size=1, nameIf=1, name=1, palabras=1, contadorLocales=1, tableIndex=1, currentTable=1, E=1, contadorImports=1, contadorIds=1, L=1, contadorFunciones=1, N=1, nameClass=1, methodtypes=1, contadorClases=1, V=1, num_ocurrences=3, table=1, subClass=1, max=2, edges=1, i=1, possible=2, int=17, nameWhile=1, names=2, auxTable=1, contadorTiposDato=1, x=1, newTable=1, arrayCadena[]=6, contadorArrays=1, first=9}
+HALSTEAD MEDIDAS: ------
+N1: 352
+N2: 233
+n1: 29
+n2: 54
+Longitud del programa: 585
+Volumen del programa: 3729.3980673379515
+Nivel de especificacion de abtraccion: 0.015983424596714518
+Esfuerzo del programa: 8046.099534164284
+
+& Funciones: 46
+& Imports:  8
 & Clases: 1
-& Arreglos: 3
+& Arreglos: 18
 []
-{funcion2=0, funcion3=0, main=0}
+{enterWhileStatement=0, enterPostIncrementExpression=0, enterMultiplicativeExpression=0, enterConditionalAndExpression=0, exitVariableDeclaratorId=0, enterSwitchLabel=0, exitMethodDeclaration=0, enterDoStatement=0, enterVariableDeclaratorId=0, enterResult=0, enterForStatement=0, enterIfThenStatement=0, enterImportDeclaration=0, enterUnannType=0, enterPrimary=0, exitIfThenStatement=0, countOperators=0, enterIfThenElseStatement=0, enterAndExpression=0, enterAssignmentOperator=0, enterArrayCreationExpression=0, enterNormalClassDeclaration=0, enterRelationalExpression=0, enterContinueStatement=0, enterPreIncrementExpression=0, exitNormalClassDeclaration=0, enterMethodDeclarator=0, enterAdditiveExpression=0, enterBreakStatement=0, enterConditionalOrExpression=0, enterReturnStatement=0, enterLocalVariableDeclarationStatement=0, exitCompilationUnit=0, enterSwitchStatement=0, enterUnaryExpressionNotPlusMinus=0, exitForStatement=0, countOperands=0, enterEqualityExpression=0, enterClassModifier=0, enterExpressionName=0, enterVariableDeclarator=0, enterLiteral=0, enterDims=0, enterMethodModifier=0, exitWhileStatement=0, enterPreDecrementExpression=0}
 DEPENDENCIAS:
-|input|r
-|input|array
-|input|matrix
-|input|funcion2
-|funcion2|w
-|funcion2|v
-|funcion2|WHILE
-|funcion2|a
-|input|funcion3
-|funcion3|b
-|funcion3|c
-|funcion3|a
-|input|main
-|main|args
-|main|z
-|main|FOR
-|main|i
-|main|d
-|main|IF
-|main|y
+|metricador|contadorFunciones
+|metricador|contadorLocales
+|metricador|contadorImports
+|metricador|contadorClases
+|metricador|contadorArrays
+|metricador|contadorTiposDato
+|metricador|contadorIds
+|metricador|N1
+|metricador|N2
+|metricador|n1
+|metricador|n2
+|metricador|size
+|metricador|table
+|metricador|datatypes
+|metricador|methodtypes
+|metricador|tableIndex
+|metricador|tableName
+|metricador|tables
+|metricador|nameClass
+|metricador|nameMethod
+|metricador|nameVariable
+|metricador|nameWhile
+|metricador|nameFor
+|metricador|nameIf
+|metricador|graph
+|metricador|currentTable
+|metricador|countOperators
+|countOperators|ctx
+|countOperators|first
+|countOperators|IF
+|countOperators|num_ocurrences
+|metricador|countOperands
+|countOperands|ctx
+|countOperands|first
+|countOperands|IF
+|countOperands|num_ocurrences
+|metricador|enterLocalVariableDeclarationStatement
+|enterLocalVariableDeclarationStatement|ctx
+|metricador|enterMethodDeclarator
+|enterMethodDeclarator|ctx
+|enterMethodDeclarator|context
+|enterMethodDeclarator|name
+|enterMethodDeclarator|newTable
+|enterMethodDeclarator|arrayCadena
+|metricador|exitMethodDeclaration
+|exitMethodDeclaration|ctx
+|exitMethodDeclaration|auxTable
+|exitMethodDeclaration|N
+|exitMethodDeclaration|V
+|exitMethodDeclaration|L
+|exitMethodDeclaration|E
+|metricador|exitCompilationUnit
+|exitCompilationUnit|ctx
+|exitCompilationUnit|itr
+|exitCompilationUnit|WHILE
+|exitCompilationUnit|palabras
+|exitCompilationUnit|edges
+|exitCompilationUnit|FOR
+|exitCompilationUnit|i
+|metricador|enterVariableDeclarator
+|enterVariableDeclarator|ctx
+|metricador|enterAdditiveExpression
+|enterAdditiveExpression|ctx
+|enterAdditiveExpression|first
+|enterAdditiveExpression|context
+|enterAdditiveExpression|possibles
+|metricador|enterMultiplicativeExpression
+|enterMultiplicativeExpression|ctx
+|enterMultiplicativeExpression|first
+|enterMultiplicativeExpression|context
+|enterMultiplicativeExpression|possibles
+|metricador|enterIfThenStatement
+|enterIfThenStatement|ctx
+|enterIfThenStatement|arrayCadena
+|metricador|exitIfThenStatement
+|exitIfThenStatement|ctx
+|metricador|enterIfThenElseStatement
+|enterIfThenElseStatement|ctx
+|metricador|enterSwitchStatement
+|enterSwitchStatement|ctx
+|metricador|enterSwitchLabel
+|enterSwitchLabel|ctx
+|metricador|enterBreakStatement
+|enterBreakStatement|ctx
+|metricador|enterForStatement
+|enterForStatement|ctx
+|enterForStatement|arrayCadena
+|metricador|exitForStatement
+|exitForStatement|ctx
+|metricador|enterContinueStatement
+|enterContinueStatement|ctx
+|metricador|enterDoStatement
+|enterDoStatement|ctx
+|metricador|enterWhileStatement
+|enterWhileStatement|ctx
+|enterWhileStatement|arrayCadena
+|metricador|exitWhileStatement
+|exitWhileStatement|ctx
+|metricador|enterLiteral
+|enterLiteral|ctx
+|metricador|enterConditionalAndExpression
+|enterConditionalAndExpression|ctx
+|metricador|enterConditionalOrExpression
+|enterConditionalOrExpression|ctx
+|metricador|enterUnaryExpressionNotPlusMinus
+|enterUnaryExpressionNotPlusMinus|ctx
+|metricador|enterAssignmentOperator
+|enterAssignmentOperator|ctx
+|enterAssignmentOperator|operatorMap
+|enterAssignmentOperator|FOR
+|enterAssignmentOperator|x
+|metricador|enterAndExpression
+|enterAndExpression|ctx
+|metricador|enterPostIncrementExpression
+|enterPostIncrementExpression|ctx
+|metricador|enterPreIncrementExpression
+|enterPreIncrementExpression|ctx
+|metricador|enterPreDecrementExpression
+|enterPreDecrementExpression|ctx
+|metricador|enterRelationalExpression
+|enterRelationalExpression|ctx
+|enterRelationalExpression|first
+|enterRelationalExpression|context
+|enterRelationalExpression|possible
+|metricador|enterEqualityExpression
+|enterEqualityExpression|ctx
+|enterEqualityExpression|first
+|enterEqualityExpression|context
+|enterEqualityExpression|possible
+|metricador|enterReturnStatement
+|enterReturnStatement|ctx
+|metricador|enterDims
+|enterDims|ctx
+|metricador|enterImportDeclaration
+|enterImportDeclaration|ctx
+|metricador|enterNormalClassDeclaration
+|enterNormalClassDeclaration|ctx
+|enterNormalClassDeclaration|subClass
+|enterNormalClassDeclaration|arrayCadena
+|metricador|exitNormalClassDeclaration
+|exitNormalClassDeclaration|ctx
+|metricador|enterArrayCreationExpression
+|enterArrayCreationExpression|ctx
+|metricador|enterClassModifier
+|enterClassModifier|ctx
+|metricador|enterMethodModifier
+|enterMethodModifier|ctx
+|metricador|enterExpressionName
+|enterExpressionName|ctx
+|metricador|enterPrimary
+|enterPrimary|ctx
+|metricador|enterUnannType
+|enterUnannType|ctx
+|enterUnannType|first
+|enterUnannType|context
+|enterUnannType|names
+|enterUnannType|possibles
+|enterUnannType|max
+|enterUnannType|index
+|metricador|enterVariableDeclaratorId
+|enterVariableDeclaratorId|ctx
+|enterVariableDeclaratorId|first
+|enterVariableDeclaratorId|IF
+|enterVariableDeclaratorId|num_ocurrences
+|enterVariableDeclaratorId|arrayCadena
+|metricador|exitVariableDeclaratorId
+|exitVariableDeclaratorId|ctx
+|metricador|enterResult
+|enterResult|ctx
+|enterResult|first
+|enterResult|context
+|enterResult|names
+|enterResult|possibles
+|enterResult|max
+|enterResult|index
 
