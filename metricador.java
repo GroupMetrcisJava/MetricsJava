@@ -4,6 +4,7 @@ import java.util.Collections;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.*;
 import java.math.*;
 
 public class metricador extends Java8BaseListener{
@@ -25,9 +26,14 @@ public class metricador extends Java8BaseListener{
     Map <Integer, String> tableName = new HashMap<Integer, String>();
     List< Map <String, Float> > tables = new ArrayList<Map<String, Float>>();
 
-    /*para sacar los metodos que tiene una funcion*/
+    /*para sacar los metodos grafo*/
     String nameClass = "";
-    List<String []> graph= new ArrayList<String []>();
+    String nameMethod = "";
+    String nameVariable = "";
+    String nameWhile = "";
+    String nameFor = "";
+    String nameIf = "";
+    ArrayList<String []> graph= new ArrayList<String []>();
 
     String currentTable;
 
@@ -78,7 +84,11 @@ public class metricador extends Java8BaseListener{
         tables.add(newTable);
         currentTable = name;
 
-        
+        nameMethod = ctx.Identifier().getText();
+        String arrayCadena [] = new String [2];
+        arrayCadena[0] = nameClass;
+        arrayCadena[1] = nameMethod;
+        graph.add(arrayCadena); 
      }
 
     @Override public void exitMethodDeclaration(Java8Parser.MethodDeclarationContext ctx) {
@@ -116,6 +126,7 @@ public class metricador extends Java8BaseListener{
         } else {
             currentTable = "";
         }
+        nameMethod = "";
         
      }
      @Override public void exitCompilationUnit(Java8Parser.CompilationUnitContext ctx) { 
@@ -126,6 +137,16 @@ public class metricador extends Java8BaseListener{
 
          System.out.println(tables);
          System.out.println(tableIndex);
+         System.out.println("DEPENDENCIAS:");
+         ListIterator<String []> itr = graph.listIterator();
+         while(itr.hasNext()){
+             String [] palabras = itr.next();
+             String edges = "";
+             for(int i = 0; i < palabras.length; i++){
+                 edges = edges + "|" + palabras[i];
+             }
+             System.out.println(edges);
+         }
          
      }
     
@@ -165,6 +186,19 @@ public class metricador extends Java8BaseListener{
      /**If statement */
      @Override public void enterIfThenStatement(Java8Parser.IfThenStatementContext ctx) {        
         countOperators(ctx.getText(), "if");
+        nameIf = "IF";
+        String arrayCadena [] = new String [2];
+        if(nameMethod.equals("")){
+            arrayCadena[0] = nameClass;
+        }else{
+            arrayCadena[0] = nameMethod;
+        }
+        arrayCadena[1] = nameIf;
+        graph.add(arrayCadena);
+      }
+
+      @Override public void exitIfThenStatement(Java8Parser.IfThenStatementContext ctx) { 
+          nameIf = "";
       }
 
      /*If-else statement */
@@ -188,6 +222,19 @@ public class metricador extends Java8BaseListener{
     /* ciclo for */
     @Override public void enterForStatement(Java8Parser.ForStatementContext ctx) {
         countOperators(ctx.getText(), "for");
+        nameFor = "FOR";
+        String arrayCadena [] = new String [2];
+        if(nameMethod.equals("")){
+            arrayCadena[0] = nameClass;
+        }else{
+            arrayCadena[0] = nameMethod;
+        }
+        arrayCadena[1] = nameFor;
+        graph.add(arrayCadena);
+    }
+
+    @Override public void exitForStatement(Java8Parser.ForStatementContext ctx) { 
+        nameFor = "";
     }
     /**Continue statement */
     @Override public void enterContinueStatement(Java8Parser.ContinueStatementContext ctx) {
@@ -201,6 +248,19 @@ public class metricador extends Java8BaseListener{
     /**While statement */
     @Override public void enterWhileStatement(Java8Parser.WhileStatementContext ctx) {
         countOperators(ctx.getText(), "while");
+        nameWhile = "WHILE";
+        String arrayCadena [] = new String [2];
+        if(nameMethod.equals("")){
+            arrayCadena[0] = nameClass;
+        }else{
+            arrayCadena[0] = nameMethod;
+        }
+        arrayCadena[1] = nameWhile;
+        graph.add(arrayCadena);
+    }
+
+    @Override public void exitWhileStatement(Java8Parser.WhileStatementContext ctx) { 
+        nameWhile = "";
     }
     /**TRue and False values in boolean type variables */
      /* Para encontrar los identificadores  */
@@ -309,7 +369,17 @@ public class metricador extends Java8BaseListener{
     @Override public void enterNormalClassDeclaration(Java8Parser.NormalClassDeclarationContext ctx) { 
         contadorClases++;
         countOperators(ctx.getText(), "class");
-        nameClass = ctx.Identifier().getText();
+        /* para incluir clases en los grafos*/
+        if(nameClass.equals("")){
+            nameClass = ctx.Identifier().getText();
+        }else{
+            String subClass = ctx.Identifier().getText();
+            String arrayCadena [] = new String [2];
+            arrayCadena[0] = nameClass;
+            arrayCadena[1] = subClass;
+            graph.add(arrayCadena);
+        }
+        
         
     }
 
@@ -378,6 +448,19 @@ public class metricador extends Java8BaseListener{
                 N2++;
             }
         }
+        nameVariable = ctx.Identifier().getText();
+        String arrayCadena [] = new String [2];
+        if(nameMethod.equals("")){
+            arrayCadena[0] = nameClass;
+        }else{
+            arrayCadena[0] = nameMethod;
+        }
+        arrayCadena[1] = nameVariable;
+        graph.add(arrayCadena); 
+    }
+
+    @Override public void exitVariableDeclaratorId(Java8Parser.VariableDeclaratorIdContext ctx) { 
+        nameVariable = "";
     }
      /* contador de tipos de dato para funciones */
      @Override public void enterResult(Java8Parser.ResultContext ctx) {
