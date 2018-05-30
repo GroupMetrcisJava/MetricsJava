@@ -132,6 +132,7 @@ public class metricador extends Java8BaseListener{
     }
 
     @Override public void exitNormalClassDeclaration(Java8Parser.NormalClassDeclarationContext ctx) {
+        nameClass = "";
         System.out.println("-------Just exited from a class");
         Map<String, Float> numAux = numClass.get(classes.get(classes.size()-1));
         Map<String, Integer> varAux = varClass.get(classes.get(classes.size()-1));
@@ -504,10 +505,7 @@ public class metricador extends Java8BaseListener{
         
     }
 
-    /*reset del nombre de clase en analisis*/
-    @Override public void exitNormalClassDeclaration(Java8Parser.NormalClassDeclarationContext ctx) { 
-        nameClass = "";
-    }
+    
 
     /* contador de los new */
     @Override public void enterArrayCreationExpression(Java8Parser.ArrayCreationExpressionContext ctx) { 
