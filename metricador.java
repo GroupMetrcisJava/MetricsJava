@@ -68,6 +68,7 @@ public class metricador extends Java8BaseListener{
             } else if (currentTable != null) {
                 symFunc.put(currentTable, symAux);
                 numFunc.put(currentTable, numAux);
+                
                 /* System.out.println("symFunc: " + symFunc);            
                 System.out.println("numFunc: " + numFunc); */
             }            
@@ -108,12 +109,25 @@ public class metricador extends Java8BaseListener{
                 System.out.println("numClass: " + numClass); */
             } else if (currentTable != null) {
                 varFunc.put(currentTable, varAux);
-                numFunc.put(currentTable, numAux);
+                numFunc.put(currentTable, numAux);                    
+
                 /* System.out.println("varFunc: " + varFunc);            
                 System.out.println("numFunc: " + numFunc); */
             }            
         }
     }
+
+    @Override public void exitNormalClassDeclaration(Java8Parser.NormalClassDeclarationContext ctx) {
+        System.out.println("-------Just exited from a class");
+        Map<String, Float> numAux = numClass.get(classes.get(classes.size()-1));
+        Map<String, Integer> varAux = varClass.get(classes.get(classes.size()-1));
+        Map<String, Integer> symAux = symClass.get(classes.get(classes.size()-1));
+        System.out.println("Class: " + classes.get(classes.size()-1));
+        System.out.println("numClass: " + numAux);
+        System.out.println("varClass: " + varAux);
+        System.out.println("symClass: " + symAux);
+        classes.remove(classes.size()-1);
+     }
 
     @Override public void enterLocalVariableDeclarationStatement(Java8Parser.LocalVariableDeclarationStatementContext ctx) { 
         contadorLocales++;
@@ -147,7 +161,7 @@ public class metricador extends Java8BaseListener{
         contadorLocales = 0;
         System.out.println("\nNombre tabla: " + currentTable);   
         System.out.println("tabla: "+ numAux);
-        //System.out.println("tipos dato: "+datatypes);
+        System.out.println("tipos dato: "+ varFunc.get(currentTable));
         System.out.println("HALSTEAD MEDIDAS: ------");
         
         float n1 =  numAux.get("n1"), N1 =  numAux.get("N1"), n2 =  numAux.get("n2"), N2 =  numAux.get("N2");
@@ -164,6 +178,38 @@ public class metricador extends Java8BaseListener{
         System.out.println("Nivel de especificacion de abtraccion: "+L);
         System.out.println("Esfuerzo del programa: "+E);
         System.out.println();
+
+        if (classes.size() > 0 ) {            
+            Map <String, Float> auxNumClass = numClass.get(classes.get(classes.size()-1));
+            /**Mapa que guarda la tabla de operandos por funcion */
+            Map <String, Integer> auxVarClass = varClass.get(classes.get(classes.size()-1));
+            /**Mapa que guarda la tabla de operandos por funcion */
+            Map <String, Integer> auxSymClass = symClass.get(classes.get(classes.size()-1));                        
+            float classn1 =  auxNumClass.get("n1"), classN1 =  auxNumClass.get("N1"), classn2 =  auxNumClass.get("n2"), classN2 =  auxNumClass.get("N2");            
+            auxNumClass.put("n1", classn1 + n1);auxNumClass.put("n2", classn2 + n2);auxNumClass.put("N1", classN1 + N1);auxNumClass.put("N2", classN2 + N2);
+            
+            Map <String, Integer> auxVarFun = varFunc.get(currentTable);
+            for(String x : auxVarFun.keySet()) {
+                if (auxVarClass.containsKey(x)) {
+                    int concurrences = auxVarClass.get(x) + auxVarFun.get(x);
+                    auxVarClass.put(x, concurrences);
+                } else {
+                    auxVarClass.put(x, auxVarFun.get(x));
+                }
+            }
+            Map <String, Integer> auxSymFun = symFunc.get(currentTable);
+            for(String x : auxSymFun.keySet()) {
+                if (auxSymClass.containsKey(x)) {
+                    int concurrences = auxSymClass.get(x) + auxSymFun.get(x);
+                    auxSymClass.put(x, concurrences);
+                } else {
+                    auxSymClass.put(x, auxSymFun.get(x));
+                }
+            }
+            numClass.put(classes.get(classes.size()-1), auxNumClass);
+            varClass.put(classes.get(classes.size()-1), auxVarClass);
+            symClass.put(classes.get(classes.size()-1), auxSymClass);
+        }
      }
      @Override public void exitCompilationUnit(Java8Parser.CompilationUnitContext ctx) { 
         System.out.println("# Funciones: " + contadorFunciones);
