@@ -1,0 +1,76 @@
+Method Context: funcion2()
+# Variables locales: 3
+
+Nombre tabla: funcion2
+tabla: {n1=0.0, N1=0.0, n2=0.0, N2=0.0}
+tipos dato: {matrix[][]=1, a=1, r=1, array[]=1, void=1, boolean=1, v=1, w=1, float=2, int=3}
+HALSTEAD MEDIDAS: ------
+N1: 12
+N2: 13
+n1: 7
+n2: 10
+Longitud del programa: 25
+Volumen del programa: 102.1865710312585
+Nivel de especificacion de abtraccion: 0.21978021978021978
+Esfuerzo del programa: 66.77127117031803
+
+Method Context: funcion3()
+# Variables locales: 3
+
+Nombre tabla: funcion3
+tabla: {n1=0.0, N1=0.0, n2=0.0, N2=0.0}
+tipos dato: {a=2, array[]=1, b=1, void=2, c=1, String=1, float=3, int=4, matrix[][]=1, r=1, boolean=1, v=1, w=1}
+HALSTEAD MEDIDAS: ------
+N1: 15
+N2: 20
+n1: 7
+n2: 13
+Longitud del programa: 35
+Volumen del programa: 151.26748332105768
+Nivel de especificacion de abtraccion: 0.18571428571428572
+Esfuerzo del programa: 116.62883332389053
+
+Method Context: main(String[]args)
+# Variables locales: 3
+
+Nombre tabla: main
+tabla: {n1=0.0, N1=0.0, n2=0.0, N2=0.0}
+tipos dato: {a=2, array[]=1, b=1, void=3, c=1, d=1, i=1, String=2, float=4, int=7, args=1, matrix[][]=1, r=1, boolean=1, v=1, w=1, y=1, z=1}
+HALSTEAD MEDIDAS: ------
+N1: 25
+N2: 31
+n1: 11
+n2: 18
+Longitud del programa: 56
+Volumen del programa: 272.04693572714405
+Nivel de especificacion de abtraccion: 0.10557184750733138
+Esfuerzo del programa: 234.56819465392962
+
+& Funciones: 3
+& Imports:  2
+& Clases: 1
+& Arreglos: 3
+[]
+{funcion2=0, funcion3=0, main=0}
+DEPENDENCIAS:
+|input|r
+|input|array
+|input|matrix
+|input|funcion2
+|funcion2|w
+|funcion2|v
+|funcion2|WHILE
+|funcion2|a
+|input|funcion3
+|funcion3|b
+|funcion3|c
+|funcion3|a
+|input|main
+|main|args
+|main|z
+|main|FOR
+|main|i
+|main|d
+|main|IF
+|main|y
+

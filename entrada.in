@@ -2,32 +2,30 @@ import java.util.*;
 import java.util.Scanner;
 
 public class input{
-    
-    void funcion(){
-        char t = 't';
+    float r = 5.9;
+    int array [];
+    int matrix[][];
+    void funcion2(){
+        int w = 4;
+        float v = 0.2;
+        while(true){
+            boolean a = false;
+        }
     }
 
-    void funcion2(){
-        int a = 4;
-        float v = 0.2;
+    void funcion3(){
+        int b = 9;
+        float c = 8;
+        String a = "hola";
     }
     public static void main(String[] args) {
-        int a = 0, b = 1, x= 0;
-        float y = 2.3 - 1 + 4.3 + a + b - x;
-        boolean a,b,c;
-        c = b && a && b && a & !b || a;
-        int matriz[][] = new int[3][5];
-        int a[] = new int [4];
-        int b[];
-        int g = a.length; 
-        int b = this.a;
-        int a;
-        boolean b;
-        float c;
-        String d;
-        short e;
-        char f;
-
+        int z = 8;
+        for(int i=0;i<100;i++){
+            float d = 4.5;
+        }
+        if(true){
+            int y = 8;
+        }
     }
      
 }
