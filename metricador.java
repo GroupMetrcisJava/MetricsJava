@@ -130,10 +130,10 @@ public class metricador extends Java8BaseListener{
         
      }
      @Override public void exitCompilationUnit(Java8Parser.CompilationUnitContext ctx) { 
-         System.out.println("# Funciones: " + contadorFunciones);
-         System.out.println("# Imports:  "+ contadorImports);
-         System.out.println("# Clases: "+ contadorClases);
-         System.out.println("# Arreglos: "+ contadorArrays);
+         System.out.println("& Funciones: " + contadorFunciones);
+         System.out.println("& Imports:  "+ contadorImports);
+         System.out.println("& Clases: "+ contadorClases);
+         System.out.println("& Arreglos: "+ contadorArrays);
 
          System.out.println(tables);
          System.out.println(tableIndex);

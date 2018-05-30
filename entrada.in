@@ -6,7 +6,7 @@ public class input{
     int array [];
     int matrix[][];
     void funcion2(){
-        int a = 4;
+        int w = 4;
         float v = 0.2;
         while(true){
             boolean a = false;
